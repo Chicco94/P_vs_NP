@@ -9,7 +9,7 @@
       "year": null,
       "source": "Fallback parser",
       "url": "//www.google.com/chrome/",
-      "abstract": "Fallback extraction for query: TSP NP-hard",
+      "abstract": "Fallback extraction for query: Karp 1972 TSP NP-hardness",
       "problem": "General TSP / NP-hardness",
       "assumptions": [
         "General graph or unspecified metric"
@@ -18,7 +18,7 @@
       "approach": "Complexity reduction / hardness result",
       "classification": "HARDNESS",
       "confidence": 0.95,
-      "notes": "Keywords: chrome, extraction, fallback, google, hard, query",
+      "notes": "Keywords: 1972, chrome, extraction, fallback, google, hardness, karp, query",
       "raw": {
         "title": "Google Chrome",
         "authors": [
@@ -27,8 +27,721 @@
         "year": null,
         "source": "Fallback parser",
         "url": "//www.google.com/chrome/",
-        "abstract": "Fallback extraction for query: TSP NP-hard",
-        "query": "TSP NP-hard"
+        "abstract": "Fallback extraction for query: Karp 1972 TSP NP-hardness",
+        "query": "Karp 1972 TSP NP-hardness"
+      }
+    },
+    {
+      "id": "paper-2",
+      "title": "Mozilla Firefox",
+      "authors": [
+        "Unknown author"
+      ],
+      "year": null,
+      "source": "Fallback parser",
+      "url": "//www.mozilla.com/firefox/",
+      "abstract": "Fallback extraction for query: Karp 1972 TSP NP-hardness",
+      "problem": "General TSP / NP-hardness",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "NP-hardness / lower bound",
+      "approach": "Complexity reduction / hardness result",
+      "classification": "HARDNESS",
+      "confidence": 0.95,
+      "notes": "Keywords: 1972, extraction, fallback, firefox, hardness, karp, mozilla, query",
+      "raw": {
+        "title": "Mozilla Firefox",
+        "authors": [
+          "Unknown author"
+        ],
+        "year": null,
+        "source": "Fallback parser",
+        "url": "//www.mozilla.com/firefox/",
+        "abstract": "Fallback extraction for query: Karp 1972 TSP NP-hardness",
+        "query": "Karp 1972 TSP NP-hardness"
+      }
+    },
+    {
+      "id": "paper-3",
+      "title": "Articoli",
+      "authors": [
+        "Unknown author"
+      ],
+      "year": null,
+      "source": "Fallback parser",
+      "url": "/scholar?as_sdt=0,5&amp;q=Karp+1972+TSP+NP-hardness&amp;hl=it&amp;num=3",
+      "abstract": "Fallback extraction for query: Karp 1972 TSP NP-hardness",
+      "problem": "General TSP / NP-hardness",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "NP-hardness / lower bound",
+      "approach": "Complexity reduction / hardness result",
+      "classification": "HARDNESS",
+      "confidence": 0.95,
+      "notes": "Keywords: 1972, articoli, extraction, fallback, hardness, karp, query",
+      "raw": {
+        "title": "Articoli",
+        "authors": [
+          "Unknown author"
+        ],
+        "year": null,
+        "source": "Fallback parser",
+        "url": "/scholar?as_sdt=0,5&amp;q=Karp+1972+TSP+NP-hardness&amp;hl=it&amp;num=3",
+        "abstract": "Fallback extraction for query: Karp 1972 TSP NP-hardness",
+        "query": "Karp 1972 TSP NP-hardness"
+      }
+    },
+    {
+      "id": "paper-4",
+      "title": "Google Chrome",
+      "authors": [
+        "Unknown author"
+      ],
+      "year": null,
+      "source": "Fallback parser",
+      "url": "//www.google.com/chrome/",
+      "abstract": "Fallback extraction for query: Held Karp dynamic programming TSP exact",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "O(n^2 2^n) or exponential exact DP",
+      "approach": "Exact dynamic programming",
+      "classification": "EXACT_GENERAL",
+      "confidence": 0.85,
+      "notes": "Keywords: chrome, dynamic, exact, extraction, fallback, google, held, karp, programming, query",
+      "raw": {
+        "title": "Google Chrome",
+        "authors": [
+          "Unknown author"
+        ],
+        "year": null,
+        "source": "Fallback parser",
+        "url": "//www.google.com/chrome/",
+        "abstract": "Fallback extraction for query: Held Karp dynamic programming TSP exact",
+        "query": "Held Karp dynamic programming TSP exact"
+      }
+    },
+    {
+      "id": "paper-5",
+      "title": "Mozilla Firefox",
+      "authors": [
+        "Unknown author"
+      ],
+      "year": null,
+      "source": "Fallback parser",
+      "url": "//www.mozilla.com/firefox/",
+      "abstract": "Fallback extraction for query: Held Karp dynamic programming TSP exact",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "O(n^2 2^n) or exponential exact DP",
+      "approach": "Exact dynamic programming",
+      "classification": "EXACT_GENERAL",
+      "confidence": 0.85,
+      "notes": "Keywords: dynamic, exact, extraction, fallback, firefox, held, karp, mozilla, programming, query",
+      "raw": {
+        "title": "Mozilla Firefox",
+        "authors": [
+          "Unknown author"
+        ],
+        "year": null,
+        "source": "Fallback parser",
+        "url": "//www.mozilla.com/firefox/",
+        "abstract": "Fallback extraction for query: Held Karp dynamic programming TSP exact",
+        "query": "Held Karp dynamic programming TSP exact"
+      }
+    },
+    {
+      "id": "paper-6",
+      "title": "Articoli",
+      "authors": [
+        "Unknown author"
+      ],
+      "year": null,
+      "source": "Fallback parser",
+      "url": "/scholar?as_sdt=0,5&amp;q=Held+Karp+dynamic+programming+TSP+exact&amp;hl=it&amp;num=3",
+      "abstract": "Fallback extraction for query: Held Karp dynamic programming TSP exact",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "O(n^2 2^n) or exponential exact DP",
+      "approach": "Exact dynamic programming",
+      "classification": "EXACT_GENERAL",
+      "confidence": 0.85,
+      "notes": "Keywords: articoli, dynamic, exact, extraction, fallback, held, karp, programming, query",
+      "raw": {
+        "title": "Articoli",
+        "authors": [
+          "Unknown author"
+        ],
+        "year": null,
+        "source": "Fallback parser",
+        "url": "/scholar?as_sdt=0,5&amp;q=Held+Karp+dynamic+programming+TSP+exact&amp;hl=it&amp;num=3",
+        "abstract": "Fallback extraction for query: Held Karp dynamic programming TSP exact",
+        "query": "Held Karp dynamic programming TSP exact"
+      }
+    },
+    {
+      "id": "paper-7",
+      "title": "Google Chrome",
+      "authors": [
+        "Unknown author"
+      ],
+      "year": null,
+      "source": "Fallback parser",
+      "url": "//www.google.com/chrome/",
+      "abstract": "Fallback extraction for query: Euclidean TSP NP-hardness Garey Johnson",
+      "problem": "Euclidean TSP",
+      "assumptions": [
+        "Euclidean metric"
+      ],
+      "complexity": "NP-hardness / lower bound",
+      "approach": "Complexity reduction / hardness result",
+      "classification": "HARDNESS",
+      "confidence": 0.95,
+      "notes": "Keywords: chrome, euclidean, extraction, fallback, garey, google, hardness, johnson, query",
+      "raw": {
+        "title": "Google Chrome",
+        "authors": [
+          "Unknown author"
+        ],
+        "year": null,
+        "source": "Fallback parser",
+        "url": "//www.google.com/chrome/",
+        "abstract": "Fallback extraction for query: Euclidean TSP NP-hardness Garey Johnson",
+        "query": "Euclidean TSP NP-hardness Garey Johnson"
+      }
+    },
+    {
+      "id": "paper-8",
+      "title": "Mozilla Firefox",
+      "authors": [
+        "Unknown author"
+      ],
+      "year": null,
+      "source": "Fallback parser",
+      "url": "//www.mozilla.com/firefox/",
+      "abstract": "Fallback extraction for query: Euclidean TSP NP-hardness Garey Johnson",
+      "problem": "Euclidean TSP",
+      "assumptions": [
+        "Euclidean metric"
+      ],
+      "complexity": "NP-hardness / lower bound",
+      "approach": "Complexity reduction / hardness result",
+      "classification": "HARDNESS",
+      "confidence": 0.95,
+      "notes": "Keywords: euclidean, extraction, fallback, firefox, garey, hardness, johnson, mozilla, query",
+      "raw": {
+        "title": "Mozilla Firefox",
+        "authors": [
+          "Unknown author"
+        ],
+        "year": null,
+        "source": "Fallback parser",
+        "url": "//www.mozilla.com/firefox/",
+        "abstract": "Fallback extraction for query: Euclidean TSP NP-hardness Garey Johnson",
+        "query": "Euclidean TSP NP-hardness Garey Johnson"
+      }
+    },
+    {
+      "id": "paper-9",
+      "title": "Articoli",
+      "authors": [
+        "Unknown author"
+      ],
+      "year": null,
+      "source": "Fallback parser",
+      "url": "/scholar?as_sdt=0,5&amp;q=Euclidean+TSP+NP-hardness+Garey+Johnson&amp;hl=it&amp;num=3",
+      "abstract": "Fallback extraction for query: Euclidean TSP NP-hardness Garey Johnson",
+      "problem": "Euclidean TSP",
+      "assumptions": [
+        "Euclidean metric"
+      ],
+      "complexity": "NP-hardness / lower bound",
+      "approach": "Complexity reduction / hardness result",
+      "classification": "HARDNESS",
+      "confidence": 0.95,
+      "notes": "Keywords: articoli, euclidean, extraction, fallback, garey, hardness, johnson, query",
+      "raw": {
+        "title": "Articoli",
+        "authors": [
+          "Unknown author"
+        ],
+        "year": null,
+        "source": "Fallback parser",
+        "url": "/scholar?as_sdt=0,5&amp;q=Euclidean+TSP+NP-hardness+Garey+Johnson&amp;hl=it&amp;num=3",
+        "abstract": "Fallback extraction for query: Euclidean TSP NP-hardness Garey Johnson",
+        "query": "Euclidean TSP NP-hardness Garey Johnson"
+      }
+    },
+    {
+      "id": "paper-10",
+      "title": "Google Chrome",
+      "authors": [
+        "Unknown author"
+      ],
+      "year": null,
+      "source": "Fallback parser",
+      "url": "//www.google.com/chrome/",
+      "abstract": "Fallback extraction for query: Planar TSP polynomial time special case",
+      "problem": "Planar TSP",
+      "assumptions": [
+        "Planar graph or geometric embedding"
+      ],
+      "complexity": "Unspecified complexity in abstract",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "EXACT_SPECIAL",
+      "confidence": 0.7,
+      "notes": "Keywords: case, chrome, extraction, fallback, google, planar, polynomial, query, special, time",
+      "raw": {
+        "title": "Google Chrome",
+        "authors": [
+          "Unknown author"
+        ],
+        "year": null,
+        "source": "Fallback parser",
+        "url": "//www.google.com/chrome/",
+        "abstract": "Fallback extraction for query: Planar TSP polynomial time special case",
+        "query": "Planar TSP polynomial time special case"
+      }
+    },
+    {
+      "id": "paper-11",
+      "title": "Mozilla Firefox",
+      "authors": [
+        "Unknown author"
+      ],
+      "year": null,
+      "source": "Fallback parser",
+      "url": "//www.mozilla.com/firefox/",
+      "abstract": "Fallback extraction for query: Planar TSP polynomial time special case",
+      "problem": "Planar TSP",
+      "assumptions": [
+        "Planar graph or geometric embedding"
+      ],
+      "complexity": "Unspecified complexity in abstract",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "EXACT_SPECIAL",
+      "confidence": 0.7,
+      "notes": "Keywords: case, extraction, fallback, firefox, mozilla, planar, polynomial, query, special, time",
+      "raw": {
+        "title": "Mozilla Firefox",
+        "authors": [
+          "Unknown author"
+        ],
+        "year": null,
+        "source": "Fallback parser",
+        "url": "//www.mozilla.com/firefox/",
+        "abstract": "Fallback extraction for query: Planar TSP polynomial time special case",
+        "query": "Planar TSP polynomial time special case"
+      }
+    },
+    {
+      "id": "paper-12",
+      "title": "Articoli",
+      "authors": [
+        "Unknown author"
+      ],
+      "year": null,
+      "source": "Fallback parser",
+      "url": "/scholar?as_sdt=0,5&amp;q=Planar+TSP+polynomial+time+special+case&amp;hl=it&amp;num=3",
+      "abstract": "Fallback extraction for query: Planar TSP polynomial time special case",
+      "problem": "Planar TSP",
+      "assumptions": [
+        "Planar graph or geometric embedding"
+      ],
+      "complexity": "Unspecified complexity in abstract",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "EXACT_SPECIAL",
+      "confidence": 0.7,
+      "notes": "Keywords: articoli, case, extraction, fallback, planar, polynomial, query, special, time",
+      "raw": {
+        "title": "Articoli",
+        "authors": [
+          "Unknown author"
+        ],
+        "year": null,
+        "source": "Fallback parser",
+        "url": "/scholar?as_sdt=0,5&amp;q=Planar+TSP+polynomial+time+special+case&amp;hl=it&amp;num=3",
+        "abstract": "Fallback extraction for query: Planar TSP polynomial time special case",
+        "query": "Planar TSP polynomial time special case"
+      }
+    },
+    {
+      "id": "paper-13",
+      "title": "Google Chrome",
+      "authors": [
+        "Unknown author"
+      ],
+      "year": null,
+      "source": "Fallback parser",
+      "url": "//www.google.com/chrome/",
+      "abstract": "Fallback extraction for query: Bitonic TSP polynomial time algorithm",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "Unspecified complexity in abstract",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "UNKNOWN",
+      "confidence": 0.4,
+      "notes": "Keywords: algorithm, bitonic, chrome, extraction, fallback, google, polynomial, query, time",
+      "raw": {
+        "title": "Google Chrome",
+        "authors": [
+          "Unknown author"
+        ],
+        "year": null,
+        "source": "Fallback parser",
+        "url": "//www.google.com/chrome/",
+        "abstract": "Fallback extraction for query: Bitonic TSP polynomial time algorithm",
+        "query": "Bitonic TSP polynomial time algorithm"
+      }
+    },
+    {
+      "id": "paper-14",
+      "title": "Mozilla Firefox",
+      "authors": [
+        "Unknown author"
+      ],
+      "year": null,
+      "source": "Fallback parser",
+      "url": "//www.mozilla.com/firefox/",
+      "abstract": "Fallback extraction for query: Bitonic TSP polynomial time algorithm",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "Unspecified complexity in abstract",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "UNKNOWN",
+      "confidence": 0.4,
+      "notes": "Keywords: algorithm, bitonic, extraction, fallback, firefox, mozilla, polynomial, query, time",
+      "raw": {
+        "title": "Mozilla Firefox",
+        "authors": [
+          "Unknown author"
+        ],
+        "year": null,
+        "source": "Fallback parser",
+        "url": "//www.mozilla.com/firefox/",
+        "abstract": "Fallback extraction for query: Bitonic TSP polynomial time algorithm",
+        "query": "Bitonic TSP polynomial time algorithm"
+      }
+    },
+    {
+      "id": "paper-15",
+      "title": "Articoli",
+      "authors": [
+        "Unknown author"
+      ],
+      "year": null,
+      "source": "Fallback parser",
+      "url": "/scholar?as_sdt=0,5&amp;q=Bitonic+TSP+polynomial+time+algorithm&amp;hl=it&amp;num=3",
+      "abstract": "Fallback extraction for query: Bitonic TSP polynomial time algorithm",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "Unspecified complexity in abstract",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "UNKNOWN",
+      "confidence": 0.4,
+      "notes": "Keywords: algorithm, articoli, bitonic, extraction, fallback, polynomial, query, time",
+      "raw": {
+        "title": "Articoli",
+        "authors": [
+          "Unknown author"
+        ],
+        "year": null,
+        "source": "Fallback parser",
+        "url": "/scholar?as_sdt=0,5&amp;q=Bitonic+TSP+polynomial+time+algorithm&amp;hl=it&amp;num=3",
+        "abstract": "Fallback extraction for query: Bitonic TSP polynomial time algorithm",
+        "query": "Bitonic TSP polynomial time algorithm"
+      }
+    },
+    {
+      "id": "paper-16",
+      "title": "Google Chrome",
+      "authors": [
+        "Unknown author"
+      ],
+      "year": null,
+      "source": "Fallback parser",
+      "url": "//www.google.com/chrome/",
+      "abstract": "Fallback extraction for query: Metric TSP approximation lower bounds",
+      "problem": "Metric TSP",
+      "assumptions": [
+        "Metric distances"
+      ],
+      "complexity": "Approximation guarantee",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "APPROX",
+      "confidence": 0.88,
+      "notes": "Keywords: approximation, bounds, chrome, extraction, fallback, google, lower, metric, query",
+      "raw": {
+        "title": "Google Chrome",
+        "authors": [
+          "Unknown author"
+        ],
+        "year": null,
+        "source": "Fallback parser",
+        "url": "//www.google.com/chrome/",
+        "abstract": "Fallback extraction for query: Metric TSP approximation lower bounds",
+        "query": "Metric TSP approximation lower bounds"
+      }
+    },
+    {
+      "id": "paper-17",
+      "title": "Mozilla Firefox",
+      "authors": [
+        "Unknown author"
+      ],
+      "year": null,
+      "source": "Fallback parser",
+      "url": "//www.mozilla.com/firefox/",
+      "abstract": "Fallback extraction for query: Metric TSP approximation lower bounds",
+      "problem": "Metric TSP",
+      "assumptions": [
+        "Metric distances"
+      ],
+      "complexity": "Approximation guarantee",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "APPROX",
+      "confidence": 0.88,
+      "notes": "Keywords: approximation, bounds, extraction, fallback, firefox, lower, metric, mozilla, query",
+      "raw": {
+        "title": "Mozilla Firefox",
+        "authors": [
+          "Unknown author"
+        ],
+        "year": null,
+        "source": "Fallback parser",
+        "url": "//www.mozilla.com/firefox/",
+        "abstract": "Fallback extraction for query: Metric TSP approximation lower bounds",
+        "query": "Metric TSP approximation lower bounds"
+      }
+    },
+    {
+      "id": "paper-18",
+      "title": "Articoli",
+      "authors": [
+        "Unknown author"
+      ],
+      "year": null,
+      "source": "Fallback parser",
+      "url": "/scholar?as_sdt=0,5&amp;q=Metric+TSP+approximation+lower+bounds&amp;hl=it&amp;num=3",
+      "abstract": "Fallback extraction for query: Metric TSP approximation lower bounds",
+      "problem": "Metric TSP",
+      "assumptions": [
+        "Metric distances"
+      ],
+      "complexity": "Approximation guarantee",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "APPROX",
+      "confidence": 0.88,
+      "notes": "Keywords: approximation, articoli, bounds, extraction, fallback, lower, metric, query",
+      "raw": {
+        "title": "Articoli",
+        "authors": [
+          "Unknown author"
+        ],
+        "year": null,
+        "source": "Fallback parser",
+        "url": "/scholar?as_sdt=0,5&amp;q=Metric+TSP+approximation+lower+bounds&amp;hl=it&amp;num=3",
+        "abstract": "Fallback extraction for query: Metric TSP approximation lower bounds",
+        "query": "Metric TSP approximation lower bounds"
+      }
+    },
+    {
+      "id": "paper-19",
+      "title": "Google Chrome",
+      "authors": [
+        "Unknown author"
+      ],
+      "year": null,
+      "source": "Fallback parser",
+      "url": "//www.google.com/chrome/",
+      "abstract": "Fallback extraction for query: Euclidean TSP PTAS Arora",
+      "problem": "Euclidean TSP",
+      "assumptions": [
+        "Euclidean metric"
+      ],
+      "complexity": "PTAS or approximation scheme",
+      "approach": "Approximation scheme",
+      "classification": "PTAS",
+      "confidence": 0.94,
+      "notes": "Keywords: arora, chrome, euclidean, extraction, fallback, google, ptas, query",
+      "raw": {
+        "title": "Google Chrome",
+        "authors": [
+          "Unknown author"
+        ],
+        "year": null,
+        "source": "Fallback parser",
+        "url": "//www.google.com/chrome/",
+        "abstract": "Fallback extraction for query: Euclidean TSP PTAS Arora",
+        "query": "Euclidean TSP PTAS Arora"
+      }
+    },
+    {
+      "id": "paper-20",
+      "title": "Mozilla Firefox",
+      "authors": [
+        "Unknown author"
+      ],
+      "year": null,
+      "source": "Fallback parser",
+      "url": "//www.mozilla.com/firefox/",
+      "abstract": "Fallback extraction for query: Euclidean TSP PTAS Arora",
+      "problem": "Euclidean TSP",
+      "assumptions": [
+        "Euclidean metric"
+      ],
+      "complexity": "PTAS or approximation scheme",
+      "approach": "Approximation scheme",
+      "classification": "PTAS",
+      "confidence": 0.94,
+      "notes": "Keywords: arora, euclidean, extraction, fallback, firefox, mozilla, ptas, query",
+      "raw": {
+        "title": "Mozilla Firefox",
+        "authors": [
+          "Unknown author"
+        ],
+        "year": null,
+        "source": "Fallback parser",
+        "url": "//www.mozilla.com/firefox/",
+        "abstract": "Fallback extraction for query: Euclidean TSP PTAS Arora",
+        "query": "Euclidean TSP PTAS Arora"
+      }
+    },
+    {
+      "id": "paper-21",
+      "title": "Articoli",
+      "authors": [
+        "Unknown author"
+      ],
+      "year": null,
+      "source": "Fallback parser",
+      "url": "/scholar?as_sdt=0,5&amp;q=Euclidean+TSP+PTAS+Arora&amp;hl=it&amp;num=3",
+      "abstract": "Fallback extraction for query: Euclidean TSP PTAS Arora",
+      "problem": "Euclidean TSP",
+      "assumptions": [
+        "Euclidean metric"
+      ],
+      "complexity": "PTAS or approximation scheme",
+      "approach": "Approximation scheme",
+      "classification": "PTAS",
+      "confidence": 0.94,
+      "notes": "Keywords: arora, articoli, euclidean, extraction, fallback, ptas, query",
+      "raw": {
+        "title": "Articoli",
+        "authors": [
+          "Unknown author"
+        ],
+        "year": null,
+        "source": "Fallback parser",
+        "url": "/scholar?as_sdt=0,5&amp;q=Euclidean+TSP+PTAS+Arora&amp;hl=it&amp;num=3",
+        "abstract": "Fallback extraction for query: Euclidean TSP PTAS Arora",
+        "query": "Euclidean TSP PTAS Arora"
+      }
+    },
+    {
+      "id": "paper-22",
+      "title": "Google Chrome",
+      "authors": [
+        "Unknown author"
+      ],
+      "year": null,
+      "source": "Fallback parser",
+      "url": "//www.google.com/chrome/",
+      "abstract": "Fallback extraction for query: TSP special cases polynomial time exact",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "Unspecified complexity in abstract",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "EXACT_GENERAL",
+      "confidence": 0.85,
+      "notes": "Keywords: cases, chrome, exact, extraction, fallback, google, polynomial, query, special, time",
+      "raw": {
+        "title": "Google Chrome",
+        "authors": [
+          "Unknown author"
+        ],
+        "year": null,
+        "source": "Fallback parser",
+        "url": "//www.google.com/chrome/",
+        "abstract": "Fallback extraction for query: TSP special cases polynomial time exact",
+        "query": "TSP special cases polynomial time exact"
+      }
+    },
+    {
+      "id": "paper-23",
+      "title": "Mozilla Firefox",
+      "authors": [
+        "Unknown author"
+      ],
+      "year": null,
+      "source": "Fallback parser",
+      "url": "//www.mozilla.com/firefox/",
+      "abstract": "Fallback extraction for query: TSP special cases polynomial time exact",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "Unspecified complexity in abstract",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "EXACT_GENERAL",
+      "confidence": 0.85,
+      "notes": "Keywords: cases, exact, extraction, fallback, firefox, mozilla, polynomial, query, special, time",
+      "raw": {
+        "title": "Mozilla Firefox",
+        "authors": [
+          "Unknown author"
+        ],
+        "year": null,
+        "source": "Fallback parser",
+        "url": "//www.mozilla.com/firefox/",
+        "abstract": "Fallback extraction for query: TSP special cases polynomial time exact",
+        "query": "TSP special cases polynomial time exact"
+      }
+    },
+    {
+      "id": "paper-24",
+      "title": "Articoli",
+      "authors": [
+        "Unknown author"
+      ],
+      "year": null,
+      "source": "Fallback parser",
+      "url": "/scholar?as_sdt=0,5&amp;q=TSP+special+cases+polynomial+time+exact&amp;hl=it&amp;num=3",
+      "abstract": "Fallback extraction for query: TSP special cases polynomial time exact",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "Unspecified complexity in abstract",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "EXACT_GENERAL",
+      "confidence": 0.85,
+      "notes": "Keywords: articoli, cases, exact, extraction, fallback, polynomial, query, special, time",
+      "raw": {
+        "title": "Articoli",
+        "authors": [
+          "Unknown author"
+        ],
+        "year": null,
+        "source": "Fallback parser",
+        "url": "/scholar?as_sdt=0,5&amp;q=TSP+special+cases+polynomial+time+exact&amp;hl=it&amp;num=3",
+        "abstract": "Fallback extraction for query: TSP special cases polynomial time exact",
+        "query": "TSP special cases polynomial time exact"
       }
     }
   ]
