@@ -29,11 +29,13 @@ Documentazione di riferimento: [docs/fase3-parsing-normalizzazione.md](docs/fase
 Documentazione di riferimento: [docs/fase4-analisi-letteratura.md](docs/fase4-analisi-letteratura.md)
 
 ## Fase 5 - Sviluppo degli agenti
-- [ ] Implementare l'agent di ricerca bibliografica
-- [ ] Implementare l'agent di parsing e estrazione
-- [ ] Implementare l'agent di classificazione dei paper
-- [ ] Implementare l'agent di sintesi scientifica
-- [ ] Implementare l'agent di validazione empirica
+- [x] Implementare l'agent di ricerca bibliografica
+- [x] Implementare l'agent di parsing e estrazione
+- [x] Implementare l'agent di classificazione dei paper
+- [x] Implementare l'agent di sintesi scientifica
+- [x] Implementare l'agent di validazione empirica
+
+Documentazione di riferimento: [docs/fase5-sviluppo-agenti.md](docs/fase5-sviluppo-agenti.md)
 
 ## Fase 6 - Valutazione algoritmi
 - [ ] Preparare benchmark su istanze semplici e complesse
