@@ -221,11 +221,68 @@ def _extract_year(raw: str) -> int | None:
     return int(match.group(0))
 
 
+def _is_generic_fallback(result: dict[str, Any]) -> bool:
+    title = str(result.get("title") or "").lower()
+    abstract = str(result.get("abstract") or "").lower()
+    source = str(result.get("source") or "").lower()
+    return (
+        title.startswith("paper ")
+        or title.startswith("fallback result")
+        or "manual review required" in abstract
+        or "fallback" in source
+        or "manual" in source
+        or "unknown" in source
+    )
+
+
+def _score_result_quality(result: dict[str, Any], query: str) -> int:
+    """Attribuisce un punteggio di qualità ai risultati bibliografici."""
+    title = str(result.get("title") or "").lower()
+    abstract = str(result.get("abstract") or "").lower()
+    source = str(result.get("source") or "").lower()
+    query_text = query.lower()
+
+    score = 0
+
+    if "crossref" in source:
+        score += 6
+    elif "openalex" in source:
+        score += 5
+    elif "scholar" in source or "google" in source:
+        score += 2
+    elif "fallback" in source or "manual" in source or "unknown" in source:
+        score -= 6
+
+    canonical_tokens = [
+        "karp",
+        "held-karp",
+        "held karp",
+        "garey",
+        "johnson",
+        "arora",
+        "ptas",
+        "dynamic programming",
+        "np-hard",
+        "np hard",
+        "traveling salesman",
+        "travelling salesman",
+        "tsp",
+    ]
+    if any(token in title or token in abstract for token in canonical_tokens):
+        score += 5
+
+    if any(token in query_text for token in ["karp", "held", "arora", "garey", "johnson", "tsp", "ptas"]):
+        score += 2
+
+    return score
+
+
 def collect_results(queries: Iterable[str], max_results_per_query: int = 5) -> list[dict[str, Any]]:
     collected: list[dict[str, Any]] = []
     seen_titles: set[str] = set()
 
     for query in queries:
+        candidate_results: list[tuple[int, dict[str, Any]]] = []
         source_searchers = [
             search_crossref,
             search_openalex,
@@ -236,6 +293,14 @@ def collect_results(queries: Iterable[str], max_results_per_query: int = 5) -> l
                 title = str(result.get("title") or "").strip()
                 if not title or title in seen_titles:
                     continue
+                if _is_generic_fallback(result):
+                    continue
+                score = _score_result_quality(result, query)
+                candidate_results.append((score, result))
                 seen_titles.add(title)
-                collected.append(result)
+
+        ranked = sorted(candidate_results, key=lambda item: item[0], reverse=True)
+        if ranked:
+            collected.extend(result for _, result in ranked[:max_results_per_query])
+
     return collected

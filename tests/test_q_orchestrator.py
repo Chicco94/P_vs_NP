@@ -57,3 +57,48 @@ def test_collect_results_prioritizes_canonical_sources(monkeypatch):
     assert titles[0] == "Crossref Canonical Paper"
     assert "OpenAlex Canonical Paper" in titles
     assert "Google Noise" in titles
+
+
+def test_collect_results_demotes_generic_fallback_noise(monkeypatch):
+    from pipeline.collectors.scholar_collector import collect_results
+
+    def fake_crossref(query, max_results=5):
+        return [{
+            "title": "Karp 1972: Reducibility Among Combinatorial Problems",
+            "authors": ["R. Karp"],
+            "year": 1972,
+            "source": "Crossref",
+            "url": "https://example.org/karp",
+            "abstract": "Canonical NP-hardness result for TSP",
+            "query": query,
+        }]
+
+    def fake_openalex(query, max_results=5):
+        return [{
+            "title": "Traveling Salesman Decision Problem",
+            "authors": ["A. Smith"],
+            "year": 1980,
+            "source": "OpenAlex",
+            "url": "https://example.org/openalex",
+            "abstract": "TSP complexity overview",
+            "query": query,
+        }]
+
+    def fake_google(query, max_results=5):
+        return [{
+            "title": "Paper 1",
+            "authors": ["Unknown"],
+            "year": None,
+            "source": "Fallback",
+            "url": "",
+            "abstract": "Generic webpage with no canonical bibliographic signal",
+            "query": query,
+        }]
+
+    monkeypatch.setattr("pipeline.collectors.scholar_collector.search_crossref", fake_crossref)
+    monkeypatch.setattr("pipeline.collectors.scholar_collector.search_openalex", fake_openalex)
+    monkeypatch.setattr("pipeline.collectors.scholar_collector.search_google_scholar", fake_google)
+
+    results = collect_results(["TSP NP-hardness"])
+    assert results[0]["title"] == "Karp 1972: Reducibility Among Combinatorial Problems"
+    assert [item["title"] for item in results].count("Paper 1") == 0
