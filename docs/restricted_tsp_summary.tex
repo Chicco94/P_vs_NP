@@ -1,0 +1,79 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{microtype}
+
+\title{Restricted Euclidean TSP: concise summary}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We consider a restricted version of the traveling salesman problem in which the input is a set of points in the Euclidean plane and the objective is to find a Hamiltonian cycle of minimum total length. The method is intentionally framed as a special-case heuristic rather than as a general polynomial-time exact algorithm for the unrestricted TSP. The algorithm combines a nearest-neighbor construction phase with a local 2-opt improvement phase. This summary clarifies the problem setting, the assumptions, and the scope of the contribution.
+\end{abstract}
+
+\section{Problem setting}
+
+Let $P = \{p_1, \dots, p_n\} \subset \mathbb{R}^2$ be a set of points. The goal is to find a permutation $T$ of these points such that the tour length
+\[
+L(T) = \sum_{(i,j) \in T} \|p_i - p_j\|_2
+\]
+is minimized. This is the Euclidean TSP, but the algorithm is designed for a restricted geometric setting rather than for arbitrary weighted complete graphs.
+
+\section{Assumptions and scope}
+
+The method relies on the following assumptions:
+\begin{itemize}
+    \item Euclidean input in the plane;
+    \item complete graph over the points;
+    \item distance defined by the standard Euclidean norm;
+    \item structured or moderately regular geometric instances;
+    \item focus on practical solution quality rather than general exactness.
+\end{itemize}
+
+Under these assumptions, the method is meaningful as a prototype for a restricted subclass of TSP instances. It does not claim a general polynomial-time exact algorithm for the unrestricted TSP.
+
+\section{Method}
+
+The procedure has two phases. First, it builds a feasible tour using a nearest-neighbor rule: starting from an arbitrary point, it repeatedly selects the unvisited point closest to the current one. Second, it performs local improvement via 2-opt, reversing segments when the total tour length decreases.
+
+\begin{algorithm}[H]
+\caption{Restricted Euclidean TSP heuristic}
+\begin{algorithmic}[1]
+\Require Points $P = \{p_1, \dots, p_n\} \subset \mathbb{R}^2$
+\Ensure A Hamiltonian cycle $T$
+\State $S \gets P$
+\State choose initial point $s \in S$
+\State $T \gets [s]$
+\While{$S \setminus \{s\} \neq \emptyset$}
+    \State $v \gets \arg\min_{u \in S \setminus \{s\}} \|u-s\|_2$
+    \State append $v$ to $T$
+    \State $s \gets v$
+\EndWhile
+\State append the first point to close the cycle
+\Repeat
+    \State improved $\gets$ false
+    \ForAll{pairs of edges $(i,j)$ and $(k,l)$ in $T$}
+        \If{reversing the segment between $j$ and $k$ decreases the total length}
+            \State reverse that segment
+            \State improved $\gets$ true
+        \EndIf
+    \EndFor
+\Until{not improved}
+\State \Return $T$
+\end{algorithmic}
+\end{algorithm}
+
+\section{Discussion}
+
+This heuristic is transparent, easy to implement, and naturally suited to benchmark-based experimentation. However, it does not provide optimality guarantees for arbitrary weighted graphs or for all Euclidean instances. Its scientific value lies in its explicit restriction to a problem class and in the honesty of its assumptions.
+
+\section{Conclusion}
+
+The method provides a coherent prototype for a restricted Euclidean TSP setting. It is best understood as an experimentally testable heuristic for a structured domain, not as a universal exact solution to the general TSP.
+
+\end{document}
