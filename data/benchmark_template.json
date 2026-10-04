@@ -1,0 +1,25 @@
+{
+  "benchmark_name": "tsp_baseline",
+  "instances": [
+    {
+      "instance_type": "random_complete",
+      "n": 10,
+      "metric": "arbitrary_weight",
+      "algorithm": "exact_dp",
+      "execution_time_ms": 0,
+      "memory_mb": 0,
+      "solution_quality": "optimal",
+      "notes": "Baseline exact evaluation"
+    },
+    {
+      "instance_type": "metric",
+      "n": 20,
+      "metric": "euclidean",
+      "algorithm": "approximation",
+      "execution_time_ms": 0,
+      "memory_mb": 0,
+      "solution_quality": "approximate",
+      "notes": "Metric approximation comparison"
+    }
+  ]
+}

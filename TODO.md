@@ -38,11 +38,13 @@ Documentazione di riferimento: [docs/fase4-analisi-letteratura.md](docs/fase4-an
 Documentazione di riferimento: [docs/fase5-sviluppo-agenti.md](docs/fase5-sviluppo-agenti.md)
 
 ## Fase 6 - Valutazione algoritmi
-- [ ] Preparare benchmark su istanze semplici e complesse
-- [ ] Confrontare algoritmi esatti e approssimati
-- [ ] Testare casi speciali del TSP
-- [ ] Raccogliere misure di tempo, spazio e accuratezza
-- [ ] Verificare ipotesi e individuare eventuali controesempi
+- [x] Preparare benchmark su istanze semplici e complesse
+- [x] Confrontare algoritmi esatti e approssimati
+- [x] Testare casi speciali del TSP
+- [x] Raccogliere misure di tempo, spazio e accuratezza
+- [x] Verificare ipotesi e individuare eventuali controesempi
+
+Documentazione di riferimento: [docs/fase6-valutazione-algoritmi.md](docs/fase6-valutazione-algoritmi.md)
 
 ## Fase 7 - Sintesi finale
 - [ ] Redigere il report scientifico del progetto
