@@ -1,0 +1,18 @@
+{
+  "paper_schema": {
+    "title": "string",
+    "authors": ["string"],
+    "year": "integer | null",
+    "source": "string",
+    "url": "string",
+    "abstract": "string",
+    "problem": "string",
+    "assumptions": ["string"],
+    "complexity": "string",
+    "approach": "string",
+    "classification": "string",
+    "confidence": "float",
+    "notes": "string",
+    "raw": "object"
+  }
+}

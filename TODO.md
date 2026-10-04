@@ -13,10 +13,12 @@
 - [x] Verificare la qualità e la rilevanza dei risultati raccolti
 
 ## Fase 3 - Parsing e normalizzazione
-- [ ] Scegliere lo stack per estrazione testo da PDF/HTML
-- [ ] Implementare un modulo per estrarre titolo, abstract e metadata
-- [ ] Normalizzare il testo per il confronto tra articoli
-- [ ] Costruire una scheda standard per ogni paper
+- [x] Scegliere lo stack per estrazione testo da PDF/HTML
+- [x] Implementare un modulo per estrarre titolo, abstract e metadata
+- [x] Normalizzare il testo per il confronto tra articoli
+- [x] Costruire una scheda standard per ogni paper
+
+Documentazione di riferimento: [docs/fase3-parsing-normalizzazione.md](docs/fase3-parsing-normalizzazione.md)
 
 ## Fase 4 - Analisi della letteratura
 - [ ] Riconoscere i principali teoremi sul TSP
