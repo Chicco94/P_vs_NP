@@ -47,10 +47,12 @@ Documentazione di riferimento: [docs/fase5-sviluppo-agenti.md](docs/fase5-svilup
 Documentazione di riferimento: [docs/fase6-valutazione-algoritmi.md](docs/fase6-valutazione-algoritmi.md)
 
 ## Fase 7 - Sintesi finale
-- [ ] Redigere il report scientifico del progetto
-- [ ] Preparare la presentazione del repository
-- [ ] Riassumere i risultati principali e i limiti metodologici
-- [ ] Definire i passi successivi per un possibile sviluppo avanzato
+- [x] Redigere il report scientifico del progetto
+- [x] Preparare la presentazione del repository
+- [x] Riassumere i risultati principali e i limiti metodologici
+- [x] Definire i passi successivi per un possibile sviluppo avanzato
+
+Documentazione di riferimento: [docs/fase7-sintesi-finale.md](docs/fase7-sintesi-finale.md)
 
 ## Fase 8 - Checklist di chiusura
 - [ ] Verifica della documentazione
