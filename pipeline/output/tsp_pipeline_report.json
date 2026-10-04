@@ -1,0 +1,35 @@
+{
+  "papers": [
+    {
+      "id": "paper-1",
+      "title": "Google Chrome",
+      "authors": [
+        "Unknown author"
+      ],
+      "year": null,
+      "source": "Fallback parser",
+      "url": "//www.google.com/chrome/",
+      "abstract": "Fallback extraction for query: TSP NP-hard",
+      "problem": "General TSP / NP-hardness",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "NP-hardness / lower bound",
+      "approach": "Complexity reduction / hardness result",
+      "classification": "HARDNESS",
+      "confidence": 0.95,
+      "notes": "Keywords: chrome, extraction, fallback, google, hard, query",
+      "raw": {
+        "title": "Google Chrome",
+        "authors": [
+          "Unknown author"
+        ],
+        "year": null,
+        "source": "Fallback parser",
+        "url": "//www.google.com/chrome/",
+        "abstract": "Fallback extraction for query: TSP NP-hard",
+        "query": "TSP NP-hard"
+      }
+    }
+  ]
+}

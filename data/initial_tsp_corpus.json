@@ -1,0 +1,42 @@
+[
+  {
+    "title": "A Dynamic Programming Approach to Sequencing Problems",
+    "authors": ["Held, Karp"],
+    "year": 1962,
+    "category": "EXACT_GENERAL",
+    "problem": "General TSP, exact dynamic programming",
+    "notes": "Classic exact algorithm; exponential complexity in n."
+  },
+  {
+    "title": "Reducibility Among Combinatorial Problems",
+    "authors": ["Karp"],
+    "year": 1972,
+    "category": "HARDNESS",
+    "problem": "NP-completeness and reductions",
+    "notes": "Core reference for hardness and reductions."
+  },
+  {
+    "title": "Computers and Intractability",
+    "authors": ["Garey, Johnson"],
+    "year": 1979,
+    "category": "HARDNESS",
+    "problem": "Complexity theory and combinatorial problems",
+    "notes": "Canonical textbook reference."
+  },
+  {
+    "title": "Worst-Case Analysis of a New Heuristic for the Travelling Salesman Problem",
+    "authors": ["Christofides"],
+    "year": 1976,
+    "category": "APPROX",
+    "problem": "Metric TSP approximation",
+    "notes": "Classical 1.5-approximation for metric TSP."
+  },
+  {
+    "title": "Polynomial Time Approximation Schemes for Euclidean TSP and other Geometric Problems",
+    "authors": ["Arora"],
+    "year": 1998,
+    "category": "PTAS",
+    "problem": "Euclidean TSP",
+    "notes": "Landmark PTAS for geometric TSP."
+  }
+]

@@ -1,16 +1,16 @@
 # TO-DO list: P vs NP / TSP research pipeline
 
 ## Fase 1 - Fondazione del progetto
-- [ ] Definire la domanda scientifica principale e i confini del progetto
-- [ ] Stabilire i casi di studio del TSP da analizzare
-- [ ] Definire la struttura del repository e delle cartelle di lavoro
-- [ ] Preparare la documentazione iniziale per la presentazione
+- [x] Definire la domanda scientifica principale e i confini del progetto
+- [x] Stabilire i casi di studio del TSP da analizzare
+- [x] Definire la struttura del repository e delle cartelle di lavoro
+- [x] Preparare la documentazione iniziale per la presentazione
 
 ## Fase 2 - Raccolta bibliografica
-- [ ] Identificare query Google Scholar rilevanti per TSP, NP-hardness e approcci speciali
-- [ ] Costruire un elenco iniziale di paper chiave
-- [ ] Separare paper principali, paper di supporto e paper marginali
-- [ ] Verificare la qualità e la rilevanza dei risultati raccolti
+- [x] Identificare query Google Scholar rilevanti per TSP, NP-hardness e approcci speciali
+- [x] Costruire un elenco iniziale di paper chiave
+- [x] Separare paper principali, paper di supporto e paper marginali
+- [x] Verificare la qualità e la rilevanza dei risultati raccolti
 
 ## Fase 3 - Parsing e normalizzazione
 - [ ] Scegliere lo stack per estrazione testo da PDF/HTML

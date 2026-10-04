@@ -127,3 +127,20 @@ Questo progetto si configura come una ricerca interdisciplinare tra:
 - analisi empirica e benchmark.
 
 L’enfasi non è solo sull’algoritmo finale, ma sulla capacità di costruire un sistema che sia in grado di comprendere, organizzare e verificare la letteratura scientifica sul problema.
+
+## Agenti custom per VS Code
+
+Nel repository sono stati definiti agenti custom da usare direttamente con GitHub Copilot in VS Code:
+
+- TSP Researcher: ricerca bibliografica, classificazione dei paper e sintesi scientifica.
+- TSP Validator: benchmark e verifica empirica di algoritmi esatti e approssimati.
+- prompt di review della letteratura: scaffolding per valutare rapidamente un nuovo paper.
+
+Questi agenti sono definiti in:
+
+- [AGENTS.md](AGENTS.md)
+- [.github/chatmodes/tsp-researcher.chatmode.md](.github/chatmodes/tsp-researcher.chatmode.md)
+- [.github/chatmodes/tsp-validator.chatmode.md](.github/chatmodes/tsp-validator.chatmode.md)
+- [.github/prompts/tsp-literature-review.prompt.md](.github/prompts/tsp-literature-review.prompt.md)
+
+Sono stati pensati per guidare i lavori di ricerca in modo più rigoroso, distinguendo teoria, casi speciali e validazione empirica.
