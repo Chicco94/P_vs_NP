@@ -55,10 +55,12 @@ Documentazione di riferimento: [docs/fase6-valutazione-algoritmi.md](docs/fase6-
 Documentazione di riferimento: [docs/fase7-sintesi-finale.md](docs/fase7-sintesi-finale.md)
 
 ## Fase 8 - Checklist di chiusura
-- [ ] Verifica della documentazione
-- [ ] Pulizia del codice e organizzazione delle cartelle
-- [ ] Controllo della coerenza tra report, repository e presentazione
-- [ ] Preparazione del materiale finale da condividere
+- [x] Verifica della documentazione
+- [x] Pulizia del codice e organizzazione delle cartelle
+- [x] Controllo della coerenza tra report, repository e presentazione
+- [x] Preparazione del materiale finale da condividere
+
+Documentazione di riferimento: [docs/fase8-checklist-chiusura.md](docs/fase8-checklist-chiusura.md)
 
 ## Priorità immediate
 1. Definire la struttura del progetto
