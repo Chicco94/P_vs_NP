@@ -1,0 +1,1977 @@
+{
+  "status": "done",
+  "iterations": 1,
+  "queries_seen": 11,
+  "summary": {
+    "hardness_count": 7,
+    "exact_special_count": 10,
+    "exact_general_count": 14,
+    "ptas_count": 3,
+    "approximation_count": 11,
+    "coverage_score": 0.763,
+    "has_required_evidence": true,
+    "total_records": 59,
+    "min_evidence": 2
+  },
+  "records": [
+    {
+      "id": "paper-1",
+      "title": "Karp: a language for NP reductions",
+      "authors": [
+        "Chenhao Zhang",
+        "Jason D. Hartline",
+        "Christos Dimoulas"
+      ],
+      "year": 2022,
+      "source": "ACM",
+      "url": "https://doi.org/10.1145/3519939.3523732",
+      "abstract": "",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "Unspecified complexity in abstract",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "UNKNOWN",
+      "confidence": 0.4,
+      "notes": "karp, language, reductions",
+      "raw": {
+        "title": "Karp: a language for NP reductions",
+        "authors": [
+          "Chenhao Zhang",
+          "Jason D. Hartline",
+          "Christos Dimoulas"
+        ],
+        "year": 2022,
+        "source": "ACM",
+        "url": "https://doi.org/10.1145/3519939.3523732",
+        "abstract": "",
+        "query": "Karp 1972 TSP NP-hardness"
+      }
+    },
+    {
+      "id": "paper-2",
+      "title": "Cook reducibility is faster than Karp reducibility in NP",
+      "authors": [
+        "Luc Longpr\u00e9",
+        "Paul Young"
+      ],
+      "year": 1990,
+      "source": "Elsevier BV",
+      "url": "https://doi.org/10.1016/0022-0000(90)90026-h",
+      "abstract": "",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "Unspecified complexity in abstract",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "UNKNOWN",
+      "confidence": 0.4,
+      "notes": "cook, faster, karp, reducibility, than",
+      "raw": {
+        "title": "Cook reducibility is faster than Karp reducibility in NP",
+        "authors": [
+          "Luc Longpr\u00e9",
+          "Paul Young"
+        ],
+        "year": 1990,
+        "source": "Elsevier BV",
+        "url": "https://doi.org/10.1016/0022-0000(90)90026-h",
+        "abstract": "",
+        "query": "Karp 1972 TSP NP-hardness"
+      }
+    },
+    {
+      "id": "paper-3",
+      "title": "Proof verification and the hardness of approximation problems",
+      "authors": [
+        "Sanjeev Arora",
+        "Carsten Lund",
+        "Rajeev Motwani",
+        "Madhu Sudan",
+        "M\u00e1ri\u00f3 Szegedy"
+      ],
+      "year": 1998,
+      "source": "Journal of the ACM",
+      "url": "https://doi.org/10.1145/278298.278306",
+      "abstract": "",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "Approximation guarantee",
+      "approach": "Complexity reduction / hardness result",
+      "classification": "APPROX",
+      "confidence": 0.88,
+      "notes": "approximation, hardness, problems, proof, verification",
+      "raw": {
+        "title": "Proof verification and the hardness of approximation problems",
+        "authors": [
+          "Sanjeev Arora",
+          "Carsten Lund",
+          "Rajeev Motwani",
+          "Madhu Sudan",
+          "M\u00e1ri\u00f3 Szegedy"
+        ],
+        "year": 1998,
+        "source": "Journal of the ACM",
+        "url": "https://doi.org/10.1145/278298.278306",
+        "abstract": "",
+        "query": "Karp 1972 TSP NP-hardness"
+      }
+    },
+    {
+      "id": "paper-4",
+      "title": "A priori TSP in the scenario model",
+      "authors": [
+        "Martijn van Ee",
+        "Leo van Iersel",
+        "Teun Janssen",
+        "Ren\u00e9 A. Sitters"
+      ],
+      "year": 2018,
+      "source": "Discrete Applied Mathematics",
+      "url": "https://doi.org/10.1016/j.dam.2018.04.002",
+      "abstract": "",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "Unspecified complexity in abstract",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "UNKNOWN",
+      "confidence": 0.4,
+      "notes": "model, priori, scenario",
+      "raw": {
+        "title": "A priori TSP in the scenario model",
+        "authors": [
+          "Martijn van Ee",
+          "Leo van Iersel",
+          "Teun Janssen",
+          "Ren\u00e9 A. Sitters"
+        ],
+        "year": 2018,
+        "source": "Discrete Applied Mathematics",
+        "url": "https://doi.org/10.1016/j.dam.2018.04.002",
+        "abstract": "",
+        "query": "Karp 1972 TSP NP-hardness"
+      }
+    },
+    {
+      "id": "paper-5",
+      "title": "Challenges and strategies for tackling NP-hard problems",
+      "authors": [
+        "M Imanparast"
+      ],
+      "year": null,
+      "source": "M Imanparast - researchgate.net",
+      "url": "https://www.researchgate.net/profile/Mahdi-Imanparast/publication/387577142_Challenges_and_strategies_for_tackling_NP-hard_problems/links/67a4fbde8311ce680c587251/Challenges-and-strategies-for-tackling-NP-hard-problems.pdf",
+      "abstract": "\u2026 Karp extended Cook\u2019s work in 1972 by identifying 21 NP-complete problems, including traveling salesman problem ( TSP ), \u2026 NP - hardness is usually discussed in the context of decision \u2026",
+      "problem": "General TSP / NP-hardness",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "NP-hardness / lower bound",
+      "approach": "Complexity reduction / hardness result",
+      "classification": "HARDNESS",
+      "confidence": 0.95,
+      "notes": "1972, challenges, complete, context, cook, decision, discussed, extended, hard, hardness, identifying, including, karp, problem, problems, salesman, strategies, tackling, traveling, usually",
+      "raw": {
+        "title": "Challenges and strategies for tackling NP-hard problems",
+        "authors": [
+          "M Imanparast"
+        ],
+        "year": null,
+        "source": "M Imanparast - researchgate.net",
+        "url": "https://www.researchgate.net/profile/Mahdi-Imanparast/publication/387577142_Challenges_and_strategies_for_tackling_NP-hard_problems/links/67a4fbde8311ce680c587251/Challenges-and-strategies-for-tackling-NP-hard-problems.pdf",
+        "abstract": "\u2026 Karp extended Cook\u2019s work in 1972 by identifying 21 NP-complete problems, including traveling salesman problem ( TSP ), \u2026 NP - hardness is usually discussed in the context of decision \u2026",
+        "query": "Karp 1972 TSP NP-hardness"
+      }
+    },
+    {
+      "id": "paper-6",
+      "title": "A brief history of NP-completeness, 1954\u20132012",
+      "authors": [
+        "DS Johnson"
+      ],
+      "year": 2012,
+      "source": "DS Johnson - Optimization Stories, 2012 - ems.press",
+      "url": "https://ems.press/books/dms/251/4947",
+      "abstract": "\u2026 that is in essence about the NP - hardness of a whole collection of \u2026 Cook and Karp also have made significant contributions to \u2026 \u2019 algorithm for the Traveling Salesman Problem ( TSP ) has a \u2026",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "Unspecified complexity in abstract",
+      "approach": "Complexity reduction / hardness result",
+      "classification": "HARDNESS",
+      "confidence": 0.95,
+      "notes": "1954, 2012, about, algorithm, also, brief, collection, completeness, contributions, cook, essence, hardness, have, history, karp, made, problem, salesman, significant, that",
+      "raw": {
+        "title": "A brief history of NP-completeness, 1954\u20132012",
+        "authors": [
+          "DS Johnson"
+        ],
+        "year": 2012,
+        "source": "DS Johnson - Optimization Stories, 2012 - ems.press",
+        "url": "https://ems.press/books/dms/251/4947",
+        "abstract": "\u2026 that is in essence about the NP - hardness of a whole collection of \u2026 Cook and Karp also have made significant contributions to \u2026 \u2019 algorithm for the Traveling Salesman Problem ( TSP ) has a \u2026",
+        "query": "Karp 1972 TSP NP-hardness"
+      }
+    },
+    {
+      "id": "paper-7",
+      "title": "Karp: a language for NP reductions",
+      "authors": [
+        "Chenhao Zhang",
+        "Jason D. Hartline",
+        "Christos Dimoulas"
+      ],
+      "year": 2022,
+      "source": "ACM",
+      "url": "https://doi.org/10.1145/3519939.3523732",
+      "abstract": "",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "Unspecified complexity in abstract",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "UNKNOWN",
+      "confidence": 0.4,
+      "notes": "karp, language, reductions",
+      "raw": {
+        "title": "Karp: a language for NP reductions",
+        "authors": [
+          "Chenhao Zhang",
+          "Jason D. Hartline",
+          "Christos Dimoulas"
+        ],
+        "year": 2022,
+        "source": "ACM",
+        "url": "https://doi.org/10.1145/3519939.3523732",
+        "abstract": "",
+        "query": "Karp 1972 TSP NP-hardness Karp 1972"
+      }
+    },
+    {
+      "id": "paper-8",
+      "title": "Karp",
+      "authors": [
+        "Unknown author"
+      ],
+      "year": 2025,
+      "source": "Schwabe Verlag",
+      "url": "https://doi.org/10.24894/sprengglossarium_k01048",
+      "abstract": "",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "Unspecified complexity in abstract",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "UNKNOWN",
+      "confidence": 0.4,
+      "notes": "karp",
+      "raw": {
+        "title": "Karp",
+        "authors": [
+          "Unknown author"
+        ],
+        "year": 2025,
+        "source": "Schwabe Verlag",
+        "url": "https://doi.org/10.24894/sprengglossarium_k01048",
+        "abstract": "",
+        "query": "Karp 1972 TSP NP-hardness Karp 1972"
+      }
+    },
+    {
+      "id": "paper-9",
+      "title": "Proof verification and the hardness of approximation problems",
+      "authors": [
+        "Sanjeev Arora",
+        "Carsten Lund",
+        "Rajeev Motwani",
+        "Madhu Sudan",
+        "M\u00e1ri\u00f3 Szegedy"
+      ],
+      "year": 1998,
+      "source": "Journal of the ACM",
+      "url": "https://doi.org/10.1145/278298.278306",
+      "abstract": "",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "Approximation guarantee",
+      "approach": "Complexity reduction / hardness result",
+      "classification": "APPROX",
+      "confidence": 0.88,
+      "notes": "approximation, hardness, problems, proof, verification",
+      "raw": {
+        "title": "Proof verification and the hardness of approximation problems",
+        "authors": [
+          "Sanjeev Arora",
+          "Carsten Lund",
+          "Rajeev Motwani",
+          "Madhu Sudan",
+          "M\u00e1ri\u00f3 Szegedy"
+        ],
+        "year": 1998,
+        "source": "Journal of the ACM",
+        "url": "https://doi.org/10.1145/278298.278306",
+        "abstract": "",
+        "query": "Karp 1972 TSP NP-hardness Karp 1972"
+      }
+    },
+    {
+      "id": "paper-10",
+      "title": "New Approximation Algorithms for (1,2)-TSP",
+      "authors": [
+        "Anna Adamaszek",
+        "Matthias Mnich",
+        "Katarzyna E. Paluch"
+      ],
+      "year": 2018,
+      "source": "Research Publications (Maastricht University)",
+      "url": "https://doi.org/10.4230/lipics.icalp.2018.9",
+      "abstract": "",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "Approximation guarantee",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "APPROX",
+      "confidence": 0.88,
+      "notes": "algorithms, approximation",
+      "raw": {
+        "title": "New Approximation Algorithms for (1,2)-TSP",
+        "authors": [
+          "Anna Adamaszek",
+          "Matthias Mnich",
+          "Katarzyna E. Paluch"
+        ],
+        "year": 2018,
+        "source": "Research Publications (Maastricht University)",
+        "url": "https://doi.org/10.4230/lipics.icalp.2018.9",
+        "abstract": "",
+        "query": "Karp 1972 TSP NP-hardness Karp 1972"
+      }
+    },
+    {
+      "id": "paper-11",
+      "title": "A brief history of NP-completeness, 1954\u20132012",
+      "authors": [
+        "DS Johnson"
+      ],
+      "year": 2012,
+      "source": "DS Johnson - Optimization Stories, 2012 - ems.press",
+      "url": "https://ems.press/books/dms/251/4947",
+      "abstract": "\u2026 that is in essence about the NP - hardness of a whole collection of \u2026 Cook and Karp also have made significant contributions to \u2026 \u2019 algorithm for the Traveling Salesman Problem ( TSP ) has a \u2026",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "Unspecified complexity in abstract",
+      "approach": "Complexity reduction / hardness result",
+      "classification": "HARDNESS",
+      "confidence": 0.95,
+      "notes": "1954, 2012, about, algorithm, also, brief, collection, completeness, contributions, cook, essence, hardness, have, history, karp, made, problem, salesman, significant, that",
+      "raw": {
+        "title": "A brief history of NP-completeness, 1954\u20132012",
+        "authors": [
+          "DS Johnson"
+        ],
+        "year": 2012,
+        "source": "DS Johnson - Optimization Stories, 2012 - ems.press",
+        "url": "https://ems.press/books/dms/251/4947",
+        "abstract": "\u2026 that is in essence about the NP - hardness of a whole collection of \u2026 Cook and Karp also have made significant contributions to \u2026 \u2019 algorithm for the Traveling Salesman Problem ( TSP ) has a \u2026",
+        "query": "Karp 1972 TSP NP-hardness Karp 1972"
+      }
+    },
+    {
+      "id": "paper-12",
+      "title": "Challenges and strategies for tackling NP-hard problems",
+      "authors": [
+        "M Imanparast"
+      ],
+      "year": null,
+      "source": "M Imanparast - researchgate.net",
+      "url": "https://www.researchgate.net/profile/Mahdi-Imanparast/publication/387577142_Challenges_and_strategies_for_tackling_NP-hard_problems/links/67a4fbde8311ce680c587251/Challenges-and-strategies-for-tackling-NP-hard-problems.pdf",
+      "abstract": "\u2026 Karp extended Cook\u2019s work in 1972 by identifying 21 NP-complete problems, including traveling salesman problem ( TSP ), \u2026 NP - hardness is usually discussed in the context of decision \u2026",
+      "problem": "General TSP / NP-hardness",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "NP-hardness / lower bound",
+      "approach": "Complexity reduction / hardness result",
+      "classification": "HARDNESS",
+      "confidence": 0.95,
+      "notes": "1972, challenges, complete, context, cook, decision, discussed, extended, hard, hardness, identifying, including, karp, problem, problems, salesman, strategies, tackling, traveling, usually",
+      "raw": {
+        "title": "Challenges and strategies for tackling NP-hard problems",
+        "authors": [
+          "M Imanparast"
+        ],
+        "year": null,
+        "source": "M Imanparast - researchgate.net",
+        "url": "https://www.researchgate.net/profile/Mahdi-Imanparast/publication/387577142_Challenges_and_strategies_for_tackling_NP-hard_problems/links/67a4fbde8311ce680c587251/Challenges-and-strategies-for-tackling-NP-hard-problems.pdf",
+        "abstract": "\u2026 Karp extended Cook\u2019s work in 1972 by identifying 21 NP-complete problems, including traveling salesman problem ( TSP ), \u2026 NP - hardness is usually discussed in the context of decision \u2026",
+        "query": "Karp 1972 TSP NP-hardness Karp 1972"
+      }
+    },
+    {
+      "id": "paper-13",
+      "title": "Computers and Intractability: A Guide to the Theory of NP-Completeness (Michael R. Garey and David S. Johnson)",
+      "authors": [
+        "Juris Hartmanis"
+      ],
+      "year": 1982,
+      "source": "Society for Industrial & Applied Mathematics (SIAM)",
+      "url": "https://doi.org/10.1137/1024022",
+      "abstract": "",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "Unspecified complexity in abstract",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "UNKNOWN",
+      "confidence": 0.4,
+      "notes": "completeness, computers, david, garey, guide, intractability, johnson, michael, theory",
+      "raw": {
+        "title": "Computers and Intractability: A Guide to the Theory of NP-Completeness (Michael R. Garey and David S. Johnson)",
+        "authors": [
+          "Juris Hartmanis"
+        ],
+        "year": 1982,
+        "source": "Society for Industrial & Applied Mathematics (SIAM)",
+        "url": "https://doi.org/10.1137/1024022",
+        "abstract": "",
+        "query": "TSP NP-hardness Garey Johnson"
+      }
+    },
+    {
+      "id": "paper-14",
+      "title": "The worst-case analysis of the Garey\u2013Johnson algorithm",
+      "authors": [
+        "Claire Hanen",
+        "Yakov Zinder"
+      ],
+      "year": 2009,
+      "source": "Springer Science and Business Media LLC",
+      "url": "https://doi.org/10.1007/s10951-009-0101-4",
+      "abstract": "",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "Unspecified complexity in abstract",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "UNKNOWN",
+      "confidence": 0.4,
+      "notes": "algorithm, analysis, case, garey, johnson, worst",
+      "raw": {
+        "title": "The worst-case analysis of the Garey\u2013Johnson algorithm",
+        "authors": [
+          "Claire Hanen",
+          "Yakov Zinder"
+        ],
+        "year": 2009,
+        "source": "Springer Science and Business Media LLC",
+        "url": "https://doi.org/10.1007/s10951-009-0101-4",
+        "abstract": "",
+        "query": "TSP NP-hardness Garey Johnson"
+      }
+    },
+    {
+      "id": "paper-15",
+      "title": "The Applications of NP-hardness optimizations problem",
+      "authors": [
+        "Ahmed Hasan Alridha",
+        "Abbas Musleh Salman",
+        "Ahmed Sabah Al-Jilawi"
+      ],
+      "year": 2021,
+      "source": "Journal of Physics Conference Series",
+      "url": "https://doi.org/10.1088/1742-6596/1818/1/012179",
+      "abstract": "",
+      "problem": "General TSP / NP-hardness",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "NP-hardness / lower bound",
+      "approach": "Complexity reduction / hardness result",
+      "classification": "HARDNESS",
+      "confidence": 0.95,
+      "notes": "applications, hardness, optimizations, problem",
+      "raw": {
+        "title": "The Applications of NP-hardness optimizations problem",
+        "authors": [
+          "Ahmed Hasan Alridha",
+          "Abbas Musleh Salman",
+          "Ahmed Sabah Al-Jilawi"
+        ],
+        "year": 2021,
+        "source": "Journal of Physics Conference Series",
+        "url": "https://doi.org/10.1088/1742-6596/1818/1/012179",
+        "abstract": "",
+        "query": "TSP NP-hardness Garey Johnson"
+      }
+    },
+    {
+      "id": "paper-16",
+      "title": "Proof verification and the hardness of approximation problems",
+      "authors": [
+        "Sanjeev Arora",
+        "Carsten Lund",
+        "Rajeev Motwani",
+        "Madhu Sudan",
+        "M\u00e1ri\u00f3 Szegedy"
+      ],
+      "year": 1998,
+      "source": "Journal of the ACM",
+      "url": "https://doi.org/10.1145/278298.278306",
+      "abstract": "",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "Approximation guarantee",
+      "approach": "Complexity reduction / hardness result",
+      "classification": "APPROX",
+      "confidence": 0.88,
+      "notes": "approximation, hardness, problems, proof, verification",
+      "raw": {
+        "title": "Proof verification and the hardness of approximation problems",
+        "authors": [
+          "Sanjeev Arora",
+          "Carsten Lund",
+          "Rajeev Motwani",
+          "Madhu Sudan",
+          "M\u00e1ri\u00f3 Szegedy"
+        ],
+        "year": 1998,
+        "source": "Journal of the ACM",
+        "url": "https://doi.org/10.1145/278298.278306",
+        "abstract": "",
+        "query": "TSP NP-hardness Garey Johnson"
+      }
+    },
+    {
+      "id": "paper-17",
+      "title": "Some NP-complete geometric problems",
+      "authors": [
+        "MR Garey , RL Graham , DS Johnson"
+      ],
+      "year": 1976,
+      "source": "MR Garey , RL Graham , DS Johnson - Proceedings of the eighth annual\u00a0\u2026, 1976 - dl.acm.org",
+      "url": "https://dl.acm.org/doi/abs/10.1145/800113.803626",
+      "abstract": "\u2026 Moreover, our NP-completeness proofs using this metric can be converted to NP hardness proofs \u2026 The second problem we consider is the Traveling Salesman problem : \"Given a set S of \u2026",
+      "problem": "Metric TSP",
+      "assumptions": [
+        "Metric distances"
+      ],
+      "complexity": "NP-hardness / lower bound",
+      "approach": "Complexity reduction / hardness result",
+      "classification": "HARDNESS",
+      "confidence": 0.95,
+      "notes": "complete, completeness, consider, converted, geometric, given, hardness, metric, moreover, problem, problems, proofs, salesman, second, some, this, traveling, using",
+      "raw": {
+        "title": "Some NP-complete geometric problems",
+        "authors": [
+          "MR Garey , RL Graham , DS Johnson"
+        ],
+        "year": 1976,
+        "source": "MR Garey , RL Graham , DS Johnson - Proceedings of the eighth annual\u00a0\u2026, 1976 - dl.acm.org",
+        "url": "https://dl.acm.org/doi/abs/10.1145/800113.803626",
+        "abstract": "\u2026 Moreover, our NP-completeness proofs using this metric can be converted to NP hardness proofs \u2026 The second problem we consider is the Traveling Salesman problem : \"Given a set S of \u2026",
+        "query": "TSP NP-hardness Garey Johnson"
+      }
+    },
+    {
+      "id": "paper-18",
+      "title": "A brief history of NP-completeness, 1954\u20132012",
+      "authors": [
+        "DS Johnson"
+      ],
+      "year": 2012,
+      "source": "DS Johnson - Optimization Stories, 2012 - ems.press",
+      "url": "https://ems.press/books/dms/251/4947",
+      "abstract": "\u2026 is in essence about the NP - hardness of a whole collection of \u2026 the unhelpful citation \u201c[ Garey and Johnson , unpublished].\u201d We \u2026 \u2019 algorithm for the Traveling Salesman Problem ( TSP ) has a \u2026",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "Unspecified complexity in abstract",
+      "approach": "Complexity reduction / hardness result",
+      "classification": "HARDNESS",
+      "confidence": 0.95,
+      "notes": "1954, 2012, about, algorithm, brief, citation, collection, completeness, essence, garey, hardness, history, johnson, problem, salesman, traveling, unhelpful, unpublished, whole",
+      "raw": {
+        "title": "A brief history of NP-completeness, 1954\u20132012",
+        "authors": [
+          "DS Johnson"
+        ],
+        "year": 2012,
+        "source": "DS Johnson - Optimization Stories, 2012 - ems.press",
+        "url": "https://ems.press/books/dms/251/4947",
+        "abstract": "\u2026 is in essence about the NP - hardness of a whole collection of \u2026 the unhelpful citation \u201c[ Garey and Johnson , unpublished].\u201d We \u2026 \u2019 algorithm for the Traveling Salesman Problem ( TSP ) has a \u2026",
+        "query": "TSP NP-hardness Garey Johnson"
+      }
+    },
+    {
+      "id": "paper-19",
+      "title": "Estimating the Held-Karp lower bound for the geometric TSP",
+      "authors": [
+        "Christine L. Valenzuela",
+        "Antonia J. Jones"
+      ],
+      "year": 1997,
+      "source": "Elsevier BV",
+      "url": "https://doi.org/10.1016/s0377-2217(96)00214-7",
+      "abstract": "",
+      "problem": "Metric TSP",
+      "assumptions": [
+        "Metric distances"
+      ],
+      "complexity": "O(n^2 2^n) or exponential exact DP",
+      "approach": "Exact dynamic programming",
+      "classification": "EXACT_SPECIAL",
+      "confidence": 0.82,
+      "notes": "bound, estimating, geometric, held, karp, lower",
+      "raw": {
+        "title": "Estimating the Held-Karp lower bound for the geometric TSP",
+        "authors": [
+          "Christine L. Valenzuela",
+          "Antonia J. Jones"
+        ],
+        "year": 1997,
+        "source": "Elsevier BV",
+        "url": "https://doi.org/10.1016/s0377-2217(96)00214-7",
+        "abstract": "",
+        "query": "Held Karp dynamic programming TSP exact"
+      }
+    },
+    {
+      "id": "paper-20",
+      "title": "Analyzing the Held-Karp tsp bound: a monotonicity property with application",
+      "authors": [
+        "David B. Shmoys",
+        "David P. Williamson"
+      ],
+      "year": 1990,
+      "source": "Elsevier BV",
+      "url": "https://doi.org/10.1016/0020-0190(90)90028-v",
+      "abstract": "",
+      "problem": "Exact dynamic-programming TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "O(n^2 2^n) or exponential exact DP",
+      "approach": "Exact dynamic programming",
+      "classification": "EXACT_GENERAL",
+      "confidence": 0.85,
+      "notes": "analyzing, application, bound, held, karp, monotonicity, property, with",
+      "raw": {
+        "title": "Analyzing the Held-Karp tsp bound: a monotonicity property with application",
+        "authors": [
+          "David B. Shmoys",
+          "David P. Williamson"
+        ],
+        "year": 1990,
+        "source": "Elsevier BV",
+        "url": "https://doi.org/10.1016/0020-0190(90)90028-v",
+        "abstract": "",
+        "query": "Held Karp dynamic programming TSP exact"
+      }
+    },
+    {
+      "id": "paper-21",
+      "title": "Approximating the Held-Karp Bound for Metric TSP in Nearly-Linear Time",
+      "authors": [
+        "Chandra Chekuri",
+        "Kent Quanrud"
+      ],
+      "year": 2017,
+      "source": "OpenAlex",
+      "url": "https://doi.org/10.1109/focs.2017.78",
+      "abstract": "",
+      "problem": "Metric TSP",
+      "assumptions": [
+        "Metric distances"
+      ],
+      "complexity": "O(n^2 2^n) or exponential exact DP",
+      "approach": "Exact dynamic programming",
+      "classification": "EXACT_SPECIAL",
+      "confidence": 0.82,
+      "notes": "approximating, bound, held, karp, linear, metric, nearly, time",
+      "raw": {
+        "title": "Approximating the Held-Karp Bound for Metric TSP in Nearly-Linear Time",
+        "authors": [
+          "Chandra Chekuri",
+          "Kent Quanrud"
+        ],
+        "year": 2017,
+        "source": "OpenAlex",
+        "url": "https://doi.org/10.1109/focs.2017.78",
+        "abstract": "",
+        "query": "Held Karp dynamic programming TSP exact"
+      }
+    },
+    {
+      "id": "paper-22",
+      "title": "Survey of Methods of Solving TSP along with its Implementation using Dynamic Programming Approach",
+      "authors": [
+        "Chetan Chauhan",
+        "Ravindra Gupta",
+        "Kshitij Pathak"
+      ],
+      "year": 2012,
+      "source": "International Journal of Computer Applications",
+      "url": "https://doi.org/10.5120/8189-1550",
+      "abstract": "",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "O(n^2 2^n) or exponential exact DP",
+      "approach": "Exact dynamic programming",
+      "classification": "EXACT_GENERAL",
+      "confidence": 0.85,
+      "notes": "along, approach, dynamic, implementation, methods, programming, solving, survey, using, with",
+      "raw": {
+        "title": "Survey of Methods of Solving TSP along with its Implementation using Dynamic Programming Approach",
+        "authors": [
+          "Chetan Chauhan",
+          "Ravindra Gupta",
+          "Kshitij Pathak"
+        ],
+        "year": 2012,
+        "source": "International Journal of Computer Applications",
+        "url": "https://doi.org/10.5120/8189-1550",
+        "abstract": "",
+        "query": "Held Karp dynamic programming TSP exact"
+      }
+    },
+    {
+      "id": "paper-23",
+      "title": "A dynamic programming approach to sequencing problems",
+      "authors": [
+        "M Held , RM Karp"
+      ],
+      "year": 1962,
+      "source": "M Held , RM Karp - Journal of the Society for Industrial and Applied\u00a0\u2026, 1962 - SIAM",
+      "url": "https://epubs.siam.org/doi/pdf/10.1137/0110015",
+      "abstract": "\u2026 We now discussthe traveling - salesman problem , which exhibits a different kind ofcost \u2026 the traveling - salesman problem may be found in [1]. We proceed to give a dynamic programming \u2026",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "O(n^2 2^n) or exponential exact DP",
+      "approach": "Exact dynamic programming",
+      "classification": "EXACT_GENERAL",
+      "confidence": 0.85,
+      "notes": "approach, different, discussthe, dynamic, exhibits, found, give, kind, ofcost, problem, problems, proceed, programming, salesman, sequencing, traveling, which",
+      "raw": {
+        "title": "A dynamic programming approach to sequencing problems",
+        "authors": [
+          "M Held , RM Karp"
+        ],
+        "year": 1962,
+        "source": "M Held , RM Karp - Journal of the Society for Industrial and Applied\u00a0\u2026, 1962 - SIAM",
+        "url": "https://epubs.siam.org/doi/pdf/10.1137/0110015",
+        "abstract": "\u2026 We now discussthe traveling - salesman problem , which exhibits a different kind ofcost \u2026 the traveling - salesman problem may be found in [1]. We proceed to give a dynamic programming \u2026",
+        "query": "Held Karp dynamic programming TSP exact"
+      }
+    },
+    {
+      "id": "paper-24",
+      "title": "Dynamic programming approaches for the traveling salesman problem with drone",
+      "authors": [
+        "P Bouman, N Agatz, M Schmidt"
+      ],
+      "year": 2018,
+      "source": "P Bouman, N Agatz, M Schmidt\u00a0- Networks, 2018 - Wiley Online Library",
+      "url": "https://onlinelibrary.wiley.com/doi/abs/10.1002/net.21864",
+      "abstract": "\u2026 In this section we present dynamic programming approaches for the TSP -D based on the \u2026 - Held - Karp dynamic programming algorithm for the TSP [3, 10]. Dynamic Programming can be \u2026",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "O(n^2 2^n) or exponential exact DP",
+      "approach": "Exact dynamic programming",
+      "classification": "EXACT_GENERAL",
+      "confidence": 0.85,
+      "notes": "algorithm, approaches, based, drone, dynamic, held, karp, present, problem, programming, salesman, section, this, traveling, with",
+      "raw": {
+        "title": "Dynamic programming approaches for the traveling salesman problem with drone",
+        "authors": [
+          "P Bouman, N Agatz, M Schmidt"
+        ],
+        "year": 2018,
+        "source": "P Bouman, N Agatz, M Schmidt\u00a0- Networks, 2018 - Wiley Online Library",
+        "url": "https://onlinelibrary.wiley.com/doi/abs/10.1002/net.21864",
+        "abstract": "\u2026 In this section we present dynamic programming approaches for the TSP -D based on the \u2026 - Held - Karp dynamic programming algorithm for the TSP [3, 10]. Dynamic Programming can be \u2026",
+        "query": "Held Karp dynamic programming TSP exact"
+      }
+    },
+    {
+      "id": "paper-25",
+      "title": "A PTAS for Euclidean TSP with Hyperplane Neighborhoods",
+      "authors": [
+        "Antonios Antoniadis",
+        "Krzysztof Fleszar",
+        "Ruben Hoeksma",
+        "Kevin Schewior"
+      ],
+      "year": 2019,
+      "source": "Society for Industrial and Applied Mathematics",
+      "url": "https://doi.org/10.1137/1.9781611975482.67",
+      "abstract": "",
+      "problem": "Euclidean TSP",
+      "assumptions": [
+        "Euclidean metric"
+      ],
+      "complexity": "PTAS or approximation scheme",
+      "approach": "Approximation scheme",
+      "classification": "PTAS",
+      "confidence": 0.94,
+      "notes": "euclidean, hyperplane, neighborhoods, ptas, with",
+      "raw": {
+        "title": "A PTAS for Euclidean TSP with Hyperplane Neighborhoods",
+        "authors": [
+          "Antonios Antoniadis",
+          "Krzysztof Fleszar",
+          "Ruben Hoeksma",
+          "Kevin Schewior"
+        ],
+        "year": 2019,
+        "source": "Society for Industrial and Applied Mathematics",
+        "url": "https://doi.org/10.1137/1.9781611975482.67",
+        "abstract": "",
+        "query": "Euclidean TSP PTAS Arora"
+      }
+    },
+    {
+      "id": "paper-26",
+      "title": "Polynomial time approximation schemes for Euclidean traveling salesman and other geometric problems",
+      "authors": [
+        "S Arora"
+      ],
+      "year": 1998,
+      "source": "S Arora - Journal of the ACM (JACM), 1998 - dl.acm.org",
+      "url": "https://dl.acm.org/doi/abs/10.1145/290179.290180",
+      "abstract": "\u2026 We present a polynomial time approximation scheme for Euclidean TSP in fixed dimen\u2026 Euclidean TSP remained open, however. In this paper, we show that Euclidean TSP has a PTAS . \u2026",
+      "problem": "Euclidean TSP",
+      "assumptions": [
+        "Euclidean metric",
+        "Metric distances"
+      ],
+      "complexity": "PTAS or approximation scheme",
+      "approach": "Approximation scheme",
+      "classification": "PTAS",
+      "confidence": 0.94,
+      "notes": "approximation, dimen, euclidean, fixed, geometric, however, open, other, paper, polynomial, present, problems, ptas, remained, salesman, scheme, schemes, show, that, this",
+      "raw": {
+        "title": "Polynomial time approximation schemes for Euclidean traveling salesman and other geometric problems",
+        "authors": [
+          "S Arora"
+        ],
+        "year": 1998,
+        "source": "S Arora - Journal of the ACM (JACM), 1998 - dl.acm.org",
+        "url": "https://dl.acm.org/doi/abs/10.1145/290179.290180",
+        "abstract": "\u2026 We present a polynomial time approximation scheme for Euclidean TSP in fixed dimen\u2026 Euclidean TSP remained open, however. In this paper, we show that Euclidean TSP has a PTAS . \u2026",
+        "query": "Euclidean TSP PTAS Arora"
+      }
+    },
+    {
+      "id": "paper-27",
+      "title": "Nearly linear time approximation schemes for Euclidean TSP and other geometric problems",
+      "authors": [
+        "S Arora"
+      ],
+      "year": 1997,
+      "source": "S Arora - Proceedings 38th Annual Symposium on Foundations\u00a0\u2026, 1997 - ieeexplore.ieee.org",
+      "url": "https://ieeexplore.ieee.org/abstract/document/646145/",
+      "abstract": "\u2026 , Euclidean TSP was shown to have a polynomial time approximation scheme or PTAS ( Arora \u2026 Arora's algorithm also generalizes to points in Xd, but its running time rises to n(o(C'ogn))d-\u2026",
+      "problem": "Euclidean TSP",
+      "assumptions": [
+        "Euclidean metric",
+        "Metric distances"
+      ],
+      "complexity": "PTAS or approximation scheme",
+      "approach": "Approximation scheme",
+      "classification": "PTAS",
+      "confidence": 0.94,
+      "notes": "algorithm, also, approximation, arora, euclidean, generalizes, geometric, have, linear, nearly, other, points, polynomial, problems, ptas, rises, running, scheme, schemes, shown",
+      "raw": {
+        "title": "Nearly linear time approximation schemes for Euclidean TSP and other geometric problems",
+        "authors": [
+          "S Arora"
+        ],
+        "year": 1997,
+        "source": "S Arora - Proceedings 38th Annual Symposium on Foundations\u00a0\u2026, 1997 - ieeexplore.ieee.org",
+        "url": "https://ieeexplore.ieee.org/abstract/document/646145/",
+        "abstract": "\u2026 , Euclidean TSP was shown to have a polynomial time approximation scheme or PTAS ( Arora \u2026 Arora's algorithm also generalizes to points in Xd, but its running time rises to n(o(C'ogn))d-\u2026",
+        "query": "Euclidean TSP PTAS Arora"
+      }
+    },
+    {
+      "id": "paper-28",
+      "title": "Improved Approximation Lower Bounds for TSP with Distances One and Two",
+      "authors": [
+        "Ryo HIRADE",
+        "Toshiya ITOH"
+      ],
+      "year": 2002,
+      "source": "Graduate School of Information Sciences, Tohoku University",
+      "url": "https://doi.org/10.4036/iis.2002.63",
+      "abstract": "",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "Approximation guarantee",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "APPROX",
+      "confidence": 0.88,
+      "notes": "approximation, bounds, distances, improved, lower, with",
+      "raw": {
+        "title": "Improved Approximation Lower Bounds for TSP with Distances One and Two",
+        "authors": [
+          "Ryo HIRADE",
+          "Toshiya ITOH"
+        ],
+        "year": 2002,
+        "source": "Graduate School of Information Sciences, Tohoku University",
+        "url": "https://doi.org/10.4036/iis.2002.63",
+        "abstract": "",
+        "query": "Metric TSP approximation lower bounds"
+      }
+    },
+    {
+      "id": "paper-29",
+      "title": "Upper and lower bounds for approximation in the gap metric",
+      "authors": [
+        "T.T. Georgiou",
+        "M.C. Smith"
+      ],
+      "year": 1993,
+      "source": "Institute of Electrical and Electronics Engineers (IEEE)",
+      "url": "https://doi.org/10.1109/9.222308",
+      "abstract": "",
+      "problem": "Metric TSP",
+      "assumptions": [
+        "Metric distances"
+      ],
+      "complexity": "Approximation guarantee",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "APPROX",
+      "confidence": 0.88,
+      "notes": "approximation, bounds, lower, metric, upper",
+      "raw": {
+        "title": "Upper and lower bounds for approximation in the gap metric",
+        "authors": [
+          "T.T. Georgiou",
+          "M.C. Smith"
+        ],
+        "year": 1993,
+        "source": "Institute of Electrical and Electronics Engineers (IEEE)",
+        "url": "https://doi.org/10.1109/9.222308",
+        "abstract": "",
+        "query": "Metric TSP approximation lower bounds"
+      }
+    },
+    {
+      "id": "paper-30",
+      "title": "On Approximation Lower Bounds for TSP with Bounded Metrics",
+      "authors": [
+        "Marek Karpi\u0144ski",
+        "Richard Schmied"
+      ],
+      "year": 2012,
+      "source": "arXiv (Cornell University)",
+      "url": "https://doi.org/10.48550/arxiv.1201.5821",
+      "abstract": "",
+      "problem": "Metric TSP",
+      "assumptions": [
+        "Metric distances"
+      ],
+      "complexity": "Approximation guarantee",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "APPROX",
+      "confidence": 0.88,
+      "notes": "approximation, bounded, bounds, lower, metrics, with",
+      "raw": {
+        "title": "On Approximation Lower Bounds for TSP with Bounded Metrics",
+        "authors": [
+          "Marek Karpi\u0144ski",
+          "Richard Schmied"
+        ],
+        "year": 2012,
+        "source": "arXiv (Cornell University)",
+        "url": "https://doi.org/10.48550/arxiv.1201.5821",
+        "abstract": "",
+        "query": "Metric TSP approximation lower bounds"
+      }
+    },
+    {
+      "id": "paper-31",
+      "title": "Approximation Hardness of TSP with Bounded Metrics",
+      "authors": [
+        "Lars Fredrik Engebretsen",
+        "Marek Karpi\u0144ski"
+      ],
+      "year": 2001,
+      "source": "Lecture notes in computer science",
+      "url": "https://doi.org/10.1007/3-540-48224-5_17",
+      "abstract": "",
+      "problem": "Metric TSP",
+      "assumptions": [
+        "Metric distances"
+      ],
+      "complexity": "Approximation guarantee",
+      "approach": "Complexity reduction / hardness result",
+      "classification": "APPROX",
+      "confidence": 0.88,
+      "notes": "approximation, bounded, hardness, metrics, with",
+      "raw": {
+        "title": "Approximation Hardness of TSP with Bounded Metrics",
+        "authors": [
+          "Lars Fredrik Engebretsen",
+          "Marek Karpi\u0144ski"
+        ],
+        "year": 2001,
+        "source": "Lecture notes in computer science",
+        "url": "https://doi.org/10.1007/3-540-48224-5_17",
+        "abstract": "",
+        "query": "Metric TSP approximation lower bounds"
+      }
+    },
+    {
+      "id": "paper-32",
+      "title": "An improved lower bound on the approximability of metric TSP and approximation algorithms for the TSP with sharpened triangle inequality",
+      "authors": [
+        "HJ B\u00f6ckenhauer , J Hromkovi\u010d , R Klasing\u2026"
+      ],
+      "year": 2000,
+      "source": "HJ B\u00f6ckenhauer , J Hromkovi\u010d , R Klasing\u2026\u00a0- Annual Symposium on\u00a0\u2026, 2000 - Springer",
+      "url": "https://link.springer.com/chapter/10.1007/3-540-46541-3_32",
+      "abstract": "\u2026 We apply the obtained lower bound on \u2206- TSP to get explicit lower bounds on the approximability of \u2206\u03b2- TSP for every \u03b2, 1 \u2026 We will show that it is NP-hard to approximate \u2206- TSP within \u2026",
+      "problem": "Metric TSP",
+      "assumptions": [
+        "Metric distances"
+      ],
+      "complexity": "NP-hardness / lower bound",
+      "approach": "Complexity reduction / hardness result",
+      "classification": "APPROX",
+      "confidence": 0.88,
+      "notes": "algorithms, apply, approximability, approximate, approximation, bound, bounds, every, explicit, hard, improved, inequality, lower, metric, obtained, sharpened, show, that, triangle, will",
+      "raw": {
+        "title": "An improved lower bound on the approximability of metric TSP and approximation algorithms for the TSP with sharpened triangle inequality",
+        "authors": [
+          "HJ B\u00f6ckenhauer , J Hromkovi\u010d , R Klasing\u2026"
+        ],
+        "year": 2000,
+        "source": "HJ B\u00f6ckenhauer , J Hromkovi\u010d , R Klasing\u2026\u00a0- Annual Symposium on\u00a0\u2026, 2000 - Springer",
+        "url": "https://link.springer.com/chapter/10.1007/3-540-46541-3_32",
+        "abstract": "\u2026 We apply the obtained lower bound on \u2206- TSP to get explicit lower bounds on the approximability of \u2206\u03b2- TSP for every \u03b2, 1 \u2026 We will show that it is NP-hard to approximate \u2206- TSP within \u2026",
+        "query": "Metric TSP approximation lower bounds"
+      }
+    },
+    {
+      "id": "paper-33",
+      "title": "Improved Lower Bounds for the Universal and a priori TSP",
+      "authors": [
+        "I Gorodezky, RD Kleinberg, DB Shmoys\u2026"
+      ],
+      "year": 2010,
+      "source": "I Gorodezky, RD Kleinberg, DB Shmoys\u2026\u00a0- \u2026\u00a0and Approximation \u2026, 2010 - Springer",
+      "url": "https://link.springer.com/chapter/10.1007/978-3-642-15369-3_14",
+      "abstract": "\u2026 generalizations of the metric traveling salesman problem ( TSP ) in which the task \u2026 lower bound of \u03a9(log n) for the universal TSP by bounding the competitive ratio of shortest-path metrics \u2026",
+      "problem": "Metric TSP",
+      "assumptions": [
+        "Metric distances"
+      ],
+      "complexity": "Unspecified complexity in abstract",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "EXACT_SPECIAL",
+      "confidence": 0.7,
+      "notes": "bound, bounding, bounds, competitive, generalizations, improved, lower, metric, metrics, path, priori, problem, ratio, salesman, shortest, task, traveling, universal, which",
+      "raw": {
+        "title": "Improved Lower Bounds for the Universal and a priori TSP",
+        "authors": [
+          "I Gorodezky, RD Kleinberg, DB Shmoys\u2026"
+        ],
+        "year": 2010,
+        "source": "I Gorodezky, RD Kleinberg, DB Shmoys\u2026\u00a0- \u2026\u00a0and Approximation \u2026, 2010 - Springer",
+        "url": "https://link.springer.com/chapter/10.1007/978-3-642-15369-3_14",
+        "abstract": "\u2026 generalizations of the metric traveling salesman problem ( TSP ) in which the task \u2026 lower bound of \u03a9(log n) for the universal TSP by bounding the competitive ratio of shortest-path metrics \u2026",
+        "query": "Metric TSP approximation lower bounds"
+      }
+    },
+    {
+      "id": "paper-34",
+      "title": "3 Special Cases Solvable in Polynomial Time",
+      "authors": [
+        "Uwe Sch\u00f6ning",
+        "Jacobo Tor\u00e1n"
+      ],
+      "year": 2013,
+      "source": "Lehmanns Media",
+      "url": "https://doi.org/10.58662/9783865416483-61",
+      "abstract": "",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "Unspecified complexity in abstract",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "UNKNOWN",
+      "confidence": 0.4,
+      "notes": "cases, polynomial, solvable, special, time",
+      "raw": {
+        "title": "3 Special Cases Solvable in Polynomial Time",
+        "authors": [
+          "Uwe Sch\u00f6ning",
+          "Jacobo Tor\u00e1n"
+        ],
+        "year": 2013,
+        "source": "Lehmanns Media",
+        "url": "https://doi.org/10.58662/9783865416483-61",
+        "abstract": "",
+        "query": "TSP special cases polynomial time exact"
+      }
+    },
+    {
+      "id": "paper-35",
+      "title": "An Improved-time Polynomial-space Exact Algorithm for TSP in Degree-5 Graphs",
+      "authors": [
+        "Norhazwani Md Yunos",
+        "Aleksandar Shurbevski",
+        "Hiroshi Nagamochi"
+      ],
+      "year": 2017,
+      "source": "Information Processing Society of Japan",
+      "url": "https://doi.org/10.2197/ipsjjip.25.639",
+      "abstract": "",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "Unspecified complexity in abstract",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "EXACT_GENERAL",
+      "confidence": 0.85,
+      "notes": "algorithm, degree, exact, graphs, improved, polynomial, space, time",
+      "raw": {
+        "title": "An Improved-time Polynomial-space Exact Algorithm for TSP in Degree-5 Graphs",
+        "authors": [
+          "Norhazwani Md Yunos",
+          "Aleksandar Shurbevski",
+          "Hiroshi Nagamochi"
+        ],
+        "year": 2017,
+        "source": "Information Processing Society of Japan",
+        "url": "https://doi.org/10.2197/ipsjjip.25.639",
+        "abstract": "",
+        "query": "TSP special cases polynomial time exact"
+      }
+    },
+    {
+      "id": "paper-36",
+      "title": "Applications of a special polynomial class of TSP",
+      "authors": [
+        "Jack Brimberg",
+        "Ephraim Korach",
+        "Mokhtar Amami"
+      ],
+      "year": 2005,
+      "source": "Yugoslav journal of operations research",
+      "url": "https://doi.org/10.2298/yjor0501005b",
+      "abstract": "",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "Unspecified complexity in abstract",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "UNKNOWN",
+      "confidence": 0.4,
+      "notes": "applications, class, polynomial, special",
+      "raw": {
+        "title": "Applications of a special polynomial class of TSP",
+        "authors": [
+          "Jack Brimberg",
+          "Ephraim Korach",
+          "Mokhtar Amami"
+        ],
+        "year": 2005,
+        "source": "Yugoslav journal of operations research",
+        "url": "https://doi.org/10.2298/yjor0501005b",
+        "abstract": "",
+        "query": "TSP special cases polynomial time exact"
+      }
+    },
+    {
+      "id": "paper-37",
+      "title": "Well-solvable special cases of the traveling salesman problem : a survey",
+      "authors": [
+        "RE Burkard, VG Deineko, R Van Dal\u2026"
+      ],
+      "year": 1998,
+      "source": "RE Burkard, VG Deineko, R Van Dal\u2026\u00a0- SIAM review, 1998 - SIAM",
+      "url": "https://epubs.siam.org/doi/abs/10.1137/S0036144596297514",
+      "abstract": "\u2026 its special cases can be solved efficiently in polynomial time . We survey these special cases with \u2026 with arbitrary diagonal entries (for a more precise relation we refer to Proposition 2.13). \u2026",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "Unspecified complexity in abstract",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "UNKNOWN",
+      "confidence": 0.4,
+      "notes": "arbitrary, cases, diagonal, efficiently, entries, more, polynomial, precise, problem, proposition, refer, relation, salesman, solvable, solved, special, survey, these, time, traveling",
+      "raw": {
+        "title": "Well-solvable special cases of the traveling salesman problem : a survey",
+        "authors": [
+          "RE Burkard, VG Deineko, R Van Dal\u2026"
+        ],
+        "year": 1998,
+        "source": "RE Burkard, VG Deineko, R Van Dal\u2026\u00a0- SIAM review, 1998 - SIAM",
+        "url": "https://epubs.siam.org/doi/abs/10.1137/S0036144596297514",
+        "abstract": "\u2026 its special cases can be solved efficiently in polynomial time . We survey these special cases with \u2026 with arbitrary diagonal entries (for a more precise relation we refer to Proposition 2.13). \u2026",
+        "query": "TSP special cases polynomial time exact"
+      }
+    },
+    {
+      "id": "paper-38",
+      "title": "The traveling salesman problem : a comprehensive survey",
+      "authors": [
+        "L Zambito"
+      ],
+      "year": 2006,
+      "source": "L Zambito\u00a0- Project for CSE, 2006 - eecs.yorku.ca",
+      "url": "https://www.eecs.yorku.ca/~aaw/legacy/Zambito/TSP_Survey.pdf",
+      "abstract": "\u2026 to the TSP , we are talking about a polynomial time solution to \u2026 to be solved in polynomial time means that a correct \u2018yes\u2019 or \u2018\u2026 of the special cases of the TSP for which there exist efficient \u2026",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "Unspecified complexity in abstract",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "UNKNOWN",
+      "confidence": 0.4,
+      "notes": "about, cases, comprehensive, correct, efficient, exist, means, polynomial, problem, salesman, solution, solved, special, survey, talking, that, there, time, traveling, which",
+      "raw": {
+        "title": "The traveling salesman problem : a comprehensive survey",
+        "authors": [
+          "L Zambito"
+        ],
+        "year": 2006,
+        "source": "L Zambito\u00a0- Project for CSE, 2006 - eecs.yorku.ca",
+        "url": "https://www.eecs.yorku.ca/~aaw/legacy/Zambito/TSP_Survey.pdf",
+        "abstract": "\u2026 to the TSP , we are talking about a polynomial time solution to \u2026 to be solved in polynomial time means that a correct \u2018yes\u2019 or \u2018\u2026 of the special cases of the TSP for which there exist efficient \u2026",
+        "query": "TSP special cases polynomial time exact"
+      }
+    },
+    {
+      "id": "paper-39",
+      "title": "An Improved-time Polynomial-space Exact Algorithm for TSP in Degree-5 Graphs",
+      "authors": [
+        "Norhazwani Md Yunos",
+        "Aleksandar Shurbevski",
+        "Hiroshi Nagamochi"
+      ],
+      "year": 2017,
+      "source": "Information Processing Society of Japan",
+      "url": "https://doi.org/10.2197/ipsjjip.25.639",
+      "abstract": "",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "Unspecified complexity in abstract",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "EXACT_GENERAL",
+      "confidence": 0.85,
+      "notes": "algorithm, degree, exact, graphs, improved, polynomial, space, time",
+      "raw": {
+        "title": "An Improved-time Polynomial-space Exact Algorithm for TSP in Degree-5 Graphs",
+        "authors": [
+          "Norhazwani Md Yunos",
+          "Aleksandar Shurbevski",
+          "Hiroshi Nagamochi"
+        ],
+        "year": 2017,
+        "source": "Information Processing Society of Japan",
+        "url": "https://doi.org/10.2197/ipsjjip.25.639",
+        "abstract": "",
+        "query": "Planar TSP polynomial time exact"
+      }
+    },
+    {
+      "id": "paper-40",
+      "title": "Polynomial-space exact algorithm for TSP in degree-5 graphs",
+      "authors": [
+        "N.M. Yunos",
+        "A. Shurbevski",
+        "H. Nagamochi"
+      ],
+      "year": 2015,
+      "source": "Institution of Engineering and Technology",
+      "url": "https://doi.org/10.1049/cp.2015.0608",
+      "abstract": "",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "Unspecified complexity in abstract",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "EXACT_GENERAL",
+      "confidence": 0.85,
+      "notes": "algorithm, degree, exact, graphs, polynomial, space",
+      "raw": {
+        "title": "Polynomial-space exact algorithm for TSP in degree-5 graphs",
+        "authors": [
+          "N.M. Yunos",
+          "A. Shurbevski",
+          "H. Nagamochi"
+        ],
+        "year": 2015,
+        "source": "Institution of Engineering and Technology",
+        "url": "https://doi.org/10.1049/cp.2015.0608",
+        "abstract": "",
+        "query": "Planar TSP polynomial time exact"
+      }
+    },
+    {
+      "id": "paper-41",
+      "title": "A Quasi-Polynomial Algorithm for Well-Spaced Hyperbolic TSP",
+      "authors": [
+        "\u202aS\u00e1ndor Kisfaludi-Bak"
+      ],
+      "year": 2020,
+      "source": "DROPS (Schloss Dagstuhl \u2013 Leibniz Center for Informatics)",
+      "url": "https://doi.org/10.4230/lipics.socg.2020.55",
+      "abstract": "",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "Unspecified complexity in abstract",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "UNKNOWN",
+      "confidence": 0.4,
+      "notes": "algorithm, hyperbolic, polynomial, quasi, spaced, well",
+      "raw": {
+        "title": "A Quasi-Polynomial Algorithm for Well-Spaced Hyperbolic TSP",
+        "authors": [
+          "\u202aS\u00e1ndor Kisfaludi-Bak"
+        ],
+        "year": 2020,
+        "source": "DROPS (Schloss Dagstuhl \u2013 Leibniz Center for Informatics)",
+        "url": "https://doi.org/10.4230/lipics.socg.2020.55",
+        "abstract": "",
+        "query": "Planar TSP polynomial time exact"
+      }
+    },
+    {
+      "id": "paper-42",
+      "title": "An ETH-Tight Exact Algorithm for Euclidean TSP",
+      "authors": [
+        "Mark de Berg",
+        "Hans L. Bodlaender",
+        "\u202aS\u00e1ndor Kisfaludi-Bak",
+        "Sudeshna Kolay"
+      ],
+      "year": 2018,
+      "source": "OpenAlex",
+      "url": "https://doi.org/10.1109/focs.2018.00050",
+      "abstract": "",
+      "problem": "Euclidean TSP",
+      "assumptions": [
+        "Euclidean metric"
+      ],
+      "complexity": "Unspecified complexity in abstract",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "EXACT_SPECIAL",
+      "confidence": 0.82,
+      "notes": "algorithm, euclidean, exact, tight",
+      "raw": {
+        "title": "An ETH-Tight Exact Algorithm for Euclidean TSP",
+        "authors": [
+          "Mark de Berg",
+          "Hans L. Bodlaender",
+          "\u202aS\u00e1ndor Kisfaludi-Bak",
+          "Sudeshna Kolay"
+        ],
+        "year": 2018,
+        "source": "OpenAlex",
+        "url": "https://doi.org/10.1109/focs.2018.00050",
+        "abstract": "",
+        "query": "Planar TSP polynomial time exact"
+      }
+    },
+    {
+      "id": "paper-43",
+      "title": "Approximation algorithms for TSP with neighborhoods in the plane",
+      "authors": [
+        "A Dumitrescu, JSB Mitchell"
+      ],
+      "year": 2003,
+      "source": "A Dumitrescu, JSB Mitchell\u00a0- Journal of Algorithms, 2003 - Elsevier",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0196677403000476",
+      "abstract": "\u2026 lines in the plane . It is interesting that this case allows for an exact solution in polynomial time . \u2026 Given a set L of n infinite straight lines in the plane , a shortest tour that visits L can be \u2026",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "Approximation guarantee",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "APPROX",
+      "confidence": 0.88,
+      "notes": "algorithms, allows, approximation, case, exact, given, infinite, interesting, lines, neighborhoods, plane, polynomial, shortest, solution, straight, that, this, time, tour, visits",
+      "raw": {
+        "title": "Approximation algorithms for TSP with neighborhoods in the plane",
+        "authors": [
+          "A Dumitrescu, JSB Mitchell"
+        ],
+        "year": 2003,
+        "source": "A Dumitrescu, JSB Mitchell\u00a0- Journal of Algorithms, 2003 - Elsevier",
+        "url": "https://www.sciencedirect.com/science/article/pii/S0196677403000476",
+        "abstract": "\u2026 lines in the plane . It is interesting that this case allows for an exact solution in polynomial time . \u2026 Given a set L of n infinite straight lines in the plane , a shortest tour that visits L can be \u2026",
+        "query": "Planar TSP polynomial time exact"
+      }
+    },
+    {
+      "id": "paper-44",
+      "title": "Efficient exact algorithms on planar graphs: Exploiting sphere cut decompositions",
+      "authors": [
+        "F Dorn, E Penninkx, HL Bodlaender , FV Fomin"
+      ],
+      "year": 2010,
+      "source": "F Dorn, E Penninkx, HL Bodlaender , FV Fomin - Algorithmica, 2010 - Springer",
+      "url": "https://link.springer.com/article/10.1007/s00453-009-9296-1",
+      "abstract": "\u2026 n) time algorithm solving INDEPENDENT SET on planar \u2026 and second in the polynomial time algorithm for constructing an \u2026 In the PLANAR GRAPH TSP we are given a weighted \u03a3- plane \u2026",
+      "problem": "Planar TSP",
+      "assumptions": [
+        "Planar graph or geometric embedding"
+      ],
+      "complexity": "Unspecified complexity in abstract",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "EXACT_SPECIAL",
+      "confidence": 0.82,
+      "notes": "algorithm, algorithms, constructing, decompositions, efficient, exact, exploiting, given, graph, graphs, independent, planar, plane, polynomial, second, solving, sphere, time, weighted",
+      "raw": {
+        "title": "Efficient exact algorithms on planar graphs: Exploiting sphere cut decompositions",
+        "authors": [
+          "F Dorn, E Penninkx, HL Bodlaender , FV Fomin"
+        ],
+        "year": 2010,
+        "source": "F Dorn, E Penninkx, HL Bodlaender , FV Fomin - Algorithmica, 2010 - Springer",
+        "url": "https://link.springer.com/article/10.1007/s00453-009-9296-1",
+        "abstract": "\u2026 n) time algorithm solving INDEPENDENT SET on planar \u2026 and second in the polynomial time algorithm for constructing an \u2026 In the PLANAR GRAPH TSP we are given a weighted \u03a3- plane \u2026",
+        "query": "Planar TSP polynomial time exact"
+      }
+    },
+    {
+      "id": "paper-45",
+      "title": "Estimating the Held-Karp lower bound for the geometric TSP",
+      "authors": [
+        "Christine L. Valenzuela",
+        "Antonia J. Jones"
+      ],
+      "year": 1997,
+      "source": "Elsevier BV",
+      "url": "https://doi.org/10.1016/s0377-2217(96)00214-7",
+      "abstract": "",
+      "problem": "Metric TSP",
+      "assumptions": [
+        "Metric distances"
+      ],
+      "complexity": "O(n^2 2^n) or exponential exact DP",
+      "approach": "Exact dynamic programming",
+      "classification": "EXACT_SPECIAL",
+      "confidence": 0.82,
+      "notes": "bound, estimating, geometric, held, karp, lower",
+      "raw": {
+        "title": "Estimating the Held-Karp lower bound for the geometric TSP",
+        "authors": [
+          "Christine L. Valenzuela",
+          "Antonia J. Jones"
+        ],
+        "year": 1997,
+        "source": "Elsevier BV",
+        "url": "https://doi.org/10.1016/s0377-2217(96)00214-7",
+        "abstract": "",
+        "query": "Held Karp TSP exact algorithm"
+      }
+    },
+    {
+      "id": "paper-46",
+      "title": "Analyzing the Held-Karp tsp bound: a monotonicity property with application",
+      "authors": [
+        "David B. Shmoys",
+        "David P. Williamson"
+      ],
+      "year": 1990,
+      "source": "Elsevier BV",
+      "url": "https://doi.org/10.1016/0020-0190(90)90028-v",
+      "abstract": "",
+      "problem": "Exact dynamic-programming TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "O(n^2 2^n) or exponential exact DP",
+      "approach": "Exact dynamic programming",
+      "classification": "EXACT_GENERAL",
+      "confidence": 0.85,
+      "notes": "analyzing, application, bound, held, karp, monotonicity, property, with",
+      "raw": {
+        "title": "Analyzing the Held-Karp tsp bound: a monotonicity property with application",
+        "authors": [
+          "David B. Shmoys",
+          "David P. Williamson"
+        ],
+        "year": 1990,
+        "source": "Elsevier BV",
+        "url": "https://doi.org/10.1016/0020-0190(90)90028-v",
+        "abstract": "",
+        "query": "Held Karp TSP exact algorithm"
+      }
+    },
+    {
+      "id": "paper-47",
+      "title": "An ETH-Tight Exact Algorithm for Euclidean TSP",
+      "authors": [
+        "Mark de Berg",
+        "Hans L. Bodlaender",
+        "\u202aS\u00e1ndor Kisfaludi-Bak",
+        "Sudeshna Kolay"
+      ],
+      "year": 2018,
+      "source": "OpenAlex",
+      "url": "https://doi.org/10.1109/focs.2018.00050",
+      "abstract": "",
+      "problem": "Euclidean TSP",
+      "assumptions": [
+        "Euclidean metric"
+      ],
+      "complexity": "Unspecified complexity in abstract",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "EXACT_SPECIAL",
+      "confidence": 0.82,
+      "notes": "algorithm, euclidean, exact, tight",
+      "raw": {
+        "title": "An ETH-Tight Exact Algorithm for Euclidean TSP",
+        "authors": [
+          "Mark de Berg",
+          "Hans L. Bodlaender",
+          "\u202aS\u00e1ndor Kisfaludi-Bak",
+          "Sudeshna Kolay"
+        ],
+        "year": 2018,
+        "source": "OpenAlex",
+        "url": "https://doi.org/10.1109/focs.2018.00050",
+        "abstract": "",
+        "query": "Held Karp TSP exact algorithm"
+      }
+    },
+    {
+      "id": "paper-48",
+      "title": "The traveling - salesman problem and minimum spanning trees: Part II",
+      "authors": [
+        "M Held , RM Karp"
+      ],
+      "year": 1971,
+      "source": "M Held , RM Karp - Mathematical programming, 1971 - Springer",
+      "url": "https://link.springer.com/article/10.1007/bf01584070",
+      "abstract": "\u2026 our algorithm for the traveling - salesman problem combines the ascent method with a branch-and-bound procedure. Typically, a branch-and-bound procedure successively partitions \u2026",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "Unspecified complexity in abstract",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "UNKNOWN",
+      "confidence": 0.4,
+      "notes": "algorithm, ascent, bound, branch, combines, method, minimum, part, partitions, problem, procedure, salesman, spanning, successively, traveling, trees, typically, with",
+      "raw": {
+        "title": "The traveling - salesman problem and minimum spanning trees: Part II",
+        "authors": [
+          "M Held , RM Karp"
+        ],
+        "year": 1971,
+        "source": "M Held , RM Karp - Mathematical programming, 1971 - Springer",
+        "url": "https://link.springer.com/article/10.1007/bf01584070",
+        "abstract": "\u2026 our algorithm for the traveling - salesman problem combines the ascent method with a branch-and-bound procedure. Typically, a branch-and-bound procedure successively partitions \u2026",
+        "query": "Held Karp TSP exact algorithm"
+      }
+    },
+    {
+      "id": "paper-49",
+      "title": "Exact hybrid algorithms for solving a bi-objective vehicle routing problem",
+      "authors": [
+        "P Reiter, WJ Gutjahr"
+      ],
+      "year": 2012,
+      "source": "P Reiter, WJ Gutjahr\u00a0- Central European Journal of Operations Research, 2012 - Springer",
+      "url": "https://link.springer.com/article/10.1007/s10100-010-0158-3",
+      "abstract": "\u2026 TSP In order to extend the Held - Karp bound to the m- TSP , we apply a well-known reduction of the m- TSP to the TSP \u2026 The symmetric m- TSP is defined on a graph G = (V, E), where V = {0\u2026",
+      "problem": "Metric TSP",
+      "assumptions": [
+        "Metric distances"
+      ],
+      "complexity": "Unspecified complexity in abstract",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "EXACT_SPECIAL",
+      "confidence": 0.82,
+      "notes": "algorithms, apply, bound, defined, exact, extend, graph, held, hybrid, karp, known, objective, order, problem, reduction, routing, solving, symmetric, vehicle, well",
+      "raw": {
+        "title": "Exact hybrid algorithms for solving a bi-objective vehicle routing problem",
+        "authors": [
+          "P Reiter, WJ Gutjahr"
+        ],
+        "year": 2012,
+        "source": "P Reiter, WJ Gutjahr\u00a0- Central European Journal of Operations Research, 2012 - Springer",
+        "url": "https://link.springer.com/article/10.1007/s10100-010-0158-3",
+        "abstract": "\u2026 TSP In order to extend the Held - Karp bound to the m- TSP , we apply a well-known reduction of the m- TSP to the TSP \u2026 The symmetric m- TSP is defined on a graph G = (V, E), where V = {0\u2026",
+        "query": "Held Karp TSP exact algorithm"
+      }
+    },
+    {
+      "id": "paper-50",
+      "title": "Estimating the Held-Karp lower bound for the geometric TSP",
+      "authors": [
+        "Christine L. Valenzuela",
+        "Antonia J. Jones"
+      ],
+      "year": 1997,
+      "source": "Elsevier BV",
+      "url": "https://doi.org/10.1016/s0377-2217(96)00214-7",
+      "abstract": "",
+      "problem": "Metric TSP",
+      "assumptions": [
+        "Metric distances"
+      ],
+      "complexity": "O(n^2 2^n) or exponential exact DP",
+      "approach": "Exact dynamic programming",
+      "classification": "EXACT_SPECIAL",
+      "confidence": 0.82,
+      "notes": "bound, estimating, geometric, held, karp, lower",
+      "raw": {
+        "title": "Estimating the Held-Karp lower bound for the geometric TSP",
+        "authors": [
+          "Christine L. Valenzuela",
+          "Antonia J. Jones"
+        ],
+        "year": 1997,
+        "source": "Elsevier BV",
+        "url": "https://doi.org/10.1016/s0377-2217(96)00214-7",
+        "abstract": "",
+        "query": "Held Karp TSP exact algorithm Held Karp"
+      }
+    },
+    {
+      "id": "paper-51",
+      "title": "Analyzing the Held-Karp tsp bound: a monotonicity property with application",
+      "authors": [
+        "David B. Shmoys",
+        "David P. Williamson"
+      ],
+      "year": 1990,
+      "source": "Elsevier BV",
+      "url": "https://doi.org/10.1016/0020-0190(90)90028-v",
+      "abstract": "",
+      "problem": "Exact dynamic-programming TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "O(n^2 2^n) or exponential exact DP",
+      "approach": "Exact dynamic programming",
+      "classification": "EXACT_GENERAL",
+      "confidence": 0.85,
+      "notes": "analyzing, application, bound, held, karp, monotonicity, property, with",
+      "raw": {
+        "title": "Analyzing the Held-Karp tsp bound: a monotonicity property with application",
+        "authors": [
+          "David B. Shmoys",
+          "David P. Williamson"
+        ],
+        "year": 1990,
+        "source": "Elsevier BV",
+        "url": "https://doi.org/10.1016/0020-0190(90)90028-v",
+        "abstract": "",
+        "query": "Held Karp TSP exact algorithm Held Karp"
+      }
+    },
+    {
+      "id": "paper-52",
+      "title": "Approximating the Held-Karp Bound for Metric TSP in Nearly-Linear Time",
+      "authors": [
+        "Chandra Chekuri",
+        "Kent Quanrud"
+      ],
+      "year": 2017,
+      "source": "OpenAlex",
+      "url": "https://doi.org/10.1109/focs.2017.78",
+      "abstract": "",
+      "problem": "Metric TSP",
+      "assumptions": [
+        "Metric distances"
+      ],
+      "complexity": "O(n^2 2^n) or exponential exact DP",
+      "approach": "Exact dynamic programming",
+      "classification": "EXACT_SPECIAL",
+      "confidence": 0.82,
+      "notes": "approximating, bound, held, karp, linear, metric, nearly, time",
+      "raw": {
+        "title": "Approximating the Held-Karp Bound for Metric TSP in Nearly-Linear Time",
+        "authors": [
+          "Chandra Chekuri",
+          "Kent Quanrud"
+        ],
+        "year": 2017,
+        "source": "OpenAlex",
+        "url": "https://doi.org/10.1109/focs.2017.78",
+        "abstract": "",
+        "query": "Held Karp TSP exact algorithm Held Karp"
+      }
+    },
+    {
+      "id": "paper-53",
+      "title": "The traveling - salesman problem and minimum spanning trees: Part II",
+      "authors": [
+        "M Held , RM Karp"
+      ],
+      "year": 1971,
+      "source": "M Held , RM Karp - Mathematical programming, 1971 - Springer",
+      "url": "https://link.springer.com/article/10.1007/bf01584070",
+      "abstract": "\u2026 our algorithm for the traveling - salesman problem combines the ascent method with a branch-and-bound procedure. Typically, a branch-and-bound procedure successively partitions \u2026",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "Unspecified complexity in abstract",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "UNKNOWN",
+      "confidence": 0.4,
+      "notes": "algorithm, ascent, bound, branch, combines, method, minimum, part, partitions, problem, procedure, salesman, spanning, successively, traveling, trees, typically, with",
+      "raw": {
+        "title": "The traveling - salesman problem and minimum spanning trees: Part II",
+        "authors": [
+          "M Held , RM Karp"
+        ],
+        "year": 1971,
+        "source": "M Held , RM Karp - Mathematical programming, 1971 - Springer",
+        "url": "https://link.springer.com/article/10.1007/bf01584070",
+        "abstract": "\u2026 our algorithm for the traveling - salesman problem combines the ascent method with a branch-and-bound procedure. Typically, a branch-and-bound procedure successively partitions \u2026",
+        "query": "Held Karp TSP exact algorithm Held Karp"
+      }
+    },
+    {
+      "id": "paper-54",
+      "title": "Asymptotic experimental analysis for the Held - Karp traveling salesman bound",
+      "authors": [
+        "DS Johnson , LA McGeoch\u2026"
+      ],
+      "year": 1996,
+      "source": "DS Johnson , LA McGeoch\u2026\u00a0- \u2026 Algorithms , 1996 - wwwdimacs.dimacs.rutgers.edu",
+      "url": "http://wwwdimacs.dimacs.rutgers.edu/archive/Challenges/TSP/papers/HKsoda.pdf",
+      "abstract": "\u2026 algorithms , and for N up to a million good approximations can be obtained via iterative Lagrangean relaxation techniques first suggested by Held and Karp \u2026 of the Held Karp bound to \u221a\uf8e5 \u2026",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "Approximation guarantee",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "APPROX",
+      "confidence": 0.88,
+      "notes": "algorithms, analysis, approximations, asymptotic, bound, experimental, first, good, held, iterative, karp, lagrangean, million, obtained, relaxation, salesman, suggested, techniques, traveling",
+      "raw": {
+        "title": "Asymptotic experimental analysis for the Held - Karp traveling salesman bound",
+        "authors": [
+          "DS Johnson , LA McGeoch\u2026"
+        ],
+        "year": 1996,
+        "source": "DS Johnson , LA McGeoch\u2026\u00a0- \u2026 Algorithms , 1996 - wwwdimacs.dimacs.rutgers.edu",
+        "url": "http://wwwdimacs.dimacs.rutgers.edu/archive/Challenges/TSP/papers/HKsoda.pdf",
+        "abstract": "\u2026 algorithms , and for N up to a million good approximations can be obtained via iterative Lagrangean relaxation techniques first suggested by Held and Karp \u2026 of the Held Karp bound to \u221a\uf8e5 \u2026",
+        "query": "Held Karp TSP exact algorithm Held Karp"
+      }
+    },
+    {
+      "id": "paper-55",
+      "title": "An Improved Dynamic Programming Algorithm for Bitonic TSP",
+      "authors": [
+        "Jian Li"
+      ],
+      "year": 2013,
+      "source": "Atlantis Press",
+      "url": "https://doi.org/10.2991/isccca.2013.7",
+      "abstract": "",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "O(n^2 2^n) or exponential exact DP",
+      "approach": "Exact dynamic programming",
+      "classification": "EXACT_GENERAL",
+      "confidence": 0.85,
+      "notes": "algorithm, bitonic, dynamic, improved, programming",
+      "raw": {
+        "title": "An Improved Dynamic Programming Algorithm for Bitonic TSP",
+        "authors": [
+          "Jian Li"
+        ],
+        "year": 2013,
+        "source": "Atlantis Press",
+        "url": "https://doi.org/10.2991/isccca.2013.7",
+        "abstract": "",
+        "query": "Exact TSP dynamic programming algorithm"
+      }
+    },
+    {
+      "id": "paper-56",
+      "title": "An Exact A*-Based Tree Search Algorithm for TSP With Sequence-and-Load Dependent Risk",
+      "authors": [
+        "Hyungjoo Cha",
+        "C. W. Lee",
+        "Chi Xie",
+        "Qing-Chang Lu",
+        "Joonyup Eun",
+        "Taesu Cheong"
+      ],
+      "year": 2024,
+      "source": "IEEE Transactions on Intelligent Transportation Systems",
+      "url": "https://doi.org/10.1109/tits.2024.3384576",
+      "abstract": "",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "Unspecified complexity in abstract",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "EXACT_GENERAL",
+      "confidence": 0.85,
+      "notes": "algorithm, based, dependent, exact, load, risk, search, sequence, tree, with",
+      "raw": {
+        "title": "An Exact A*-Based Tree Search Algorithm for TSP With Sequence-and-Load Dependent Risk",
+        "authors": [
+          "Hyungjoo Cha",
+          "C. W. Lee",
+          "Chi Xie",
+          "Qing-Chang Lu",
+          "Joonyup Eun",
+          "Taesu Cheong"
+        ],
+        "year": 2024,
+        "source": "IEEE Transactions on Intelligent Transportation Systems",
+        "url": "https://doi.org/10.1109/tits.2024.3384576",
+        "abstract": "",
+        "query": "Exact TSP dynamic programming algorithm"
+      }
+    },
+    {
+      "id": "paper-57",
+      "title": "Exact algorithms for the order picking problem",
+      "authors": [
+        "Lucie Pansart",
+        "Nicolas Catusse",
+        "Hadrien Cambazard"
+      ],
+      "year": 2018,
+      "source": "Computers & Operations Research",
+      "url": "https://doi.org/10.1016/j.cor.2018.07.002",
+      "abstract": "",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "Unspecified complexity in abstract",
+      "approach": "General literature review or theoretical analysis",
+      "classification": "EXACT_GENERAL",
+      "confidence": 0.85,
+      "notes": "algorithms, exact, order, picking, problem",
+      "raw": {
+        "title": "Exact algorithms for the order picking problem",
+        "authors": [
+          "Lucie Pansart",
+          "Nicolas Catusse",
+          "Hadrien Cambazard"
+        ],
+        "year": 2018,
+        "source": "Computers & Operations Research",
+        "url": "https://doi.org/10.1016/j.cor.2018.07.002",
+        "abstract": "",
+        "query": "Exact TSP dynamic programming algorithm"
+      }
+    },
+    {
+      "id": "paper-58",
+      "title": "Dynamic programming approaches for the traveling salesman problem with drone",
+      "authors": [
+        "P Bouman , N Agatz , M Schmidt"
+      ],
+      "year": 2018,
+      "source": "P Bouman , N Agatz , M Schmidt - Networks, 2018 - Wiley Online Library",
+      "url": "https://onlinelibrary.wiley.com/doi/abs/10.1002/net.21864",
+      "abstract": "\u2026 This paper presents exact solution approaches for the TSP -D based on dynamic \u2026 a dynamic programming algorithm for the TSP -D and also present two ways to speed up the algorithm . \u2026",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "O(n^2 2^n) or exponential exact DP",
+      "approach": "Exact dynamic programming",
+      "classification": "EXACT_GENERAL",
+      "confidence": 0.85,
+      "notes": "algorithm, also, approaches, based, drone, dynamic, exact, paper, present, presents, problem, programming, salesman, solution, speed, this, traveling, ways, with",
+      "raw": {
+        "title": "Dynamic programming approaches for the traveling salesman problem with drone",
+        "authors": [
+          "P Bouman , N Agatz , M Schmidt"
+        ],
+        "year": 2018,
+        "source": "P Bouman , N Agatz , M Schmidt - Networks, 2018 - Wiley Online Library",
+        "url": "https://onlinelibrary.wiley.com/doi/abs/10.1002/net.21864",
+        "abstract": "\u2026 This paper presents exact solution approaches for the TSP -D based on dynamic \u2026 a dynamic programming algorithm for the TSP -D and also present two ways to speed up the algorithm . \u2026",
+        "query": "Exact TSP dynamic programming algorithm"
+      }
+    },
+    {
+      "id": "paper-59",
+      "title": "Dynamic programming strategies for the traveling salesman problem with time window and precedence constraints",
+      "authors": [
+        "A Mingozzi, L Bianco, S Ricciardelli"
+      ],
+      "year": 1997,
+      "source": "A Mingozzi, L Bianco, S Ricciardelli\u00a0- Operations research, 1997 - pubsonline.informs.org",
+      "url": "https://pubsonline.informs.org/doi/abs/10.1287/opre.45.3.365",
+      "abstract": "\u2026 an exact algorithm for solving the TSP -TWPC with the objective of minimizing the total traveling cost, based on a dynamic programming (\u2026 This algorithm cannot be used to minimize the \u2026",
+      "problem": "General TSP",
+      "assumptions": [
+        "General graph or unspecified metric"
+      ],
+      "complexity": "O(n^2 2^n) or exponential exact DP",
+      "approach": "Exact dynamic programming",
+      "classification": "EXACT_GENERAL",
+      "confidence": 0.85,
+      "notes": "algorithm, based, cannot, constraints, cost, dynamic, exact, minimize, minimizing, objective, precedence, problem, programming, salesman, solving, strategies, this, time, total, traveling",
+      "raw": {
+        "title": "Dynamic programming strategies for the traveling salesman problem with time window and precedence constraints",
+        "authors": [
+          "A Mingozzi, L Bianco, S Ricciardelli"
+        ],
+        "year": 1997,
+        "source": "A Mingozzi, L Bianco, S Ricciardelli\u00a0- Operations research, 1997 - pubsonline.informs.org",
+        "url": "https://pubsonline.informs.org/doi/abs/10.1287/opre.45.3.365",
+        "abstract": "\u2026 an exact algorithm for solving the TSP -TWPC with the objective of minimizing the total traveling cost, based on a dynamic programming (\u2026 This algorithm cannot be used to minimize the \u2026",
+        "query": "Exact TSP dynamic programming algorithm"
+      }
+    }
+  ]
+}

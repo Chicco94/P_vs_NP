@@ -1,6 +1,9 @@
 from __future__ import annotations
 
+import argparse
+import json
 from dataclasses import dataclass, field
+from pathlib import Path
 from typing import Iterable, Any
 
 from pipeline.classifiers.paper_classifier import classify_paper
@@ -187,3 +190,27 @@ class QOrchestrator:
             "summary": self.evaluate_records(all_records),
             "records": all_records,
         }
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Evidence-driven TSP literature orchestrator")
+    parser.add_argument("--queries", nargs="*", default=None, help="Target queries to run in sequence")
+    parser.add_argument("--target", default=None, help="Single target query to evaluate")
+    parser.add_argument("--max-results", type=int, default=3, help="Maximum results per query")
+    parser.add_argument("--iterations", type=int, default=4, help="Maximum search iterations")
+    parser.add_argument("--output", type=Path, default=Path(__file__).resolve().parent / "output" / "q_orchestrator_report.json", help="JSON report path")
+    args = parser.parse_args()
+
+    orchestrator = QOrchestrator(
+        base_queries=args.queries or QOrchestrator().base_queries,
+        max_iterations=args.iterations,
+        max_results_per_query=args.max_results,
+    )
+    result = orchestrator.run(target=args.target)
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    args.output.write_text(json.dumps(result, indent=2), encoding="utf-8")
+    print(json.dumps({"status": result["status"], "summary": result["summary"], "report": str(args.output)}, indent=2))
+
+
+if __name__ == "__main__":
+    main()

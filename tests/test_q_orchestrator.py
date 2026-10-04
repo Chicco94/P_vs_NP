@@ -34,3 +34,26 @@ def test_orchestrator_stops_when_evidence_is_sufficient():
     }
 
     assert orchestrator.should_continue(summary) is False
+
+
+def test_collect_results_prioritizes_canonical_sources(monkeypatch):
+    from pipeline.collectors.scholar_collector import collect_results
+
+    def fake_crossref(query, max_results=5):
+        return [{"title": "Crossref Canonical Paper", "authors": ["A. Author"], "year": 2023, "source": "Crossref", "url": "https://example.org/crossref", "abstract": "Canonical result", "query": query}]
+
+    def fake_openalex(query, max_results=5):
+        return [{"title": "OpenAlex Canonical Paper", "authors": ["B. Author"], "year": 2023, "source": "OpenAlex", "url": "https://example.org/openalex", "abstract": "Canonical result", "query": query}]
+
+    def fake_google(query, max_results=5):
+        return [{"title": "Google Noise", "authors": ["C. Author"], "year": 2023, "source": "Google", "url": "https://example.org/google", "abstract": "Noisy", "query": query}]
+
+    monkeypatch.setattr("pipeline.collectors.scholar_collector.search_crossref", fake_crossref)
+    monkeypatch.setattr("pipeline.collectors.scholar_collector.search_openalex", fake_openalex)
+    monkeypatch.setattr("pipeline.collectors.scholar_collector.search_google_scholar", fake_google)
+
+    results = collect_results(["TSP NP-hardness"])
+    titles = [item["title"] for item in results]
+    assert titles[0] == "Crossref Canonical Paper"
+    assert "OpenAlex Canonical Paper" in titles
+    assert "Google Noise" in titles
