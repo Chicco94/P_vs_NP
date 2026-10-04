@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Held-Karp dynamic programming",
+    "category": "EXACT_GENERAL",
+    "problem": "General TSP",
+    "assumptions": ["General weighted graph or complete graph"],
+    "complexity": "Exponential in n (classic O(n^2 2^n))",
+    "approach": "Exact dynamic programming",
+    "conclusion": "Exact but not polynomial-time in the general case."
+  },
+  {
+    "title": "Karp reductions and NP-completeness",
+    "category": "HARDNESS",
+    "problem": "Combinatorial optimization and TSP reductions",
+    "assumptions": ["Standard computational complexity model"],
+    "complexity": "NP-hardness / completeness",
+    "approach": "Reduction-based complexity proof",
+    "conclusion": "Provides the theoretical basis for understanding the hardness of general TSP."
+  },
+  {
+    "title": "Christofides approximation",
+    "category": "APPROX",
+    "problem": "Metric TSP",
+    "assumptions": ["Metric distances, triangle inequality"],
+    "complexity": "Approximation guarantee",
+    "approach": "Approximation algorithm",
+    "conclusion": "Strong approximation guarantee, but not exact for the general case."
+  },
+  {
+    "title": "Arora PTAS for Euclidean TSP",
+    "category": "PTAS",
+    "problem": "Euclidean TSP",
+    "assumptions": ["Euclidean geometry"],
+    "complexity": "Polynomial-time approximation scheme",
+    "approach": "PTAS",
+    "conclusion": "Efficient approximation exists in a special geometric setting, not in the general TSP."
+  }
+]

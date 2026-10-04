@@ -21,10 +21,12 @@
 Documentazione di riferimento: [docs/fase3-parsing-normalizzazione.md](docs/fase3-parsing-normalizzazione.md)
 
 ## Fase 4 - Analisi della letteratura
-- [ ] Riconoscere i principali teoremi sul TSP
-- [ ] Classificare i risultati per categoria: esatto, approssimato, PTAS, special case
-- [ ] Identificare i risultati critici sulla complessità del problema
-- [ ] Costruire un knowledge base dei claim scientifici
+- [x] Riconoscere i principali teoremi sul TSP
+- [x] Classificare i risultati per categoria: esatto, approssimato, PTAS, special case
+- [x] Identificare i risultati critici sulla complessità del problema
+- [x] Costruire un knowledge base dei claim scientifici
+
+Documentazione di riferimento: [docs/fase4-analisi-letteratura.md](docs/fase4-analisi-letteratura.md)
 
 ## Fase 5 - Sviluppo degli agenti
 - [ ] Implementare l'agent di ricerca bibliografica
