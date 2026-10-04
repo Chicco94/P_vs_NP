@@ -102,3 +102,74 @@ def test_collect_results_demotes_generic_fallback_noise(monkeypatch):
     results = collect_results(["TSP NP-hardness"])
     assert results[0]["title"] == "Karp 1972: Reducibility Among Combinatorial Problems"
     assert [item["title"] for item in results].count("Paper 1") == 0
+
+
+def test_orchestrator_updates_summary_and_compiles_when_objective_is_reached(monkeypatch):
+    orchestrator = QOrchestrator(base_queries=["TSP NP-hardness"], max_iterations=2, max_results_per_query=1)
+
+    def fake_collect_results(queries, max_results_per_query=5):
+        return [
+            {
+                "title": "Karp 1972: Reducibility Among Combinatorial Problems",
+                "authors": ["R. Karp"],
+                "year": 1972,
+                "source": "Crossref",
+                "url": "https://example.org/karp",
+                "abstract": "NP-hardness for combinatorial optimization",
+                "query": queries[0],
+            },
+            {
+                "title": "Held-Karp Dynamic Programming for TSP",
+                "authors": ["M. Held", "R. Karp"],
+                "year": 1962,
+                "source": "Crossref",
+                "url": "https://example.org/held-karp",
+                "abstract": "Exact dynamic-programming algorithm for TSP",
+                "query": queries[0],
+            },
+        ]
+
+    monkeypatch.setattr("pipeline.q_orchestrator.collect_results", fake_collect_results)
+    monkeypatch.setattr("pipeline.q_orchestrator.normalize_paper", lambda raw: {
+        "title": raw["title"],
+        "authors": raw["authors"],
+        "year": raw["year"],
+        "source": raw["source"],
+        "url": raw["url"],
+        "abstract": raw["abstract"],
+        "problem": "General TSP / NP-hardness" if "Karp" in raw["title"] else "TSP exact dynamic programming",
+        "assumptions": ["General graph or unspecified metric"] if "Karp" in raw["title"] else ["Complete graph"],
+        "complexity": "NP-hardness / lower bound" if "Karp" in raw["title"] else "Exact dynamic programming",
+        "approach": "Complexity reduction / hardness result" if "Karp" in raw["title"] else "Dynamic programming / exact algorithm",
+    })
+    monkeypatch.setattr("pipeline.q_orchestrator.classify_paper", lambda title, abstract, problem: ("HARDNESS", 0.95) if "1972" in title else ("EXACT_SPECIAL", 0.9))
+    monkeypatch.setattr("pipeline.q_orchestrator.extract_keywords_for_notes", lambda title, abstract: {"keywords": ["hardness", "tsp"] if "1972" in title else ["exact", "tsp"]})
+
+    calls = []
+    monkeypatch.setattr(orchestrator, "update_summary_document", lambda summary, proof: calls.append(("document", summary["has_required_evidence"], proof)))
+    monkeypatch.setattr(orchestrator, "compile_pdf", lambda path: calls.append(("pdf", str(path))))
+
+    result = orchestrator.run(target="TSP NP-hardness")
+
+    assert result["status"] == "completed"
+    assert calls[0][0] == "document"
+    assert calls[1][0] == "pdf"
+
+
+def test_update_summary_document_uses_real_newlines_in_latex(tmp_path):
+    tex_path = tmp_path / "restricted_tsp_summary.tex"
+    tex_path.write_text(
+        "\\documentclass{article}\n\\begin{document}\n\\section{Evidence-driven literature refinement}\n"
+        "The old text.\\n\\n\\section{Conclusion}\nThe conclusion.\\n\\end{document}\n",
+        encoding="utf-8",
+    )
+
+    orchestrator = QOrchestrator(base_queries=["TSP NP-hardness"], summary_path=tex_path)
+    summary = {"total_records": 3, "coverage_score": 0.8, "has_required_evidence": False}
+
+    orchestrator.update_summary_document(summary, "The new proof text.")
+
+    updated = tex_path.read_text(encoding="utf-8")
+    assert "\\n\\n" not in updated
+    assert "The new proof text." in updated
+    assert "\\section{Evidence-driven literature refinement}" in updated

@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.10.4)  4 OCT 2026 15:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.10.4)  4 OCT 2026 16:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./docs/restricted_tsp_summary.tex
-(docs/restricted_tsp_summary.tex
+**./restricted_tsp_summary.tex
+(restricted_tsp_summary.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
 (C:\Users\enric\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -332,9 +332,7 @@ File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 tex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count316
-)
-(C:\Users\enric\OneDrive\Documenti\Progetti\P_vs_NP\docs\restricted_tsp_summary
-.aux)
+) (restricted_tsp_summary.aux)
 \openout1 = `restricted_tsp_summary.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
@@ -356,17 +354,15 @@ LaTeX Font Info:    ... okay on input line 14.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 14.
 LaTeX Font Info:    ... okay on input line 14.
 Package hyperref Info: Link coloring OFF on input line 14.
-
-(C:\Users\enric\OneDrive\Documenti\Progetti\P_vs_NP\docs\restricted_tsp_summary
-.out)
-(C:\Users\enric\OneDrive\Documenti\Progetti\P_vs_NP\docs\restricted_tsp_summary
-.out)
+ (restricted_tsp_summary.out)
+(restricted_tsp_summary.out)
 \@outlinefile=\write3
 \openout3 = `restricted_tsp_summary.out'.
 
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
 6.
- (C:\Users\enric\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
+
+(C:\Users\enric\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
@@ -426,31 +422,23 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
 put line 85.
 
-[4] [5] [6]
-(C:\Users\enric\OneDrive\Documenti\Progetti\P_vs_NP\docs\restricted_tsp_summary
-.aux)
+[4] [5] [6] (restricted_tsp_summary.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
+Package rerunfilecheck Info: File `restricted_tsp_summary.out' has not changed.
 
-
-Package rerunfilecheck Warning: File `restricted_tsp_summary.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `restricted_tsp_summary.out':
-(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
-(rerunfilecheck)             After:  E1EAEF7115291EAD8A7790E91FB9B4EB;1496.
+(rerunfilecheck)             Checksum: 39A51A9AC565E5542F1B8530363442D1;1732.
  ) 
 Here is how much of TeX's memory you used:
- 9932 strings out of 467871
- 153135 string characters out of 5418376
- 557020 words of memory out of 5000000
- 38662 multiletter control sequences out of 15000+600000
+ 9944 strings out of 467871
+ 152922 string characters out of 5418376
+ 557027 words of memory out of 5000000
+ 38674 multiletter control sequences out of 15000+600000
  672406 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,5n,79p,1050b,451s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,5n,79p,1045b,451s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/enric/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pf
 b><C:/Users/enric/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pf
 b><C:/Users/enric/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pf
@@ -464,10 +452,9 @@ sers/enric/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/U
 sers/enric/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Us
 ers/enric/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msb
 m10.pfb>
-Output written on C:\Users\enric\OneDrive\Documenti\Progetti\P_vs_NP\docs\restr
-icted_tsp_summary.pdf (6 pages, 213118 bytes).
+Output written on restricted_tsp_summary.pdf (6 pages, 218660 bytes).
 PDF statistics:
- 122 PDF objects out of 1000 (max. 8388607)
- 22 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 157 PDF objects out of 1000 (max. 8388607)
+ 23 named destinations out of 1000 (max. 500000)
+ 89 words of extra memory for PDF output out of 10000 (max. 10000000)
 

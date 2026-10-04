@@ -134,13 +134,31 @@ Nel repository sono stati definiti agenti custom da usare direttamente con GitHu
 
 - TSP Researcher: ricerca bibliografica, classificazione dei paper e sintesi scientifica.
 - TSP Validator: benchmark e verifica empirica di algoritmi esatti e approssimati.
+- TSP Orchestrator: ciclo iterativo di recupero evidenze, miglioramento della dimostrazione, aggiornamento del report e compilazione del PDF.
 - prompt di review della letteratura: scaffolding per valutare rapidamente un nuovo paper.
+
+### Task runner per l'orchestratore
+
+Il progetto include anche un runner unico per avviare il ciclo completo:
+
+```powershell
+python run_tsp_pipeline.py --queries "TSP NP-hardness" "Held Karp TSP exact algorithm" --max-results 2 --iterations 2
+```
+
+oppure in modalità target singolo:
+
+```powershell
+python run_tsp_pipeline.py --target "TSP NP-hardness" --max-results 3 --iterations 4
+```
+
+Questo comando recupera le nuove informazioni, aggiorna la dimostrazione, modifica il riepilogo LaTeX e compila il PDF prima di terminare o di ripartire dal ciclo successivo.
 
 Questi agenti sono definiti in:
 
 - [AGENTS.md](AGENTS.md)
 - [.github/chatmodes/tsp-researcher.chatmode.md](.github/chatmodes/tsp-researcher.chatmode.md)
 - [.github/chatmodes/tsp-validator.chatmode.md](.github/chatmodes/tsp-validator.chatmode.md)
+- [.github/chatmodes/tsp-orchestrator.chatmode.md](.github/chatmodes/tsp-orchestrator.chatmode.md)
 - [.github/prompts/tsp-literature-review.prompt.md](.github/prompts/tsp-literature-review.prompt.md)
 
 Sono stati pensati per guidare i lavori di ricerca in modo più rigoroso, distinguendo teoria, casi speciali e validazione empirica.

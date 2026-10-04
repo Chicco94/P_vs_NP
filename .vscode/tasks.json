@@ -1,0 +1,44 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "TSP: Orchestrator run",
+      "type": "shell",
+      "command": "python",
+      "args": [
+        "run_tsp_pipeline.py",
+        "--queries",
+        "TSP NP-hardness",
+        "Held Karp TSP exact algorithm",
+        "--max-results",
+        "2",
+        "--iterations",
+        "2"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "group": "build"
+    },
+    {
+      "label": "TSP: Orchestrator target",
+      "type": "shell",
+      "command": "python",
+      "args": [
+        "run_tsp_pipeline.py",
+        "--target",
+        "TSP NP-hardness",
+        "--max-results",
+        "3",
+        "--iterations",
+        "4"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "group": "build"
+    }
+  ]
+}

@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import argparse
 import json
+import shutil
+import subprocess
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Iterable, Any
@@ -25,6 +27,12 @@ class QOrchestrator:
     max_iterations: int = 4
     min_evidence: int = 2
     max_results_per_query: int = 3
+    summary_path: Path = field(
+        default_factory=lambda: Path(__file__).resolve().parents[1] / "docs" / "restricted_tsp_summary.tex"
+    )
+    pdf_path: Path = field(
+        default_factory=lambda: Path(__file__).resolve().parents[1] / "docs" / "restricted_tsp_summary.pdf"
+    )
 
     def expand_queries(self, query: str) -> list[str]:
         query = query.strip()
@@ -119,6 +127,86 @@ class QOrchestrator:
             return False
         return True
 
+    def objective_reached(self, summary: dict[str, Any]) -> bool:
+        return bool(summary.get("has_required_evidence")) and summary.get("coverage_score", 0.0) >= 0.65
+
+    def refine_proof(self, summary: dict[str, Any]) -> str:
+        if self.objective_reached(summary):
+            return (
+                "The evidence collected in this cycle is sufficient to justify a more precise scientific claim: "
+                "the unrestricted case remains outside the scope of a proven polynomial-time exact solver, while the "
+                "specialized literature provides structured exact and approximation results that are relevant to the problem class."
+            )
+        return (
+            "The evidence is still incomplete: the current cycle identifies special-case and approximation literature, "
+            "but it has not yet reached the threshold needed to state a definitive general conclusion. Further retrieval is required."
+        )
+
+    def update_summary_document(self, summary: dict[str, Any], proof_text: str) -> bool:
+        tex_path = Path(self.summary_path)
+        if not tex_path.exists():
+            return False
+
+        text = tex_path.read_text(encoding="utf-8")
+        marker = "\\section{Evidence-driven literature refinement}"
+        replacement = (
+            "\\section{Evidence-driven literature refinement}\n\n"
+            "The orchestrator refreshed the corpus and analyzed the new evidence. The latest run reports "
+            f"{summary.get('total_records', 0)} records with a coverage score of {summary.get('coverage_score', 0.0)}. "
+            f"The status is {'objective reached' if self.objective_reached(summary) else 'continuing the search'} and the evidence gate is "
+            f"{'satisfied' if summary.get('has_required_evidence') else 'not yet satisfied'}.\n\n"
+            f"{proof_text}\n"
+        )
+
+        if marker in text:
+            start = text.index(marker)
+            end = text.index("\\section{Conclusion}", start) if "\\section{Conclusion}" in text[start:] else len(text)
+            text = text[:start] + replacement + text[end:]
+        else:
+            before_conclusion = text.rfind("\\section{Conclusion}")
+            if before_conclusion >= 0:
+                text = text[:before_conclusion] + replacement + "\n" + text[before_conclusion:]
+            else:
+                text = text.rstrip() + "\n\n" + replacement + "\n"
+
+        tex_path.write_text(text, encoding="utf-8")
+        return True
+
+    def compile_pdf(self, tex_path: str | Path) -> bool:
+        path = Path(tex_path)
+        if not path.exists():
+            return False
+
+        candidates: list[Path] = [
+            Path(r"C:\Users\enric\AppData\Local\Programs\MiKTeX\miktex\bin\x64\pdflatex.exe"),
+            Path("pdflatex"),
+        ]
+        compiler = None
+        for candidate in candidates:
+            if candidate.exists():
+                compiler = candidate
+                break
+            if shutil.which(str(candidate)):
+                compiler = candidate
+                break
+            if candidate.name == "pdflatex":
+                compiler = candidate
+
+        if compiler is None:
+            return False
+
+        try:
+            subprocess.run(
+                [str(compiler), "-interaction=nonstopmode", str(path.name)],
+                cwd=str(path.parent),
+                check=True,
+                capture_output=True,
+                text=True,
+            )
+            return True
+        except subprocess.CalledProcessError:
+            return False
+
     def run(self, target: str | None = None) -> dict[str, Any]:
         queryset = self.base_queries[:]
         if target:
@@ -166,12 +254,27 @@ class QOrchestrator:
                     all_records.append(paper.to_dict())
 
             summary = self.evaluate_records(all_records)
+            proof = self.refine_proof(summary)
+            self.update_summary_document(summary, proof)
+            self.compile_pdf(self.summary_path)
+
+            if self.objective_reached(summary):
+                return {
+                    "status": "completed",
+                    "iterations": iteration + 1,
+                    "queries_seen": len(seen_queries),
+                    "summary": summary,
+                    "proof": proof,
+                    "records": all_records,
+                }
+
             if not self.should_continue(summary):
                 return {
                     "status": "done",
                     "iterations": iteration + 1,
                     "queries_seen": len(seen_queries),
                     "summary": summary,
+                    "proof": proof,
                     "records": all_records,
                 }
 
@@ -183,11 +286,16 @@ class QOrchestrator:
                     "TSP special cases polynomial time exact",
                 ]
 
+        final_summary = self.evaluate_records(all_records)
+        final_proof = self.refine_proof(final_summary)
+        self.update_summary_document(final_summary, final_proof)
+        self.compile_pdf(self.summary_path)
         return {
             "status": "max_iterations_reached",
             "iterations": self.max_iterations,
             "queries_seen": len(seen_queries),
-            "summary": self.evaluate_records(all_records),
+            "summary": final_summary,
+            "proof": final_proof,
             "records": all_records,
         }
 
