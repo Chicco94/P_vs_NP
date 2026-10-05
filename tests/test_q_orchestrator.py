@@ -326,3 +326,34 @@ def test_orchestrator_accumulates_records_across_runs(tmp_path, monkeypatch):
     existing_paper = next(record for record in second_run["records"] if record["title"] == "Existing Paper")
     assert existing_paper["abstract"] == "A richer TSP abstract"
     assert len(json.loads(corpus_path.read_text(encoding="utf-8"))) == len(second_run_titles)
+
+
+def test_save_corpus_recovers_when_windows_denies_file_replacement(tmp_path, monkeypatch):
+    import json
+    from pathlib import Path
+
+    corpus_path = tmp_path / "paper_corpus.json"
+    corpus_path.write_text(json.dumps([{"title": "Existing Paper", "year": 2020}]), encoding="utf-8")
+    orchestrator = QOrchestrator(corpus_path=corpus_path)
+    original_replace = Path.replace
+
+    def deny_corpus_replacement(source, target):
+        if Path(target) == corpus_path:
+            raise PermissionError("simulated OneDrive lock")
+        return original_replace(source, target)
+
+    monkeypatch.setattr(Path, "replace", deny_corpus_replacement)
+
+    saved = orchestrator.save_corpus([
+        {"title": "Existing Paper", "year": 2020},
+        {"title": "New Paper", "year": 2024},
+    ])
+
+    assert saved is False
+    assert list(tmp_path.glob("paper_corpus.pending-*.json"))
+
+    monkeypatch.setattr(Path, "replace", original_replace)
+    recovered = orchestrator.load_corpus()
+
+    assert {record["title"] for record in recovered} == {"Existing Paper", "New Paper"}
+    assert list(tmp_path.glob("paper_corpus.pending-*.json")) == []

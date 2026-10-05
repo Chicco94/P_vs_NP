@@ -6,6 +6,8 @@ import logging
 import re
 import shutil
 import subprocess
+import time
+from uuid import uuid4
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Iterable, Any
@@ -95,32 +97,86 @@ class QOrchestrator:
 
     def load_corpus(self) -> list[dict[str, Any]]:
         corpus_path = Path(self.corpus_path)
-        source_path = corpus_path
-        if not source_path.exists():
-            legacy_report = corpus_path.parent / "q_orchestrator_report.json"
-            if legacy_report.exists() and legacy_report != corpus_path:
-                source_path = legacy_report
-                logger.info("Importing existing records from legacy report %s", legacy_report)
-            else:
-                return []
+        legacy_report = corpus_path.parent / "q_orchestrator_report.json"
+        source_paths = [corpus_path] if corpus_path.exists() else []
+        if not source_paths and legacy_report.exists() and legacy_report != corpus_path:
+            source_paths.append(legacy_report)
+            logger.info("Importing existing records from legacy report %s", legacy_report)
 
-        payload = json.loads(source_path.read_text(encoding="utf-8"))
-        raw_records = payload if isinstance(payload, list) else payload.get("records", [])
+        pending_paths = sorted(corpus_path.parent.glob(f"{corpus_path.stem}.pending-*.json"))
+        source_paths.extend(pending_paths)
+        if not source_paths:
+            return []
+
         records: list[dict[str, Any]] = []
-        for record in raw_records:
-            if isinstance(record, dict):
-                self._upsert_record(records, record.copy())
+        needs_persist = bool(pending_paths) or source_paths[0] != corpus_path
+        for source_path in source_paths:
+            try:
+                payload = json.loads(source_path.read_text(encoding="utf-8"))
+            except (OSError, json.JSONDecodeError) as error:
+                logger.warning("Skipping unreadable corpus snapshot %s: %s", source_path, error)
+                continue
+            raw_records = payload if isinstance(payload, list) else payload.get("records", [])
+            if not isinstance(raw_records, list):
+                logger.warning("Skipping corpus snapshot with invalid record list: %s", source_path)
+                continue
+            for record in raw_records:
+                if isinstance(record, dict):
+                    added, changed = self._upsert_record(records, record.copy())
+                    if source_path == corpus_path and not added and changed:
+                        needs_persist = True
 
-        if source_path != corpus_path or len(records) != len(raw_records):
-            self.save_corpus(records)
+        if needs_persist and self.save_corpus(records):
+            for pending_path in pending_paths:
+                try:
+                    pending_path.unlink(missing_ok=True)
+                except OSError as error:
+                    logger.warning("Could not remove recovered corpus snapshot %s: %s", pending_path, error)
         return records
 
-    def save_corpus(self, records: list[dict[str, Any]]) -> None:
+    def save_corpus(self, records: list[dict[str, Any]]) -> bool:
         corpus_path = Path(self.corpus_path)
         corpus_path.parent.mkdir(parents=True, exist_ok=True)
-        temporary_path = corpus_path.with_suffix(corpus_path.suffix + ".tmp")
-        temporary_path.write_text(json.dumps(records, indent=2, ensure_ascii=False), encoding="utf-8")
-        temporary_path.replace(corpus_path)
+        snapshot = json.dumps(records, indent=2, ensure_ascii=False)
+        token = uuid4().hex
+        temporary_path = corpus_path.with_name(f"{corpus_path.stem}.tmp-{token}.json")
+        pending_path = corpus_path.with_name(f"{corpus_path.stem}.pending-{token}.json")
+
+        try:
+            temporary_path.write_text(snapshot, encoding="utf-8")
+        except OSError:
+            logger.exception("Could not write temporary corpus snapshot %s", temporary_path)
+            return False
+
+        for attempt in range(3):
+            try:
+                temporary_path.replace(corpus_path)
+                return True
+            except PermissionError as error:
+                if attempt < 2:
+                    delay = 0.1 * (2 ** attempt)
+                    logger.warning(
+                        "Corpus is locked; retrying replacement in %.1f seconds (%s/3): %s",
+                        delay,
+                        attempt + 1,
+                        error,
+                    )
+                    time.sleep(delay)
+                    continue
+
+                try:
+                    temporary_path.replace(pending_path)
+                    logger.error(
+                        "Corpus remains locked; saved this update as recoverable snapshot %s",
+                        pending_path,
+                    )
+                except OSError:
+                    logger.exception("Could not preserve locked corpus update at %s", temporary_path)
+                return False
+            except OSError:
+                logger.exception("Could not replace corpus file %s", corpus_path)
+                return False
+        return False
 
     def expand_queries(self, query: str) -> list[str]:
         query = query.strip()
