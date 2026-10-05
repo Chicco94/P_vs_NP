@@ -2,11 +2,14 @@ from __future__ import annotations
 
 import argparse
 import json
+import logging
 import shutil
 import subprocess
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Iterable, Any
+
+logger = logging.getLogger(__name__)
 
 from pipeline.classifiers.paper_classifier import classify_paper
 from pipeline.collectors.scholar_collector import collect_results
@@ -212,19 +215,26 @@ class QOrchestrator:
         if target:
             queryset = [target]
 
+        logger.info("Starting TSP orchestrator run with base queries=%s target=%s", queryset, target)
         all_records: list[dict[str, Any]] = []
         seen_queries: set[str] = set()
 
         for iteration in range(self.max_iterations):
+            logger.info("Iteration %s/%s: expanding and collecting evidence", iteration + 1, self.max_iterations)
             candidate_queries: list[str] = []
             for query in queryset:
-                candidate_queries.extend(self.expand_queries(query))
+                expanded = self.expand_queries(query)
+                logger.info("Expanded query '%s' into %s candidate queries", query, len(expanded))
+                candidate_queries.extend(expanded)
 
             for query in candidate_queries:
                 if query in seen_queries:
                     continue
                 seen_queries.add(query)
+                logger.info("Querying bibliographic sources for: %s", query)
                 raw_results = collect_results([query], max_results_per_query=self.max_results_per_query)
+                logger.info("Received %s raw results for query '%s'", len(raw_results), query)
+
                 for raw in raw_results:
                     normalized = normalize_paper(raw)
                     classification, confidence = classify_paper(
@@ -252,13 +262,18 @@ class QOrchestrator:
                         raw=raw,
                     )
                     all_records.append(paper.to_dict())
+                    logger.debug("Stored record '%s' with classification=%s confidence=%s", normalized["title"], classification, confidence)
 
             summary = self.evaluate_records(all_records)
+            logger.info("Evaluated current evidence: %s", summary)
+
             proof = self.refine_proof(summary)
+            logger.info("Updating summary document and regenerating PDF for this iteration")
             self.update_summary_document(summary, proof)
             self.compile_pdf(self.summary_path)
 
             if self.objective_reached(summary):
+                logger.info("Objective reached; stopping orchestrator after iteration %s", iteration + 1)
                 return {
                     "status": "completed",
                     "iterations": iteration + 1,
@@ -269,6 +284,7 @@ class QOrchestrator:
                 }
 
             if not self.should_continue(summary):
+                logger.info("Evidence gate satisfied; terminating loop early after iteration %s", iteration + 1)
                 return {
                     "status": "done",
                     "iterations": iteration + 1,
@@ -279,6 +295,7 @@ class QOrchestrator:
                 }
 
             if iteration < self.max_iterations - 1:
+                logger.info("Continuing search with canonical follow-up queries")
                 queryset = [
                     "Karp 1972 TSP NP-hardness",
                     "Held Karp dynamic programming TSP exact",
@@ -288,6 +305,7 @@ class QOrchestrator:
 
         final_summary = self.evaluate_records(all_records)
         final_proof = self.refine_proof(final_summary)
+        logger.info("Maximum iterations reached; final summary coverage=%s", final_summary)
         self.update_summary_document(final_summary, final_proof)
         self.compile_pdf(self.summary_path)
         return {
@@ -309,11 +327,14 @@ def main() -> None:
     parser.add_argument("--output", type=Path, default=Path(__file__).resolve().parent / "output" / "q_orchestrator_report.json", help="JSON report path")
     args = parser.parse_args()
 
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+
     orchestrator = QOrchestrator(
         base_queries=args.queries or QOrchestrator().base_queries,
         max_iterations=args.iterations,
         max_results_per_query=args.max_results,
     )
+    logger.info("Starting orchestrator CLI run")
     result = orchestrator.run(target=args.target)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2), encoding="utf-8")
