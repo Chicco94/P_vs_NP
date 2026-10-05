@@ -151,9 +151,11 @@ oppure in modalità target singolo:
 python run_tsp_pipeline.py --target "TSP NP-hardness" --max-results 3 --iterations 4
 ```
 
-Questo comando recupera le nuove informazioni, aggiorna la dimostrazione, modifica il riepilogo LaTeX e compila il PDF prima di terminare o di ripartire dal ciclo successivo.
+Il runner cerca un algoritmo esatto per il TSP generale e aggiorna il riepilogo LaTeX e il PDF. L'esito `completed` richiede una pubblicazione classificata `EXACT_GENERAL` che dichiari esplicitamente un algoritmo deterministico, esatto e in tempo polinomiale per il TSP non ristretto, oltre a una verifica indipendente registrata nel corpus. Risultati HARDNESS, Held-Karp, approssimazioni e casi speciali non soddisfano l'obiettivo.
 
 I documenti raccolti vengono accumulati tra esecuzioni nel file `pipeline/output/paper_corpus.json`. Al primo avvio, se il corpus non esiste, il runner importa i record dal report precedente `pipeline/output/q_orchestrator_report.json`. I risultati ripetuti vengono uniti usando titolo e anno, evitando di creare duplicati; il percorso si può cambiare con `--corpus`.
+
+Per marcare un record come verificato, dopo aver controllato il testo completo dell'algoritmo e le prove di correttezza e complessità, aggiungere al record `"algorithm_verified": true` e una nota non vuota in `"verification_evidence"`. Il numero massimo di iterazioni resta un limite operativo: `max_iterations_reached` e `search_stalled` sono esiti inconclusivi, non indicano che l'algoritmo sia stato trovato.
 
 Questi agenti sono definiti in:
 

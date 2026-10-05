@@ -37,14 +37,15 @@ Avviare un ciclo di lavoro che:
 
 ## Obiettivo di stop
 
-Il ciclo può terminare solo quando sono soddisfatte condizioni sufficienti di evidenza, ad esempio:
+L'obiettivo è trovare un algoritmo deterministico in tempo polinomiale che risolva esattamente il TSP generale. Il ciclo può terminare con stato `completed` solo quando un candidato soddisfa tutti i requisiti seguenti:
 
-- presenza di almeno un risultato di hardness canonico;
-- presenza di almeno un risultato su casi speciali o un algoritmo esatto rilevante;
-- copertura complessiva del corpus sufficiente;
-- la dimostrazione o la formulazione scientifica è coerente con la biblioteca recuperata.
+- risolve esattamente il TSP, non solo una variante approssimata;
+- è deterministico;
+- ha complessità polinomiale nella dimensione dell'input;
+- vale per il TSP generale non ristretto, non solo per metriche o geometrie particolari;
+- algoritmo, prova di correttezza e analisi di complessità sono stati verificati e la verifica è documentata nel corpus.
 
-Se l'obiettivo non è raggiunto, il ciclo deve ripartire dal punto 2.
+Hardness, Held-Karp, PTAS, approssimazioni e algoritmi per casi speciali non soddisfano l'obiettivo. La sola classificazione `EXACT_GENERAL` o una dichiarazione bibliografica non costituisce verifica. Se viene trovato un possibile candidato ma non è verificato, segnalarlo e continuare la ricerca. `max_iterations_reached` e `search_stalled` sono esiti inconclusivi, mai successi.
 
 ## Workflow consigliato
 
@@ -56,14 +57,15 @@ Se l'obiettivo non è raggiunto, il ciclo deve ripartire dal punto 2.
 6. Raffina la dimostrazione: chiarisci assunzioni, limiti, caso generale vs caso speciale.
 7. Aggiorna il documento in docs/restricted_tsp_summary.tex.
 8. Compila il PDF in docs/restricted_tsp_summary.pdf.
-9. Se l'obiettivo è raggiunto, termina con un report di stato completo; altrimenti ripeti il ciclo.
+9. Termina con `completed` solo dopo la verifica dell'algoritmo; se il limite di iterazioni è raggiunto o non restano query nuove, segnala un esito inconclusivo.
 
 ## Output atteso
 
-- stato finale del ciclo (`completed` o `done`);
+- stato finale del ciclo (`completed`, `max_iterations_reached` o `search_stalled`);
 - numero di iterazioni eseguite;
 - numero di query viste;
 - conteggio per categoria di evidenza;
+- numero di candidati e algoritmi verificati;
 - coverage score;
 - testo di miglioramento della dimostrazione;
 - path del PDF aggiornato;

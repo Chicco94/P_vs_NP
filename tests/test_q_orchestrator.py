@@ -23,7 +23,7 @@ def test_evidence_gate_raises_when_hardness_and_special_case_are_present():
     assert summary["coverage_score"] >= 0.5
 
 
-def test_orchestrator_stops_when_evidence_is_sufficient():
+def test_orchestrator_continues_when_only_literature_evidence_is_sufficient():
     orchestrator = QOrchestrator(base_queries=["TSP NP-hardness"], min_evidence=2)
     summary = {
         "hardness_count": 1,
@@ -31,9 +31,70 @@ def test_orchestrator_stops_when_evidence_is_sufficient():
         "ptas_count": 0,
         "coverage_score": 0.8,
         "has_required_evidence": True,
+        "total_records": 100,
+        "verified_algorithm_count": 0,
     }
 
-    assert orchestrator.should_continue(summary) is False
+    assert orchestrator.objective_reached(summary) is False
+    assert orchestrator.should_continue(summary) is True
+
+
+def test_objective_requires_verified_polynomial_exact_general_algorithm():
+    orchestrator = QOrchestrator()
+    candidate = {
+        "title": "A deterministic polynomial-time exact algorithm for general TSP",
+        "abstract": "The algorithm solves the unrestricted TSP exactly in deterministic polynomial time.",
+        "problem": "General TSP",
+        "assumptions": ["Arbitrary weighted graphs"],
+        "classification": "EXACT_GENERAL",
+        "algorithm_verified": False,
+    }
+
+    unverified_summary = orchestrator.evaluate_records([candidate])
+    assert unverified_summary["algorithm_candidate_count"] == 1
+    assert unverified_summary["verified_algorithm_count"] == 0
+    assert orchestrator.objective_reached(unverified_summary) is False
+
+    candidate["assumptions"] = ["General graph or unspecified metric"]
+    assert orchestrator.evaluate_records([candidate])["algorithm_candidate_count"] == 1
+
+    candidate["algorithm_verified"] = True
+    candidate["verification_evidence"] = "Reviewed algorithm and correctness/complexity proof."
+    verified_summary = orchestrator.evaluate_records([candidate])
+    assert verified_summary["verified_algorithm_count"] == 1
+    assert orchestrator.objective_reached(verified_summary) is True
+
+    candidate["classification"] = "HARDNESS"
+    assert orchestrator.evaluate_records([candidate])["verified_algorithm_count"] == 1
+
+
+def test_run_completes_when_verified_general_polynomial_algorithm_is_present(tmp_path, monkeypatch):
+    import json
+
+    corpus_path = tmp_path / "paper_corpus.json"
+    corpus_path.write_text(json.dumps([{
+        "id": "paper-1",
+        "title": "A deterministic polynomial-time exact algorithm for general TSP",
+        "abstract": "The algorithm solves unrestricted TSP exactly in deterministic polynomial time.",
+        "problem": "General TSP",
+        "assumptions": ["Arbitrary weighted graphs"],
+        "classification": "EXACT_GENERAL",
+        "algorithm_verified": True,
+        "verification_evidence": "Reviewed algorithm and correctness/complexity proof.",
+    }]), encoding="utf-8")
+    orchestrator = QOrchestrator(
+        base_queries=["TSP NP-hardness"],
+        max_iterations=1,
+        corpus_path=corpus_path,
+    )
+    monkeypatch.setattr("pipeline.q_orchestrator.collect_results", lambda *args, **kwargs: [])
+    monkeypatch.setattr(orchestrator, "update_summary_document", lambda *args: True)
+    monkeypatch.setattr(orchestrator, "compile_pdf", lambda *args: True)
+
+    result = orchestrator.run()
+
+    assert result["status"] == "completed"
+    assert result["summary"]["verified_algorithm_count"] == 1
 
 
 def test_collect_results_prioritizes_canonical_sources(monkeypatch):
@@ -104,10 +165,10 @@ def test_collect_results_demotes_generic_fallback_noise(monkeypatch):
     assert [item["title"] for item in results].count("Paper 1") == 0
 
 
-def test_orchestrator_updates_summary_and_compiles_when_objective_is_reached(monkeypatch, tmp_path):
+def test_orchestrator_does_not_complete_on_hardness_and_exact_paper_alone(monkeypatch, tmp_path):
     orchestrator = QOrchestrator(
         base_queries=["TSP NP-hardness"],
-        max_iterations=2,
+        max_iterations=100,
         max_results_per_query=1,
         corpus_path=tmp_path / "paper_corpus.json",
     )
@@ -156,7 +217,8 @@ def test_orchestrator_updates_summary_and_compiles_when_objective_is_reached(mon
 
     result = orchestrator.run(target="TSP NP-hardness")
 
-    assert result["status"] == "completed"
+    assert result["status"] == "search_stalled"
+    assert result["iterations"] < orchestrator.max_iterations
     assert calls[0][0] == "document"
     assert calls[1][0] == "pdf"
 

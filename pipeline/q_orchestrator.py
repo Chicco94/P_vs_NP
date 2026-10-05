@@ -159,6 +159,8 @@ class QOrchestrator:
             "Metric TSP approximation lower bounds",
             "TSP special cases polynomial time exact",
             "Planar TSP polynomial time exact",
+            "Deterministic polynomial-time exact algorithm for general TSP",
+            "Unrestricted traveling salesman problem exact polynomial-time algorithm",
         ]
         expansions.extend(canonical)
 
@@ -171,8 +173,9 @@ class QOrchestrator:
         return unique
 
     def evaluate_records(self, records: Iterable[dict[str, Any]]) -> dict[str, Any]:
+        record_list = list(records)
         counts: dict[str, int] = {}
-        for record in records:
+        for record in record_list:
             label = str(record.get("classification", "UNKNOWN")).upper()
             counts[label] = counts.get(label, 0) + 1
 
@@ -192,6 +195,14 @@ class QOrchestrator:
         has_required_evidence = (
             hardness_count >= 1 and (exact_special_count >= 1 or ptas_count >= 1 or exact_general_count >= 1)
         )
+        algorithm_candidates = [
+            record for record in record_list if self._claims_polynomial_exact_general_algorithm(record)
+        ]
+        verified_algorithms = [
+            record
+            for record in algorithm_candidates
+            if record.get("algorithm_verified") is True and str(record.get("verification_evidence", "")).strip()
+        ]
 
         return {
             "hardness_count": hardness_count,
@@ -201,30 +212,60 @@ class QOrchestrator:
             "approximation_count": approximation_count,
             "coverage_score": round(coverage_score, 3),
             "has_required_evidence": has_required_evidence,
+            "algorithm_candidate_count": len(algorithm_candidates),
+            "verified_algorithm_count": len(verified_algorithms),
             "total_records": total,
             "min_evidence": self.min_evidence,
         }
 
+    @staticmethod
+    def _claims_polynomial_exact_general_algorithm(record: dict[str, Any]) -> bool:
+        claim_text = f"{record.get('title', '')} {record.get('abstract', '')}".casefold()
+        if not re.search(r"\bpolynomial[- ]time\b", claim_text):
+            return False
+        if not re.search(r"\bdeterministic\b", claim_text):
+            return False
+        if not re.search(r"\bexact(?:ly)?\b", claim_text):
+            return False
+        general_scope = re.search(
+            r"\b(?:general|unrestricted)\s+(?:weighted\s+)?tsp\b"
+            r"|\b(?:arbitrary|any)\s+(?:weighted\s+)?graphs?\b"
+            r"|\ball\s+(?:general\s+)?tsp\s+instances\b",
+            claim_text,
+        )
+        if not general_scope:
+            return False
+
+        assumptions_value = record.get("assumptions", [])
+        assumptions = " ".join(
+            [assumptions_value] if isinstance(assumptions_value, str) else map(str, assumptions_value)
+        )
+        problem_scope = f"{record.get('problem', '')} {assumptions}".casefold()
+        restricted_geometry = any(term in problem_scope for term in ("euclidean", "planar"))
+        restricted_metric = re.search(r"\bmetric\s+(?:tsp|distances?)\b", problem_scope)
+        return not restricted_geometry and restricted_metric is None
+
     def should_continue(self, summary: dict[str, Any]) -> bool:
-        if summary.get("has_required_evidence") and summary.get("coverage_score", 0.0) >= 0.5:
-            return False
-        if summary.get("total_records", 0) >= self.min_evidence:
-            return False
-        return True
+        return not self.objective_reached(summary)
 
     def objective_reached(self, summary: dict[str, Any]) -> bool:
-        return bool(summary.get("has_required_evidence")) and summary.get("coverage_score", 0.0) >= 0.65
+        return summary.get("verified_algorithm_count", 0) >= 1
 
     def refine_proof(self, summary: dict[str, Any]) -> str:
         if self.objective_reached(summary):
             return (
-                "The evidence collected in this cycle is sufficient to justify a more precise scientific claim: "
-                "the unrestricted case remains outside the scope of a proven polynomial-time exact solver, while the "
-                "specialized literature provides structured exact and approximation results that are relevant to the problem class."
+                "A deterministic polynomial-time exact algorithm for unrestricted TSP is recorded as independently verified. "
+                "The algorithm and its proof should remain linked to the verification evidence in the corpus."
+            )
+        if summary.get("algorithm_candidate_count", 0):
+            return (
+                f"The corpus contains {summary['algorithm_candidate_count']} record(s) claiming a deterministic "
+                "polynomial-time exact algorithm for general TSP, but none is marked as independently verified. "
+                "The search continues until an algorithm and its correctness and complexity proof are verified."
             )
         return (
-            "The evidence is still incomplete: the current cycle identifies special-case and approximation literature, "
-            "but it has not yet reached the threshold needed to state a definitive general conclusion. Further retrieval is required."
+            "No independently verified deterministic polynomial-time exact algorithm for unrestricted TSP has been found. "
+            "Hardness, exponential exact algorithms, approximation results, and special cases do not satisfy the objective."
         )
 
     def update_summary_document(self, summary: dict[str, Any], proof_text: str) -> bool:
@@ -236,10 +277,12 @@ class QOrchestrator:
         marker = "\\section{Evidence-driven literature refinement}"
         replacement = (
             "\\section{Evidence-driven literature refinement}\n\n"
-            "The orchestrator refreshed the corpus and analyzed the new evidence. The latest run reports "
-            f"{summary.get('total_records', 0)} records with a coverage score of {summary.get('coverage_score', 0.0)}. "
-            f"The status is {'objective reached' if self.objective_reached(summary) else 'continuing the search'} and the evidence gate is "
-            f"{'satisfied' if summary.get('has_required_evidence') else 'not yet satisfied'}.\n\n"
+            "The orchestrator evaluated the accumulated corpus of "
+            f"{summary.get('total_records', 0)} records (coverage score: {summary.get('coverage_score', 0.0)}). "
+            f"Algorithm claims matching the unrestricted deterministic polynomial-time exact criteria: "
+            f"{summary.get('algorithm_candidate_count', 0)}; independently verified: "
+            f"{summary.get('verified_algorithm_count', 0)}. "
+            f"The algorithm-finding objective is {'reached' if self.objective_reached(summary) else 'not reached'}.\n\n"
             f"{proof_text}\n"
         )
 
@@ -310,9 +353,23 @@ class QOrchestrator:
                 logger.info("Expanded query '%s' into %s candidate queries", query, len(expanded))
                 candidate_queries.extend(expanded)
 
-            for query in candidate_queries:
-                if query in seen_queries:
-                    continue
+            pending_queries = list(dict.fromkeys(query for query in candidate_queries if query not in seen_queries))
+            if not pending_queries:
+                summary = self.evaluate_records(all_records)
+                proof = self.refine_proof(summary)
+                logger.warning("No unseen queries remain; stopping without reaching the algorithm objective")
+                self.update_summary_document(summary, proof)
+                self.compile_pdf(self.summary_path)
+                return {
+                    "status": "search_stalled",
+                    "iterations": iteration,
+                    "queries_seen": len(seen_queries),
+                    "summary": summary,
+                    "proof": proof,
+                    "records": all_records,
+                }
+
+            for query in pending_queries:
                 seen_queries.add(query)
                 logger.info("Querying bibliographic sources for: %s", query)
                 raw_results = collect_results([query], max_results_per_query=self.max_results_per_query)
@@ -373,29 +430,23 @@ class QOrchestrator:
                     "records": all_records,
                 }
 
-            if not self.should_continue(summary):
-                logger.info("Evidence gate satisfied; terminating loop early after iteration %s", iteration + 1)
-                return {
-                    "status": "done",
-                    "iterations": iteration + 1,
-                    "queries_seen": len(seen_queries),
-                    "summary": summary,
-                    "proof": proof,
-                    "records": all_records,
-                }
-
             if iteration < self.max_iterations - 1:
-                logger.info("Continuing search with canonical follow-up queries")
+                logger.info("Algorithm not verified; continuing search with follow-up queries")
                 queryset = [
                     "Karp 1972 TSP NP-hardness",
                     "Held Karp dynamic programming TSP exact",
                     "Euclidean TSP PTAS Arora",
                     "TSP special cases polynomial time exact",
+                    "Deterministic polynomial-time exact algorithm for general TSP",
+                    "Unrestricted traveling salesman problem exact polynomial-time algorithm",
                 ]
 
         final_summary = self.evaluate_records(all_records)
         final_proof = self.refine_proof(final_summary)
-        logger.info("Maximum iterations reached; final summary coverage=%s", final_summary)
+        logger.info(
+            "Maximum iterations reached without a verified algorithm; verified_algorithm_count=%s",
+            final_summary.get("verified_algorithm_count", 0),
+        )
         self.update_summary_document(final_summary, final_proof)
         self.compile_pdf(self.summary_path)
         return {
