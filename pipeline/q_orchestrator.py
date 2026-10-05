@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import re
 import shutil
 import subprocess
 from dataclasses import dataclass, field
@@ -36,6 +37,87 @@ class QOrchestrator:
     pdf_path: Path = field(
         default_factory=lambda: Path(__file__).resolve().parents[1] / "docs" / "restricted_tsp_summary.pdf"
     )
+    corpus_path: Path = field(
+        default_factory=lambda: Path(__file__).resolve().parent / "output" / "paper_corpus.json"
+    )
+
+    @staticmethod
+    def _record_key(record: dict[str, Any]) -> str:
+        title = re.sub(r"[^\w]+", " ", str(record.get("title") or "").casefold()).strip()
+        year = record.get("year")
+        if title:
+            return f"title:{title}:{year or ''}"
+        url = str(record.get("url") or "").casefold().rstrip("/")
+        return f"url:{url}"
+
+    @classmethod
+    def _upsert_record(cls, records: list[dict[str, Any]], record: dict[str, Any]) -> tuple[bool, bool]:
+        key = cls._record_key(record)
+        existing = next((item for item in records if cls._record_key(item) == key), None)
+        if existing is None:
+            record["id"] = f"paper-{len(records) + 1}"
+            records.append(record)
+            return True, True
+
+        changed = False
+        existing_confidence = float(existing.get("confidence") or 0.0)
+        incoming_confidence = float(record.get("confidence") or 0.0)
+        for name, value in record.items():
+            if name == "id" or value in (None, "", [], {}):
+                continue
+            current = existing.get(name)
+            if name == "classification":
+                if incoming_confidence > existing_confidence and current != value:
+                    existing[name] = value
+                    changed = True
+            elif name == "confidence":
+                if incoming_confidence > existing_confidence:
+                    existing[name] = value
+                    changed = True
+            elif isinstance(value, list):
+                merged = list(dict.fromkeys([*(current or []), *value]))
+                if merged != current:
+                    existing[name] = merged
+                    changed = True
+            elif isinstance(value, dict):
+                merged = {**(current or {}), **value}
+                if merged != current:
+                    existing[name] = merged
+                    changed = True
+            elif not current or (isinstance(value, str) and len(value) > len(str(current))):
+                if current != value:
+                    existing[name] = value
+                    changed = True
+        return False, changed
+
+    def load_corpus(self) -> list[dict[str, Any]]:
+        corpus_path = Path(self.corpus_path)
+        source_path = corpus_path
+        if not source_path.exists():
+            legacy_report = corpus_path.parent / "q_orchestrator_report.json"
+            if legacy_report.exists() and legacy_report != corpus_path:
+                source_path = legacy_report
+                logger.info("Importing existing records from legacy report %s", legacy_report)
+            else:
+                return []
+
+        payload = json.loads(source_path.read_text(encoding="utf-8"))
+        raw_records = payload if isinstance(payload, list) else payload.get("records", [])
+        records: list[dict[str, Any]] = []
+        for record in raw_records:
+            if isinstance(record, dict):
+                self._upsert_record(records, record.copy())
+
+        if source_path != corpus_path or len(records) != len(raw_records):
+            self.save_corpus(records)
+        return records
+
+    def save_corpus(self, records: list[dict[str, Any]]) -> None:
+        corpus_path = Path(self.corpus_path)
+        corpus_path.parent.mkdir(parents=True, exist_ok=True)
+        temporary_path = corpus_path.with_suffix(corpus_path.suffix + ".tmp")
+        temporary_path.write_text(json.dumps(records, indent=2, ensure_ascii=False), encoding="utf-8")
+        temporary_path.replace(corpus_path)
 
     def expand_queries(self, query: str) -> list[str]:
         query = query.strip()
@@ -216,7 +298,8 @@ class QOrchestrator:
             queryset = [target]
 
         logger.info("Starting TSP orchestrator run with base queries=%s target=%s", queryset, target)
-        all_records: list[dict[str, Any]] = []
+        all_records = self.load_corpus()
+        logger.info("Loaded %s accumulated records from %s", len(all_records), self.corpus_path)
         seen_queries: set[str] = set()
 
         for iteration in range(self.max_iterations):
@@ -261,8 +344,15 @@ class QOrchestrator:
                         ),
                         raw=raw,
                     )
-                    all_records.append(paper.to_dict())
-                    logger.debug("Stored record '%s' with classification=%s confidence=%s", normalized["title"], classification, confidence)
+                    is_new, changed = self._upsert_record(all_records, paper.to_dict())
+                    if changed:
+                        self.save_corpus(all_records)
+                    if is_new:
+                        logger.info("Added paper '%s' to persistent corpus (%s records)", normalized["title"], len(all_records))
+                    elif changed:
+                        logger.info("Enriched existing paper '%s' in persistent corpus", normalized["title"])
+                    else:
+                        logger.debug("Paper '%s' already exists in persistent corpus", normalized["title"])
 
             summary = self.evaluate_records(all_records)
             logger.info("Evaluated current evidence: %s", summary)
@@ -324,6 +414,7 @@ def main() -> None:
     parser.add_argument("--target", default=None, help="Single target query to evaluate")
     parser.add_argument("--max-results", type=int, default=3, help="Maximum results per query")
     parser.add_argument("--iterations", type=int, default=4, help="Maximum search iterations")
+    parser.add_argument("--corpus", type=Path, default=QOrchestrator().corpus_path, help="Persistent paper corpus JSON path")
     parser.add_argument("--output", type=Path, default=Path(__file__).resolve().parent / "output" / "q_orchestrator_report.json", help="JSON report path")
     args = parser.parse_args()
 
@@ -333,6 +424,7 @@ def main() -> None:
         base_queries=args.queries or QOrchestrator().base_queries,
         max_iterations=args.iterations,
         max_results_per_query=args.max_results,
+        corpus_path=args.corpus,
     )
     logger.info("Starting orchestrator CLI run")
     result = orchestrator.run(target=args.target)

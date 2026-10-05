@@ -153,6 +153,8 @@ python run_tsp_pipeline.py --target "TSP NP-hardness" --max-results 3 --iteratio
 
 Questo comando recupera le nuove informazioni, aggiorna la dimostrazione, modifica il riepilogo LaTeX e compila il PDF prima di terminare o di ripartire dal ciclo successivo.
 
+I documenti raccolti vengono accumulati tra esecuzioni nel file `pipeline/output/paper_corpus.json`. Al primo avvio, se il corpus non esiste, il runner importa i record dal report precedente `pipeline/output/q_orchestrator_report.json`. I risultati ripetuti vengono uniti usando titolo e anno, evitando di creare duplicati; il percorso si può cambiare con `--corpus`.
+
 Questi agenti sono definiti in:
 
 - [AGENTS.md](AGENTS.md)

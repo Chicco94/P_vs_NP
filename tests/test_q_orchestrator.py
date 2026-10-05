@@ -104,8 +104,13 @@ def test_collect_results_demotes_generic_fallback_noise(monkeypatch):
     assert [item["title"] for item in results].count("Paper 1") == 0
 
 
-def test_orchestrator_updates_summary_and_compiles_when_objective_is_reached(monkeypatch):
-    orchestrator = QOrchestrator(base_queries=["TSP NP-hardness"], max_iterations=2, max_results_per_query=1)
+def test_orchestrator_updates_summary_and_compiles_when_objective_is_reached(monkeypatch, tmp_path):
+    orchestrator = QOrchestrator(
+        base_queries=["TSP NP-hardness"],
+        max_iterations=2,
+        max_results_per_query=1,
+        corpus_path=tmp_path / "paper_corpus.json",
+    )
 
     def fake_collect_results(queries, max_results_per_query=5):
         return [
@@ -173,3 +178,71 @@ def test_update_summary_document_uses_real_newlines_in_latex(tmp_path):
     assert "\\n\\n" not in updated
     assert "The new proof text." in updated
     assert "\\section{Evidence-driven literature refinement}" in updated
+
+
+def test_orchestrator_accumulates_records_across_runs(tmp_path, monkeypatch):
+    import json
+
+    report_path = tmp_path / "q_orchestrator_report.json"
+    corpus_path = tmp_path / "paper_corpus.json"
+    report_path.write_text(
+        '{"status": "done", "records": [{"id": "paper-1", "title": "Existing Paper", '
+        '"year": 2001, "classification": "UNKNOWN", "confidence": 0.2}]}',
+        encoding="utf-8",
+    )
+    orchestrator = QOrchestrator(
+        base_queries=["TSP NP-hardness"],
+        max_iterations=1,
+        max_results_per_query=1,
+        corpus_path=corpus_path,
+    )
+    collection_number = 0
+
+    def fake_collect_results(queries, max_results_per_query=5):
+        nonlocal collection_number
+        collection_number += 1
+        return [
+            {
+                "title": f"Collected Paper {collection_number}",
+                "authors": ["A. Author"],
+                "year": 2024,
+                "source": "Crossref",
+                "url": f"https://example.org/{collection_number}",
+                "abstract": "A TSP paper",
+                "query": queries[0],
+            },
+            {
+                "title": "Existing Paper",
+                "authors": ["A. Author"],
+                "year": 2001,
+                "source": "Crossref",
+                "url": "https://example.org/existing",
+                "abstract": "A richer TSP abstract",
+                "query": queries[0],
+            },
+        ]
+
+    monkeypatch.setattr("pipeline.q_orchestrator.collect_results", fake_collect_results)
+    monkeypatch.setattr("pipeline.q_orchestrator.normalize_paper", lambda raw: {
+        **raw,
+        "problem": "TSP",
+        "assumptions": [],
+        "complexity": "Unknown",
+        "approach": "Unknown",
+    })
+    monkeypatch.setattr("pipeline.q_orchestrator.classify_paper", lambda *args: ("UNKNOWN", 0.2))
+    monkeypatch.setattr("pipeline.q_orchestrator.extract_keywords_for_notes", lambda *args: {"keywords": []})
+    monkeypatch.setattr(orchestrator, "update_summary_document", lambda *args: True)
+    monkeypatch.setattr(orchestrator, "compile_pdf", lambda *args: True)
+
+    first_run = orchestrator.run()
+    first_run_titles = {record["title"] for record in first_run["records"]}
+    second_run = orchestrator.run()
+    second_run_titles = {record["title"] for record in second_run["records"]}
+
+    assert "Existing Paper" in first_run_titles
+    assert first_run_titles < second_run_titles
+    assert len(second_run["records"]) == len(second_run_titles)
+    existing_paper = next(record for record in second_run["records"] if record["title"] == "Existing Paper")
+    assert existing_paper["abstract"] == "A richer TSP abstract"
+    assert len(json.loads(corpus_path.read_text(encoding="utf-8"))) == len(second_run_titles)

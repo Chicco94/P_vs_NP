@@ -1,0 +1,575 @@
+[
+  {
+    "id": "paper-1",
+    "title": "TSP with bounded metrics",
+    "authors": [
+      "Lars Fredrik Engebretsen",
+      "Marek Karpiński"
+    ],
+    "year": 2006,
+    "source": "Journal of Computer and System Sciences",
+    "url": "https://doi.org/10.1016/j.jcss.2005.12.001",
+    "abstract": "",
+    "problem": "Metric TSP",
+    "assumptions": [
+      "Metric distances"
+    ],
+    "complexity": "Unspecified complexity in abstract",
+    "approach": "General literature review or theoretical analysis",
+    "classification": "EXACT_SPECIAL",
+    "confidence": 0.7,
+    "notes": "bounded, metrics, with",
+    "raw": {
+      "title": "TSP with bounded metrics",
+      "authors": [
+        "Lars Fredrik Engebretsen",
+        "Marek Karpiński"
+      ],
+      "year": 2006,
+      "source": "Journal of Computer and System Sciences",
+      "url": "https://doi.org/10.1016/j.jcss.2005.12.001",
+      "abstract": "",
+      "query": "TSP NP-hardness"
+    }
+  },
+  {
+    "id": "paper-2",
+    "title": "Hardness amplification within NP",
+    "authors": [
+      "Ryan O'Donnell"
+    ],
+    "year": 2004,
+    "source": "Elsevier BV",
+    "url": "https://doi.org/10.1016/j.jcss.2004.01.001",
+    "abstract": "",
+    "problem": "General TSP",
+    "assumptions": [
+      "General graph or unspecified metric"
+    ],
+    "complexity": "Unspecified complexity in abstract",
+    "approach": "Complexity reduction / hardness result",
+    "classification": "HARDNESS",
+    "confidence": 0.95,
+    "notes": "amplification, hardness, within",
+    "raw": {
+      "title": "Hardness amplification within NP",
+      "authors": [
+        "Ryan O'Donnell"
+      ],
+      "year": 2004,
+      "source": "Elsevier BV",
+      "url": "https://doi.org/10.1016/j.jcss.2004.01.001",
+      "abstract": "",
+      "query": "TSP NP-hardness"
+    }
+  },
+  {
+    "id": "paper-3",
+    "title": "Karp: a language for NP reductions",
+    "authors": [
+      "Chenhao Zhang",
+      "Jason D. Hartline",
+      "Christos Dimoulas"
+    ],
+    "year": 2022,
+    "source": "ACM",
+    "url": "https://doi.org/10.1145/3519939.3523732",
+    "abstract": "",
+    "problem": "General TSP",
+    "assumptions": [
+      "General graph or unspecified metric"
+    ],
+    "complexity": "Unspecified complexity in abstract",
+    "approach": "General literature review or theoretical analysis",
+    "classification": "UNKNOWN",
+    "confidence": 0.4,
+    "notes": "karp, language, reductions",
+    "raw": {
+      "title": "Karp: a language for NP reductions",
+      "authors": [
+        "Chenhao Zhang",
+        "Jason D. Hartline",
+        "Christos Dimoulas"
+      ],
+      "year": 2022,
+      "source": "ACM",
+      "url": "https://doi.org/10.1145/3519939.3523732",
+      "abstract": "",
+      "query": "Karp 1972 TSP NP-hardness"
+    }
+  },
+  {
+    "id": "paper-4",
+    "title": "A priori TSP in the scenario model",
+    "authors": [
+      "Martijn van Ee",
+      "Leo van Iersel",
+      "Teun Janssen",
+      "René A. Sitters"
+    ],
+    "year": 2018,
+    "source": "Discrete Applied Mathematics",
+    "url": "https://doi.org/10.1016/j.dam.2018.04.002",
+    "abstract": "",
+    "problem": "General TSP",
+    "assumptions": [
+      "General graph or unspecified metric"
+    ],
+    "complexity": "Unspecified complexity in abstract",
+    "approach": "General literature review or theoretical analysis",
+    "classification": "UNKNOWN",
+    "confidence": 0.4,
+    "notes": "model, priori, scenario",
+    "raw": {
+      "title": "A priori TSP in the scenario model",
+      "authors": [
+        "Martijn van Ee",
+        "Leo van Iersel",
+        "Teun Janssen",
+        "René A. Sitters"
+      ],
+      "year": 2018,
+      "source": "Discrete Applied Mathematics",
+      "url": "https://doi.org/10.1016/j.dam.2018.04.002",
+      "abstract": "",
+      "query": "TSP NP-hardness Karp 1972"
+    }
+  },
+  {
+    "id": "paper-5",
+    "title": "Cook reducibility is faster than Karp reducibility in NP",
+    "authors": [
+      "Luc Longpré",
+      "Paul Young"
+    ],
+    "year": 1990,
+    "source": "Elsevier BV",
+    "url": "https://doi.org/10.1016/0022-0000(90)90026-h",
+    "abstract": "",
+    "problem": "General TSP",
+    "assumptions": [
+      "General graph or unspecified metric"
+    ],
+    "complexity": "Unspecified complexity in abstract",
+    "approach": "General literature review or theoretical analysis",
+    "classification": "UNKNOWN",
+    "confidence": 0.4,
+    "notes": "cook, faster, karp, reducibility, than",
+    "raw": {
+      "title": "Cook reducibility is faster than Karp reducibility in NP",
+      "authors": [
+        "Luc Longpré",
+        "Paul Young"
+      ],
+      "year": 1990,
+      "source": "Elsevier BV",
+      "url": "https://doi.org/10.1016/0022-0000(90)90026-h",
+      "abstract": "",
+      "query": "Karp 1972 TSP NP-hardness"
+    }
+  },
+  {
+    "id": "paper-6",
+    "title": "Computers and Intractability: A Guide to the Theory of NP-Completeness (Michael R. Garey and David S. Johnson)",
+    "authors": [
+      "Juris Hartmanis"
+    ],
+    "year": 1982,
+    "source": "Society for Industrial & Applied Mathematics (SIAM)",
+    "url": "https://doi.org/10.1137/1024022",
+    "abstract": "",
+    "problem": "General TSP",
+    "assumptions": [
+      "General graph or unspecified metric"
+    ],
+    "complexity": "Unspecified complexity in abstract",
+    "approach": "General literature review or theoretical analysis",
+    "classification": "UNKNOWN",
+    "confidence": 0.4,
+    "notes": "completeness, computers, david, garey, guide, intractability, johnson, michael, theory",
+    "raw": {
+      "title": "Computers and Intractability: A Guide to the Theory of NP-Completeness (Michael R. Garey and David S. Johnson)",
+      "authors": [
+        "Juris Hartmanis"
+      ],
+      "year": 1982,
+      "source": "Society for Industrial & Applied Mathematics (SIAM)",
+      "url": "https://doi.org/10.1137/1024022",
+      "abstract": "",
+      "query": "TSP NP-hardness Garey Johnson"
+    }
+  },
+  {
+    "id": "paper-7",
+    "title": "The worst-case analysis of the Garey–Johnson algorithm",
+    "authors": [
+      "Claire Hanen",
+      "Yakov Zinder"
+    ],
+    "year": 2009,
+    "source": "Springer Science and Business Media LLC",
+    "url": "https://doi.org/10.1007/s10951-009-0101-4",
+    "abstract": "",
+    "problem": "General TSP",
+    "assumptions": [
+      "General graph or unspecified metric"
+    ],
+    "complexity": "Unspecified complexity in abstract",
+    "approach": "General literature review or theoretical analysis",
+    "classification": "UNKNOWN",
+    "confidence": 0.4,
+    "notes": "algorithm, analysis, case, garey, johnson, worst",
+    "raw": {
+      "title": "The worst-case analysis of the Garey–Johnson algorithm",
+      "authors": [
+        "Claire Hanen",
+        "Yakov Zinder"
+      ],
+      "year": 2009,
+      "source": "Springer Science and Business Media LLC",
+      "url": "https://doi.org/10.1007/s10951-009-0101-4",
+      "abstract": "",
+      "query": "TSP NP-hardness Garey Johnson"
+    }
+  },
+  {
+    "id": "paper-8",
+    "title": "Approximating the Held-Karp Bound for Metric TSP in Nearly-Linear Time",
+    "authors": [
+      "Chandra Chekuri",
+      "Kent Quanrud"
+    ],
+    "year": 2017,
+    "source": "OpenAlex",
+    "url": "https://doi.org/10.1109/focs.2017.78",
+    "abstract": "",
+    "problem": "Metric TSP",
+    "assumptions": [
+      "Metric distances"
+    ],
+    "complexity": "O(n^2 2^n) or exponential exact DP",
+    "approach": "Exact dynamic programming",
+    "classification": "EXACT_SPECIAL",
+    "confidence": 0.82,
+    "notes": "approximating, bound, held, karp, linear, metric, nearly, time",
+    "raw": {
+      "title": "Approximating the Held-Karp Bound for Metric TSP in Nearly-Linear Time",
+      "authors": [
+        "Chandra Chekuri",
+        "Kent Quanrud"
+      ],
+      "year": 2017,
+      "source": "OpenAlex",
+      "url": "https://doi.org/10.1109/focs.2017.78",
+      "abstract": "",
+      "query": "Held Karp dynamic programming TSP exact"
+    }
+  },
+  {
+    "id": "paper-9",
+    "title": "Estimating the Held-Karp lower bound for the geometric TSP",
+    "authors": [
+      "Christine L. Valenzuela",
+      "Antonia J. Jones"
+    ],
+    "year": 1997,
+    "source": "Elsevier BV",
+    "url": "https://doi.org/10.1016/s0377-2217(96)00214-7",
+    "abstract": "",
+    "problem": "Metric TSP",
+    "assumptions": [
+      "Metric distances"
+    ],
+    "complexity": "O(n^2 2^n) or exponential exact DP",
+    "approach": "Exact dynamic programming",
+    "classification": "EXACT_SPECIAL",
+    "confidence": 0.82,
+    "notes": "bound, estimating, geometric, held, karp, lower",
+    "raw": {
+      "title": "Estimating the Held-Karp lower bound for the geometric TSP",
+      "authors": [
+        "Christine L. Valenzuela",
+        "Antonia J. Jones"
+      ],
+      "year": 1997,
+      "source": "Elsevier BV",
+      "url": "https://doi.org/10.1016/s0377-2217(96)00214-7",
+      "abstract": "",
+      "query": "Held Karp dynamic programming TSP exact"
+    }
+  },
+  {
+    "id": "paper-10",
+    "title": "A PTAS for Euclidean TSP with Hyperplane Neighborhoods",
+    "authors": [
+      "Antonios Antoniadis",
+      "Krzysztof Fleszar",
+      "Ruben Hoeksma",
+      "Kevin Schewior"
+    ],
+    "year": 2019,
+    "source": "Society for Industrial and Applied Mathematics",
+    "url": "https://doi.org/10.1137/1.9781611975482.67",
+    "abstract": "",
+    "problem": "Euclidean TSP",
+    "assumptions": [
+      "Euclidean metric"
+    ],
+    "complexity": "PTAS or approximation scheme",
+    "approach": "Approximation scheme",
+    "classification": "PTAS",
+    "confidence": 0.94,
+    "notes": "euclidean, hyperplane, neighborhoods, ptas, with",
+    "raw": {
+      "title": "A PTAS for Euclidean TSP with Hyperplane Neighborhoods",
+      "authors": [
+        "Antonios Antoniadis",
+        "Krzysztof Fleszar",
+        "Ruben Hoeksma",
+        "Kevin Schewior"
+      ],
+      "year": 2019,
+      "source": "Society for Industrial and Applied Mathematics",
+      "url": "https://doi.org/10.1137/1.9781611975482.67",
+      "abstract": "",
+      "query": "Euclidean TSP PTAS Arora"
+    }
+  },
+  {
+    "id": "paper-11",
+    "title": "Improved Approximation Lower Bounds for TSP with Distances One and Two",
+    "authors": [
+      "Ryo HIRADE",
+      "Toshiya ITOH"
+    ],
+    "year": 2002,
+    "source": "Graduate School of Information Sciences, Tohoku University",
+    "url": "https://doi.org/10.4036/iis.2002.63",
+    "abstract": "",
+    "problem": "General TSP",
+    "assumptions": [
+      "General graph or unspecified metric"
+    ],
+    "complexity": "Approximation guarantee",
+    "approach": "General literature review or theoretical analysis",
+    "classification": "APPROX",
+    "confidence": 0.88,
+    "notes": "approximation, bounds, distances, improved, lower, with",
+    "raw": {
+      "title": "Improved Approximation Lower Bounds for TSP with Distances One and Two",
+      "authors": [
+        "Ryo HIRADE",
+        "Toshiya ITOH"
+      ],
+      "year": 2002,
+      "source": "Graduate School of Information Sciences, Tohoku University",
+      "url": "https://doi.org/10.4036/iis.2002.63",
+      "abstract": "",
+      "query": "Metric TSP approximation lower bounds"
+    }
+  },
+  {
+    "id": "paper-12",
+    "title": "On Approximation Lower Bounds for TSP with Bounded Metrics",
+    "authors": [
+      "Marek Karpiński",
+      "Richard Schmied"
+    ],
+    "year": 2012,
+    "source": "arXiv (Cornell University)",
+    "url": "https://doi.org/10.48550/arxiv.1201.5821",
+    "abstract": "",
+    "problem": "Metric TSP",
+    "assumptions": [
+      "Metric distances"
+    ],
+    "complexity": "Approximation guarantee",
+    "approach": "General literature review or theoretical analysis",
+    "classification": "APPROX",
+    "confidence": 0.88,
+    "notes": "approximation, bounded, bounds, lower, metrics, with",
+    "raw": {
+      "title": "On Approximation Lower Bounds for TSP with Bounded Metrics",
+      "authors": [
+        "Marek Karpiński",
+        "Richard Schmied"
+      ],
+      "year": 2012,
+      "source": "arXiv (Cornell University)",
+      "url": "https://doi.org/10.48550/arxiv.1201.5821",
+      "abstract": "",
+      "query": "Metric TSP approximation lower bounds"
+    }
+  },
+  {
+    "id": "paper-13",
+    "title": "An Improved-time Polynomial-space Exact Algorithm for TSP in Degree-5 Graphs",
+    "authors": [
+      "Norhazwani Md Yunos",
+      "Aleksandar Shurbevski",
+      "Hiroshi Nagamochi"
+    ],
+    "year": 2017,
+    "source": "Information Processing Society of Japan",
+    "url": "https://doi.org/10.2197/ipsjjip.25.639",
+    "abstract": "",
+    "problem": "General TSP",
+    "assumptions": [
+      "General graph or unspecified metric"
+    ],
+    "complexity": "Unspecified complexity in abstract",
+    "approach": "General literature review or theoretical analysis",
+    "classification": "EXACT_GENERAL",
+    "confidence": 0.85,
+    "notes": "algorithm, degree, exact, graphs, improved, polynomial, space, time",
+    "raw": {
+      "title": "An Improved-time Polynomial-space Exact Algorithm for TSP in Degree-5 Graphs",
+      "authors": [
+        "Norhazwani Md Yunos",
+        "Aleksandar Shurbevski",
+        "Hiroshi Nagamochi"
+      ],
+      "year": 2017,
+      "source": "Information Processing Society of Japan",
+      "url": "https://doi.org/10.2197/ipsjjip.25.639",
+      "abstract": "",
+      "query": "Planar TSP polynomial time exact"
+    }
+  },
+  {
+    "id": "paper-14",
+    "title": "Applications of a special polynomial class of TSP",
+    "authors": [
+      "Jack Brimberg",
+      "Ephraim Korach",
+      "Mokhtar Amami"
+    ],
+    "year": 2005,
+    "source": "Yugoslav journal of operations research",
+    "url": "https://doi.org/10.2298/yjor0501005b",
+    "abstract": "",
+    "problem": "General TSP",
+    "assumptions": [
+      "General graph or unspecified metric"
+    ],
+    "complexity": "Unspecified complexity in abstract",
+    "approach": "General literature review or theoretical analysis",
+    "classification": "UNKNOWN",
+    "confidence": 0.4,
+    "notes": "applications, class, polynomial, special",
+    "raw": {
+      "title": "Applications of a special polynomial class of TSP",
+      "authors": [
+        "Jack Brimberg",
+        "Ephraim Korach",
+        "Mokhtar Amami"
+      ],
+      "year": 2005,
+      "source": "Yugoslav journal of operations research",
+      "url": "https://doi.org/10.2298/yjor0501005b",
+      "abstract": "",
+      "query": "TSP special cases polynomial time exact"
+    }
+  },
+  {
+    "id": "paper-15",
+    "title": "An ETH-Tight Exact Algorithm for Euclidean TSP",
+    "authors": [
+      "Mark de Berg",
+      "Hans L. Bodlaender",
+      "‪Sándor Kisfaludi-Bak",
+      "Sudeshna Kolay"
+    ],
+    "year": 2018,
+    "source": "OpenAlex",
+    "url": "https://doi.org/10.1109/focs.2018.00050",
+    "abstract": "",
+    "problem": "Euclidean TSP",
+    "assumptions": [
+      "Euclidean metric"
+    ],
+    "complexity": "Unspecified complexity in abstract",
+    "approach": "General literature review or theoretical analysis",
+    "classification": "EXACT_SPECIAL",
+    "confidence": 0.82,
+    "notes": "algorithm, euclidean, exact, tight",
+    "raw": {
+      "title": "An ETH-Tight Exact Algorithm for Euclidean TSP",
+      "authors": [
+        "Mark de Berg",
+        "Hans L. Bodlaender",
+        "‪Sándor Kisfaludi-Bak",
+        "Sudeshna Kolay"
+      ],
+      "year": 2018,
+      "source": "OpenAlex",
+      "url": "https://doi.org/10.1109/focs.2018.00050",
+      "abstract": "",
+      "query": "Planar TSP polynomial time exact"
+    }
+  },
+  {
+    "id": "paper-16",
+    "title": "Karp 1972: Reducibility Among Combinatorial Problems",
+    "authors": [
+      "R. Karp"
+    ],
+    "year": 1972,
+    "source": "Crossref",
+    "url": "https://example.org/karp",
+    "abstract": "NP-hardness for combinatorial optimization",
+    "problem": "General TSP / NP-hardness",
+    "assumptions": [
+      "General graph or unspecified metric"
+    ],
+    "complexity": "NP-hardness / lower bound",
+    "approach": "Complexity reduction / hardness result",
+    "classification": "HARDNESS",
+    "confidence": 0.95,
+    "notes": "hardness, tsp",
+    "raw": {
+      "title": "Karp 1972: Reducibility Among Combinatorial Problems",
+      "authors": [
+        "R. Karp"
+      ],
+      "year": 1972,
+      "source": "Crossref",
+      "url": "https://example.org/karp",
+      "abstract": "NP-hardness for combinatorial optimization",
+      "query": "Metric TSP approximation lower bounds"
+    }
+  },
+  {
+    "id": "paper-17",
+    "title": "Held-Karp Dynamic Programming for TSP",
+    "authors": [
+      "M. Held",
+      "R. Karp"
+    ],
+    "year": 1962,
+    "source": "Crossref",
+    "url": "https://example.org/held-karp",
+    "abstract": "Exact dynamic-programming algorithm for TSP",
+    "problem": "General TSP / NP-hardness",
+    "assumptions": [
+      "General graph or unspecified metric"
+    ],
+    "complexity": "NP-hardness / lower bound",
+    "approach": "Complexity reduction / hardness result",
+    "classification": "EXACT_SPECIAL",
+    "confidence": 0.9,
+    "notes": "exact, tsp",
+    "raw": {
+      "title": "Held-Karp Dynamic Programming for TSP",
+      "authors": [
+        "M. Held",
+        "R. Karp"
+      ],
+      "year": 1962,
+      "source": "Crossref",
+      "url": "https://example.org/held-karp",
+      "abstract": "Exact dynamic-programming algorithm for TSP",
+      "query": "Metric TSP approximation lower bounds"
+    }
+  }
+]
