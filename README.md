@@ -156,6 +156,8 @@ Il runner raccoglie le fonti; l'agente orchestratore deve analizzarne il testo i
 
 I documenti raccolti vengono accumulati tra esecuzioni nel file `pipeline/output/paper_corpus.json`. Al primo avvio, se il corpus non esiste, il runner importa i record dal report precedente `pipeline/output/q_orchestrator_report.json`. I risultati ripetuti vengono uniti usando titolo e anno, evitando di creare duplicati; il percorso si può cambiare con `--corpus`.
 
+Se Windows o OneDrive blocca temporaneamente il file durante il salvataggio, il runner ritenta la sostituzione. Se il lock persiste, conserva l'aggiornamento in uno snapshot `paper_corpus.pending-*.json` e lo recupera automaticamente alla successiva esecuzione.
+
 Il candidato è un artefatto separato dalle schede bibliografiche. Il runner accetta `--algorithm-candidate` per configurarne il percorso. Il JSON deve contenere `origin`, `pseudocode`, `deterministic`, `exact`, `scope`, `polynomial_time`, `complexity_analysis`, `correctness_argument`, `source_papers`, `verification_status` e `verification_evidence`. `completed` indica che l'agente ha registrato tali verifiche; test empirici da soli non dimostrano correttezza generale o complessità polinomiale. `max_iterations_reached` e `search_stalled` restano esiti inconclusivi.
 
 Se il testo integrale di una fonte non è disponibile legalmente o tramite accesso aperto, l'agente deve segnalarlo e non presentare abstract o metadati come analisi del paper completo.
