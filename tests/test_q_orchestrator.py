@@ -41,51 +41,69 @@ def test_orchestrator_continues_when_only_literature_evidence_is_sufficient():
 
 def test_objective_requires_verified_polynomial_exact_general_algorithm():
     orchestrator = QOrchestrator()
-    candidate = {
+    paper_record = {
         "title": "A deterministic polynomial-time exact algorithm for general TSP",
         "abstract": "The algorithm solves the unrestricted TSP exactly in deterministic polynomial time.",
-        "problem": "General TSP",
-        "assumptions": ["Arbitrary weighted graphs"],
         "classification": "EXACT_GENERAL",
-        "algorithm_verified": False,
+        "algorithm_verified": True,
+        "verification_evidence": "Review note attached to published paper.",
+    }
+    synthesized_candidate = {
+        "origin": "synthesized",
+        "pseudocode": "Construct the candidate tour and prove it optimal.",
+        "deterministic": True,
+        "exact": True,
+        "scope": "general_tsp",
+        "polynomial_time": True,
+        "complexity_analysis": "The proposed method uses O(n^3) operations.",
+        "correctness_argument": "A proof sketch for every input instance.",
+        "verification_status": "draft",
     }
 
-    unverified_summary = orchestrator.evaluate_records([candidate])
+    unverified_summary = orchestrator.evaluate_records([paper_record], synthesized_candidate)
     assert unverified_summary["algorithm_candidate_count"] == 1
     assert unverified_summary["verified_algorithm_count"] == 0
     assert orchestrator.objective_reached(unverified_summary) is False
 
-    candidate["assumptions"] = ["General graph or unspecified metric"]
-    assert orchestrator.evaluate_records([candidate])["algorithm_candidate_count"] == 1
+    paper_only_summary = orchestrator.evaluate_records([paper_record])
+    assert paper_only_summary["verified_algorithm_count"] == 0
 
-    candidate["algorithm_verified"] = True
-    candidate["verification_evidence"] = "Reviewed algorithm and correctness/complexity proof."
-    verified_summary = orchestrator.evaluate_records([candidate])
+    synthesized_candidate["verification_status"] = "verified"
+    synthesized_candidate["verification_evidence"] = "Proof and complexity analysis reviewed against full source papers."
+    verified_summary = orchestrator.evaluate_records([paper_record], synthesized_candidate)
     assert verified_summary["verified_algorithm_count"] == 1
     assert orchestrator.objective_reached(verified_summary) is True
-
-    candidate["classification"] = "HARDNESS"
-    assert orchestrator.evaluate_records([candidate])["verified_algorithm_count"] == 1
-
 
 def test_run_completes_when_verified_general_polynomial_algorithm_is_present(tmp_path, monkeypatch):
     import json
 
     corpus_path = tmp_path / "paper_corpus.json"
+    candidate_path = tmp_path / "algorithm_candidate.json"
     corpus_path.write_text(json.dumps([{
         "id": "paper-1",
         "title": "A deterministic polynomial-time exact algorithm for general TSP",
         "abstract": "The algorithm solves unrestricted TSP exactly in deterministic polynomial time.",
-        "problem": "General TSP",
-        "assumptions": ["Arbitrary weighted graphs"],
         "classification": "EXACT_GENERAL",
         "algorithm_verified": True,
         "verification_evidence": "Reviewed algorithm and correctness/complexity proof.",
     }]), encoding="utf-8")
+    candidate_path.write_text(json.dumps({
+        "origin": "synthesized",
+        "pseudocode": "A candidate algorithm synthesized from the corpus.",
+        "deterministic": True,
+        "exact": True,
+        "scope": "general_tsp",
+        "polynomial_time": True,
+        "complexity_analysis": "O(n^3) operations.",
+        "correctness_argument": "A proof sketch for every input instance.",
+        "verification_status": "verified",
+        "verification_evidence": "Proof and complexity analysis reviewed.",
+    }), encoding="utf-8")
     orchestrator = QOrchestrator(
         base_queries=["TSP NP-hardness"],
         max_iterations=1,
         corpus_path=corpus_path,
+        algorithm_candidate_path=candidate_path,
     )
     monkeypatch.setattr("pipeline.q_orchestrator.collect_results", lambda *args, **kwargs: [])
     monkeypatch.setattr(orchestrator, "update_summary_document", lambda *args: True)

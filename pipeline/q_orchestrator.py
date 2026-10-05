@@ -40,6 +40,9 @@ class QOrchestrator:
     corpus_path: Path = field(
         default_factory=lambda: Path(__file__).resolve().parent / "output" / "paper_corpus.json"
     )
+    algorithm_candidate_path: Path = field(
+        default_factory=lambda: Path(__file__).resolve().parent / "output" / "algorithm_candidate.json"
+    )
 
     @staticmethod
     def _record_key(record: dict[str, Any]) -> str:
@@ -172,7 +175,11 @@ class QOrchestrator:
                 unique.append(item)
         return unique
 
-    def evaluate_records(self, records: Iterable[dict[str, Any]]) -> dict[str, Any]:
+    def evaluate_records(
+        self,
+        records: Iterable[dict[str, Any]],
+        algorithm_candidate: dict[str, Any] | None = None,
+    ) -> dict[str, Any]:
         record_list = list(records)
         counts: dict[str, int] = {}
         for record in record_list:
@@ -195,14 +202,8 @@ class QOrchestrator:
         has_required_evidence = (
             hardness_count >= 1 and (exact_special_count >= 1 or ptas_count >= 1 or exact_general_count >= 1)
         )
-        algorithm_candidates = [
-            record for record in record_list if self._claims_polynomial_exact_general_algorithm(record)
-        ]
-        verified_algorithms = [
-            record
-            for record in algorithm_candidates
-            if record.get("algorithm_verified") is True and str(record.get("verification_evidence", "")).strip()
-        ]
+        candidate_count = int(self._is_synthesized_candidate(algorithm_candidate))
+        verified_algorithm_count = int(self._is_verified_synthesized_candidate(algorithm_candidate))
 
         return {
             "hardness_count": hardness_count,
@@ -212,38 +213,47 @@ class QOrchestrator:
             "approximation_count": approximation_count,
             "coverage_score": round(coverage_score, 3),
             "has_required_evidence": has_required_evidence,
-            "algorithm_candidate_count": len(algorithm_candidates),
-            "verified_algorithm_count": len(verified_algorithms),
+            "algorithm_candidate_count": candidate_count,
+            "verified_algorithm_count": verified_algorithm_count,
             "total_records": total,
             "min_evidence": self.min_evidence,
         }
 
     @staticmethod
-    def _claims_polynomial_exact_general_algorithm(record: dict[str, Any]) -> bool:
-        claim_text = f"{record.get('title', '')} {record.get('abstract', '')}".casefold()
-        if not re.search(r"\bpolynomial[- ]time\b", claim_text):
-            return False
-        if not re.search(r"\bdeterministic\b", claim_text):
-            return False
-        if not re.search(r"\bexact(?:ly)?\b", claim_text):
-            return False
-        general_scope = re.search(
-            r"\b(?:general|unrestricted)\s+(?:weighted\s+)?tsp\b"
-            r"|\b(?:arbitrary|any)\s+(?:weighted\s+)?graphs?\b"
-            r"|\ball\s+(?:general\s+)?tsp\s+instances\b",
-            claim_text,
+    def _is_synthesized_candidate(candidate: dict[str, Any] | None) -> bool:
+        return bool(
+            candidate
+            and candidate.get("origin") == "synthesized"
+            and str(candidate.get("pseudocode", "")).strip()
         )
-        if not general_scope:
-            return False
 
-        assumptions_value = record.get("assumptions", [])
-        assumptions = " ".join(
-            [assumptions_value] if isinstance(assumptions_value, str) else map(str, assumptions_value)
+    @classmethod
+    def _is_verified_synthesized_candidate(cls, candidate: dict[str, Any] | None) -> bool:
+        return bool(
+            cls._is_synthesized_candidate(candidate)
+            and candidate.get("deterministic") is True
+            and candidate.get("exact") is True
+            and candidate.get("scope") == "general_tsp"
+            and candidate.get("polynomial_time") is True
+            and str(candidate.get("complexity_analysis", "")).strip()
+            and str(candidate.get("correctness_argument", "")).strip()
+            and candidate.get("verification_status") == "verified"
+            and str(candidate.get("verification_evidence", "")).strip()
         )
-        problem_scope = f"{record.get('problem', '')} {assumptions}".casefold()
-        restricted_geometry = any(term in problem_scope for term in ("euclidean", "planar"))
-        restricted_metric = re.search(r"\bmetric\s+(?:tsp|distances?)\b", problem_scope)
-        return not restricted_geometry and restricted_metric is None
+
+    def load_algorithm_candidate(self) -> dict[str, Any] | None:
+        candidate_path = Path(self.algorithm_candidate_path)
+        if not candidate_path.exists():
+            return None
+        try:
+            candidate = json.loads(candidate_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as error:
+            logger.warning("Unable to read algorithm candidate %s: %s", candidate_path, error)
+            return None
+        if not isinstance(candidate, dict):
+            logger.warning("Algorithm candidate %s must contain a JSON object", candidate_path)
+            return None
+        return candidate
 
     def should_continue(self, summary: dict[str, Any]) -> bool:
         return not self.objective_reached(summary)
@@ -259,13 +269,13 @@ class QOrchestrator:
             )
         if summary.get("algorithm_candidate_count", 0):
             return (
-                f"The corpus contains {summary['algorithm_candidate_count']} record(s) claiming a deterministic "
-                "polynomial-time exact algorithm for general TSP, but none is marked as independently verified. "
-                "The search continues until an algorithm and its correctness and complexity proof are verified."
+                "A synthesized algorithm candidate exists, but its exactness, general-case scope, polynomial complexity, "
+                "and correctness argument have not all been verified. The research cycle continues."
             )
         return (
-            "No independently verified deterministic polynomial-time exact algorithm for unrestricted TSP has been found. "
-            "Hardness, exponential exact algorithms, approximation results, and special cases do not satisfy the objective."
+            "No synthesized algorithm candidate has been produced yet. Analyze the full text of the collected papers to "
+            "derive a new candidate; hardness, exponential exact algorithms, approximation results, and special cases "
+            "are source material, not the objective."
         )
 
     def update_summary_document(self, summary: dict[str, Any], proof_text: str) -> bool:
@@ -355,7 +365,8 @@ class QOrchestrator:
 
             pending_queries = list(dict.fromkeys(query for query in candidate_queries if query not in seen_queries))
             if not pending_queries:
-                summary = self.evaluate_records(all_records)
+                algorithm_candidate = self.load_algorithm_candidate()
+                summary = self.evaluate_records(all_records, algorithm_candidate)
                 proof = self.refine_proof(summary)
                 logger.warning("No unseen queries remain; stopping without reaching the algorithm objective")
                 self.update_summary_document(summary, proof)
@@ -411,7 +422,8 @@ class QOrchestrator:
                     else:
                         logger.debug("Paper '%s' already exists in persistent corpus", normalized["title"])
 
-            summary = self.evaluate_records(all_records)
+            algorithm_candidate = self.load_algorithm_candidate()
+            summary = self.evaluate_records(all_records, algorithm_candidate)
             logger.info("Evaluated current evidence: %s", summary)
 
             proof = self.refine_proof(summary)
@@ -441,7 +453,8 @@ class QOrchestrator:
                     "Unrestricted traveling salesman problem exact polynomial-time algorithm",
                 ]
 
-        final_summary = self.evaluate_records(all_records)
+        algorithm_candidate = self.load_algorithm_candidate()
+        final_summary = self.evaluate_records(all_records, algorithm_candidate)
         final_proof = self.refine_proof(final_summary)
         logger.info(
             "Maximum iterations reached without a verified algorithm; verified_algorithm_count=%s",
@@ -466,6 +479,7 @@ def main() -> None:
     parser.add_argument("--max-results", type=int, default=3, help="Maximum results per query")
     parser.add_argument("--iterations", type=int, default=4, help="Maximum search iterations")
     parser.add_argument("--corpus", type=Path, default=QOrchestrator().corpus_path, help="Persistent paper corpus JSON path")
+    parser.add_argument("--algorithm-candidate", type=Path, default=QOrchestrator().algorithm_candidate_path, help="Synthesized algorithm candidate JSON path")
     parser.add_argument("--output", type=Path, default=Path(__file__).resolve().parent / "output" / "q_orchestrator_report.json", help="JSON report path")
     args = parser.parse_args()
 
@@ -476,6 +490,7 @@ def main() -> None:
         max_iterations=args.iterations,
         max_results_per_query=args.max_results,
         corpus_path=args.corpus,
+        algorithm_candidate_path=args.algorithm_candidate,
     )
     logger.info("Starting orchestrator CLI run")
     result = orchestrator.run(target=args.target)

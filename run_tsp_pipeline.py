@@ -17,6 +17,7 @@ def main() -> None:
     parser.add_argument("--summary-path", type=Path, default=Path(__file__).resolve().parent / "docs" / "restricted_tsp_summary.tex", help="Path to the summary .tex file")
     parser.add_argument("--pdf-path", type=Path, default=Path(__file__).resolve().parent / "docs" / "restricted_tsp_summary.pdf", help="Path to the final compiled PDF")
     parser.add_argument("--corpus", type=Path, default=QOrchestrator().corpus_path, help="Persistent paper corpus JSON path")
+    parser.add_argument("--algorithm-candidate", type=Path, default=QOrchestrator().algorithm_candidate_path, help="Synthesized algorithm candidate JSON path")
     args = parser.parse_args()
 
     logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
@@ -28,6 +29,7 @@ def main() -> None:
         summary_path=args.summary_path,
         pdf_path=args.pdf_path,
         corpus_path=args.corpus,
+        algorithm_candidate_path=args.algorithm_candidate,
     )
 
     result = orchestrator.run(target=args.target)
@@ -38,6 +40,7 @@ def main() -> None:
         "summary": result["summary"],
         "proof": result.get("proof"),
         "target": args.target,
+        "algorithm_candidate_path": str(args.algorithm_candidate),
         "summary_path": str(args.summary_path),
         "pdf_path": str(args.pdf_path),
     }
